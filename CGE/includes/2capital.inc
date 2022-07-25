@@ -1,0 +1,41 @@
+*For capital that is not entirely fixed
+ CAPSHR1TOT              = SUM((FCAP,A,RD)$ANFX(A,RD), QF.L(FCAP,A,RD));
+ CAPSHR1(FCAP)           = SUM((RD,A)$ANFX(A,RD), QF.L(FCAP,A,RD))/CAPSHR1TOT;
+ CAPSHR2TOT(FCAP)        = SUM((RD,A)$ANFX(A,RD), QF.L(FCAP,A,RD));
+ CAPSHR2(FCAP,A,RD)$(ANFX(A,RD) AND CAPSHR2TOT(FCAP)) = QF.L(FCAP,A,RD)/CAPSHR2TOT(FCAP);
+
+IF (KOPTION EQ 1,
+*Define capital composition BMAT and price of capital PKAP.
+*Assume BMAT composition is the same for all kinds of capital
+ BMAT(C,FCAP)            = QINV.L(C,'S-I')/SUM(CP, QINV.L(CP,'S-I')) ;
+ PKAP(FCAP)              = SUM(C, PQ.L(C)*BMAT(C,FCAP)) ;
+ GFCF                    = SUM(C, PQ.L(C)*QINV.L(C,'S-I')) ;
+ QINVK                   = GFCF/(SUM(FCAP, PKAP(FCAP))/CARD(FCAP)) ;
+ NGFCF                   = QINVK - SUM((RD,A,FCAPP)$AFX(A,RD), QF.L(FCAPP,A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
+);
+
+IF (KOPTION EQ 2,
+*Targeted capital stock growth rate
+ GFCF                    = SUM(C, PQ.L(C)*QINV.L(C,'S-I')) ;
+ QINVK                   = GFCF / (alphainv*SUM(C, iwts(C,'S-I')*PQ0(C)));
+ NGFCF                   = QINVK - SUM((RD,A,FCAPP)$AFX(A,RD), QF.L(FCAPP,A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
+);
+
+ WFADJ(FCAP)$CAPSHR2TOT(FCAP) = SUM((RD,A)$ANFX(A,RD), WF.L(FCAP)*WFDIST.L(FCAP,A,RD)*QF.L(FCAP,A,RD))/SUM((RD,A)$ANFX(A,RD), QF.L(FCAP,A,RD));
+ WFDISTADJ(FCAP,A,RD)$(ANFX(A,RD) AND WFADJ(FCAP)) = WF.L(FCAP)*WFDIST.L(FCAP,A,RD)/WFADJ(FCAP);
+ WFK2AV(FCAP)            = SUM((RD,A)$ANFX(A,RD), WFADJ(FCAP)*WFDISTADJ(FCAP,A,RD)*CAPSHR2(FCAP,A,RD));
+ WFDIST2(FCAP,A,RD)$(ANFX(A,RD) AND WFK2AV(FCAP))   = WFADJ(FCAP)*WFDISTADJ(FCAP,A,RD)/WFK2AV(FCAP);
+ WFK1AV                  = SUM(FCAPP, WFK2AV(FCAPP)*CAPSHR1(FCAPP));
+ INVSHR1(FCAP)           = CAPSHR1(FCAP) * (1 + beta1 * ( (WFK2AV(FCAP)-WFK1AV) / WFK1AV ) ) ;
+ INVSHR2(FCAP,A,RD)$ANFX(A,RD) = CAPSHR2(FCAP,A,RD)*(1 + beta2*(WFDIST2(FCAP,A,RD) - 1)) ;
+ DKAPS(FCAP)             = INVSHR1(FCAP)*NGFCF;
+ DKAP(FCAP,A,RD)$ANFX(A,RD)      = INVSHR2(FCAP,A,RD)*DKAPS(FCAP) ;
+ RKAPS(FCAP)             = DKAPS(FCAP)/QFS.L(FCAP) - SUM((RD,A), natdrate*QF.L(FCAP,A,RD)/SUM((RDP,AP), QF.L(FCAP,AP,RDP))) ;
+ RKAP(FCAP,A,RD)$(ANFX(A,RD) AND QF0(FCAP,A,RD)) = DKAP(FCAP,A,RD)/QF.L(FCAP,A,RD) - natdrate;
+
+*For capital that is entirely fixed
+ RKAP(FCAP,A,RD)$(AFX(A,RD) AND QF0(FCAP,A,RD))   = AFXGR(A,RD,XC,TC);
+
+*Apply annual growth rates over gaps
+ QF.L(FCAP,A,RD)$(NOT T1(TC)) = QF.L(FCAP,A,RD)*(1 + RKAP(FCAP,A,RD));
+
