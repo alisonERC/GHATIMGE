@@ -14,9 +14,9 @@ sets
 parameters
  BalanceCheck(QType,C,TC,RUN) balance check
 
- EBCHECK(MOD,FSATIM,IN_OUT,C,TC,TT,RUN) Final Energy Demand for SATIM sectors in SATIM and eSAGE models
+ EBCHECK(MOD,FSeMOD,IN_OUT,C,TC,TT,RUN) Final Energy Demand for SATIM sectors in SATIM and eSAGE models
 
- EIntensity(MOD,FSATIM,C,TC,TT,RUN) Energy Intensity in SATIM and ESAGE models
+ EIntensity(MOD,FSeMOD,C,TC,TT,RUN) Energy Intensity in SATIM and ESAGE models
 
  CO2OUT(C) CO2 emission factors for linked model
 

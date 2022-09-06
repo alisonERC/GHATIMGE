@@ -104,12 +104,12 @@ XNB('BASE') = NO;
 
 SETS
 * Sector groupings in SATIM
-  FSATIM                  sector groupings in SATIM model
-  FS(FSATIM)              TIMES economic sectors
-  FSATIMNOELEC(FSATIM)     sector groupings in SATIM excluding electricity
+  FSeMOD                  sector groupings in SATIM model
+  FS(FSeMOD)              TIMES economic sectors
+  FSeMODNOELEC(FSeMOD)     sector groupings in SATIM excluding electricity
   FSGDP(FS)           sectors without fa and al
-  FH(FSATIM)              household groupings in SATIM model
-  FT(FSATIM)              passenger transport groupings in SATIM
+  FH(FSeMOD)              household groupings in SATIM model
+  FT(FSeMOD)              passenger transport groupings in SATIM
 
   FS_L(FS)                Linked subsectors ie excl com agr ele
 
@@ -153,8 +153,8 @@ SETS
 * mapping sets
   MFHH(FH,H)              mapping SAGE and SATIM households
   MFSA(FS,A)              mapping SAGE and SATIM sectors
-  MPRCFS(PRC,FSATIM)          mapping SATIM PRCs to SATIM sectors (temporarily until sectors are reaggregated in the same way in both models)
-  MPRCFS2(PRC,FSATIM)          mapping SATIM PRCs to SATIM sectors (used to pass CGE aggregates to SATIM sectors)
+  MPRCFS(PRC,FSeMOD)          mapping SATIM PRCs to SATIM sectors (temporarily until sectors are reaggregated in the same way in both models)
+  MPRCFS2(PRC,FSeMOD)          mapping SATIM PRCs to SATIM sectors (used to pass CGE aggregates to SATIM sectors)
   mCOMC(COM,C)            mapping SAGE and SATIM fuels
   mCOMF(COM,F)            mapping SAGE factors and SATIM factor commodities
 
@@ -162,7 +162,7 @@ SETS
   MCTCG(C,TCG)            mapping SAGE trade commodities to aggregate trade commodity groups
 
 
-  MFSP(FSATIM,PRC)           mapping of technologies used for each sector to track process emissions
+  MFSP(FSeMOD,PRC)           mapping of technologies used for each sector to track process emissions
 
 
 * Other SATIM Sets
@@ -408,14 +408,14 @@ LOOP(TS_HOURLY,
 * Import sets and parameters from SetsAndMaps -------------------------------
 $call   "gdxxrw i=SetsAndMaps\SetsAndMaps.xlsm o=SetsAndMaps\SetsMaps index=index!a6 checkdate"
 $gdxin  SetsAndMaps\SetsMaps.gdx
-$loaddc PRC COM S TS_DAYNITE TS_WEEKLY TS_SEASON DEM1 UC_N FSATIM FS FH COALSUP PRCH TCG
+$loaddc PRC COM S TS_DAYNITE TS_WEEKLY TS_SEASON DEM1 UC_N FSeMOD FS FH COALSUP PRCH TCG
 $load MFHH MHPRCH MCTCG MFSA MPRCFS MPRCFS2 mCOMC mCOMF Sector SubSector SubSubSector MPRCSector MPRCSubSector MPRCSubSubSector COMEXT
 $load PassengerOccupancy  FreightLoad CoalCV
 
 
 * some subset definitions
-FSATIMNOELEC(FSATIM) = yes;
-FSATIMNOELEC('elec') = no;
+FSeMODNOELEC(FSeMOD) = yes;
+FSeMODNOELEC('elec') = no;
 
 PRCPower(PRC)$MPRCSector(PRC,'Power') = yes;
 PRCPower(PRC)$MPRCSubsector(PRC,'CO2Capture&Storage','DAC') = yes;

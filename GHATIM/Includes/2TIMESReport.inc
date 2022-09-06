@@ -94,12 +94,12 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
 * TVCAP(TC,PRC)     = PAR_CAPL('REGION1',TC,PRC);
 
 * Calculate final consumption for SATIM industry sectors and freight
- FLOW_IN_FS(FSATIM,COM,TC) = SUM(PRC$MPRCFS(PRC,FSATIM), TVFLOWIN(COM,TC,PRC));
- FLOW_OUT_FS(FSATIM,COM,TC) = SUM(PRC$MPRCFS(PRC,FSATIM), TVFLOWOUT(COM,TC,PRC));
+ FLOW_IN_FS(FSeMOD,COM,TC) = SUM(PRC$MPRCFS(PRC,FSeMOD), TVFLOWIN(COM,TC,PRC));
+ FLOW_OUT_FS(FSeMOD,COM,TC) = SUM(PRC$MPRCFS(PRC,FSeMOD), TVFLOWOUT(COM,TC,PRC));
 
 * calculate final consumption
- FLOW_IN_FSFuels(FSATIM,C,TC) = SUM(COM$MCOMC(COM,C),FLOW_IN_FS(FSATIM,COM,TC));
- FLOW_OUT_FSFuels(FSATIM,C,TC) = SUM(COM$MCOMC(COM,C),FLOW_OUT_FS(FSATIM,COM,TC));
+ FLOW_IN_FSFuels(FSeMOD,C,TC) = SUM(COM$MCOMC(COM,C),FLOW_IN_FS(FSeMOD,COM,TC));
+ FLOW_OUT_FSFuels(FSeMOD,C,TC) = SUM(COM$MCOMC(COM,C),FLOW_OUT_FS(FSeMOD,COM,TC));
 
  FLOW_OUT_FSFactors(FS,F,TC) = SUM(COM$MCOMF(COM,F),FLOW_OUT_FS(FS,COM,TC));
 
@@ -126,8 +126,8 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
  OIL_FLOW(RUN,TC) = sum(C,FLOW_OUT_FSFuels('petr',C,TC));
 
 *bm calc coal flow - putting in a minimum value to avoid problems with theta calcs in CGE
- COAL_FLOW(RUN,TC,'ccoal-low') = max(30,sum(FSATIM,FLOW_IN_FSFuels(FSATIM,'ccoal-low',TC)));
- COAL_FLOW(RUN,TC,'ccoal-hgh') = max(30,sum(FSATIM,FLOW_IN_FSFuels(FSATIM,'ccoal-hgh',TC)));
+ COAL_FLOW(RUN,TC,'ccoal-low') = max(30,sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-low',TC)));
+ COAL_FLOW(RUN,TC,'ccoal-hgh') = max(30,sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-hgh',TC)));
 
 * EIntensityQA_FS(FS,C,TC)$(QA_FS(FS,TC) GT 0.1) = FLOW_IN_FSFuels(FS,C,TC)/QA_FS(FS,TC);
 
@@ -135,7 +135,7 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
 * EIntensity_FS(FS,C,TC)$(QA_FS(FS,TC) GT 0.1) = FLOW_IN_FSFuels(FS,C,TC)/QA_FS(FS,TC);
 
 *bm calculating coal mining capacity based on consumption+exports)
- COALMINCAP(TC) = sum(FSATIM,FLOW_IN_FSFuels(FSATIM,'ccoal-hgh',TC))+sum(FSATIM,FLOW_IN_FSFuels(FSATIM,'ccoal-low',TC));
+ COALMINCAP(TC) = sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-hgh',TC))+sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-low',TC));
 
 * For households on transport
 * multiply by share of pkm by household to allocate consumption to different hh
@@ -193,7 +193,7 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
 * EFLOW('NAT',XC,TC,TT) = SUM(SUPELE, TVACT(TC,SUPELE))/3.6;
 * !!EFLOW now calculated from flow through transmission. When we include distributed generation we also need to include them in the calc
  ELC_FLOW2(RUN,TC) = (TVACT(TC,'XAGRELC') + TVACT(TC,'XCOMELC') +TVACT(TC,'XINDELC') + TVACT(TC,'XRESELC') + TVACT(TC,'XTRAELC') + TVACT(TC,'XUPSELC') + TVACT(TC,'PEXELC'));
- ELC_FLOW(RUN,TC) = sum(FSATIMNOELEC,FLOW_IN_FSFuels(FSATIMNOELEC,'celec',TC));
+ ELC_FLOW(RUN,TC) = sum(FSeMODNOELEC,FLOW_IN_FSFuels(FSeMODNOELEC,'celec',TC));
 
 * recalculate intensity for energy sectors, where GVA not suitable
  EIntensity_FS('elec',C,TC) = FLOW_IN_FSFuels('elec',C,TC)/ELC_FLOW(RUN,TC);

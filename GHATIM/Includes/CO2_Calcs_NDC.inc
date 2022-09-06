@@ -6,7 +6,7 @@ Sets
   INCLRUN(RUN)                        whether to include or not run in batch
 *  GDXFile                        GDX file per simulation /NoLink_EV-IN, REF_EV-IN_RB-ZERO,REF_EV-IN_RB-0-25,REF_EV-IN_RB-0-5,REF_EV-OUT_RB-ZERO,REF_EV-OUT_RB-0-25,REF_EV-OUT_RB-0-5 /
   GDXFile                        GDX file per simulation /CalibRefSIC/
-*, CalibRefSATIM/
+*, CalibReFSeMOD/
   MGDXRUN(GDXFile,RUN)           Map of RUN and GDX file
 * SATIM sets
   REG                            TIMES regions    /REGION1/

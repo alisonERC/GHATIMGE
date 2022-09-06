@@ -222,21 +222,21 @@ PARAMETER
  CCAP(AY,TT)       Coal supply vector for capacity (results from TIMES)
  COALMINCAP(TC) coal mining capacity (sum of consumption and exports-imports)
 
- FLOW_IN_FS(FSATIM,COM,AY) Consumption of SATIM commodity COM for SATIM sector FS
- FLOW_IN_FSFuels(FSATIM,C,AY) Consumption of CGE commodity C for SATIM sector FS
+ FLOW_IN_FS(FSeMOD,COM,AY) Consumption of SATIM commodity COM for SATIM sector FS
+ FLOW_IN_FSFuels(FSeMOD,C,AY) Consumption of CGE commodity C for SATIM sector FS
 
- FLOW_OUT_FS(FSATIM,COM,AY) Production of SATIM commodity COM for SATIM sector FS
- FLOW_OUT_FSFuels(FSATIM,C,AY) Production of CGE commodity C for SATIM sector FS
- FLOW_OUT_FSFactors(FSATIM,F,AY) Production of CGE Factor F for SATIM sector FS
+ FLOW_OUT_FS(FSeMOD,COM,AY) Production of SATIM commodity COM for SATIM sector FS
+ FLOW_OUT_FSFuels(FSeMOD,C,AY) Production of CGE commodity C for SATIM sector FS
+ FLOW_OUT_FSFactors(FSeMOD,F,AY) Production of CGE Factor F for SATIM sector FS
 
- FLOW_IN_FHFuelsGR(FSATIM,C,AY) Change-Growth in Consumption of CGE commodity C for household sector FH
+ FLOW_IN_FHFuelsGR(FSeMOD,C,AY) Change-Growth in Consumption of CGE commodity C for household sector FH
 
- FLOW_IN_FT(FSATIM,COM,AY) Consumption of SATIM commodity COM for transport activity FT
- FLOW_IN_FTFuels(FSATIM,C,AY) Consumption of CGE commodity C for transport activity FT
+ FLOW_IN_FT(FSeMOD,COM,AY) Consumption of SATIM commodity COM for transport activity FT
+ FLOW_IN_FTFuels(FSeMOD,C,AY) Consumption of CGE commodity C for transport activity FT
 
- FLOW_IN_FTFHFuels(FSATIM,C,AY) Consumption of transport commodity by SATIM households
+ FLOW_IN_FTFHFuels(FSeMOD,C,AY) Consumption of transport commodity by SATIM households
 
- FLOW_IN_FHAllFuels(FSATIM,C,AY) consumption of all energy commodities by household FH
+ FLOW_IN_FHAllFuels(FSeMOD,C,AY) consumption of all energy commodities by household FH
 
  EIntensity_FH(FH,C,AY)    Energy Intensity of SATIM households
  EIntensity_FS(FS,C,AY)    Energy Intensity of SATIM sectors
