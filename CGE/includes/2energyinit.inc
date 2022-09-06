@@ -4,7 +4,7 @@
 
 SETS
 *Forecasting sets
- FSXEP(FS)               sector groupings in SATIM to be used in ica growth mapping controlled below
+ FSXEP(FS)               sector groupings in eMOD to be used in ica growth mapping controlled below
  CXEP(C)                 commodities that get included in the ica adjustment
  EU                      end uses
 *Mappings
@@ -127,9 +127,9 @@ CXEP(C) = Yes;
 PARAMETER
 *Forecasts based on CGE results
  PKMFH(FT,FH,AY)             Passenger km demand share by income group
- HFORE(FH,X,AY)           loaded: household income forecast for SATIM
- YHE(AY)                  income of higher income group for SATIM
- PFORE(FH,X,AY)           loaded: household population forecast for SATIM
+ HFORE(FH,X,AY)           loaded: household income forecast for eMOD
+ YHE(AY)                  income of higher income group for eMOD
+ PFORE(FH,X,AY)           loaded: household population forecast for eMOD
  IFORE(AY,AC)             loaded: initial electricity demand forecast
  IEPGFORE(AY,AC)          loaded: initial electricity price growth forecast
 *Residential
@@ -187,8 +187,8 @@ PARAMETER
  TVFLOWIN(COM,AY,PRC) flow in (input)
  TVFLOWOUT(COM,AY,PRC) flow out (output)
 
- UCONV_C_T2C(C)            Unit conversion from TIMES-SATIM (PJ) to ESAGE (e.g. TWh)
- UCONV_A_T2C(A)            Unit conversion from TIMES-SATIM (PG) to ESAGE (e.g. tons)
+ UCONV_C_T2C(C)            Unit conversion from TIMES-eMOD (PJ) to ESAGE (e.g. TWh)
+ UCONV_A_T2C(A)            Unit conversion from TIMES-eMOD (PG) to ESAGE (e.g. tons)
 
  BPINV(RUN,AY,TCP,PRC)       Annual expenditure on construction by PRC for each new Cap year
  EINVCOST(RUN,AY)        Total annual expenditure on construction
@@ -196,8 +196,8 @@ PARAMETER
 
 *Electricity price from TIMES
  TVCOMBAL(AY,COM)         Fuel Marginals from TIMES
- ETPRICE(AY)              Regulated Elc Price Calculated in SATIM
- ETPRICEGR(AY)            SATIM Elc Price growth
+ ETPRICE(AY)              Regulated Elc Price Calculated in eMOD
+ ETPRICEGR(AY)            eMOD Elc Price growth
 
  EPRICE(AY,TT)            Elc Price in CGE units
 
@@ -222,31 +222,31 @@ PARAMETER
  CCAP(AY,TT)       Coal supply vector for capacity (results from TIMES)
  COALMINCAP(TC) coal mining capacity (sum of consumption and exports-imports)
 
- FLOW_IN_FS(FSeMOD,COM,AY) Consumption of SATIM commodity COM for SATIM sector FS
- FLOW_IN_FSFuels(FSeMOD,C,AY) Consumption of CGE commodity C for SATIM sector FS
+ FLOW_IN_FS(FSeMOD,COM,AY) Consumption of eMOD commodity COM for eMOD sector FS
+ FLOW_IN_FSFuels(FSeMOD,C,AY) Consumption of CGE commodity C for eMOD sector FS
 
- FLOW_OUT_FS(FSeMOD,COM,AY) Production of SATIM commodity COM for SATIM sector FS
- FLOW_OUT_FSFuels(FSeMOD,C,AY) Production of CGE commodity C for SATIM sector FS
- FLOW_OUT_FSFactors(FSeMOD,F,AY) Production of CGE Factor F for SATIM sector FS
+ FLOW_OUT_FS(FSeMOD,COM,AY) Production of eMOD commodity COM for eMOD sector FS
+ FLOW_OUT_FSFuels(FSeMOD,C,AY) Production of CGE commodity C for eMOD sector FS
+ FLOW_OUT_FSFactors(FSeMOD,F,AY) Production of CGE Factor F for eMOD sector FS
 
  FLOW_IN_FHFuelsGR(FSeMOD,C,AY) Change-Growth in Consumption of CGE commodity C for household sector FH
 
- FLOW_IN_FT(FSeMOD,COM,AY) Consumption of SATIM commodity COM for transport activity FT
+ FLOW_IN_FT(FSeMOD,COM,AY) Consumption of eMOD commodity COM for transport activity FT
  FLOW_IN_FTFuels(FSeMOD,C,AY) Consumption of CGE commodity C for transport activity FT
 
- FLOW_IN_FTFHFuels(FSeMOD,C,AY) Consumption of transport commodity by SATIM households
+ FLOW_IN_FTFHFuels(FSeMOD,C,AY) Consumption of transport commodity by eMOD households
 
  FLOW_IN_FHAllFuels(FSeMOD,C,AY) consumption of all energy commodities by household FH
 
- EIntensity_FH(FH,C,AY)    Energy Intensity of SATIM households
- EIntensity_FS(FS,C,AY)    Energy Intensity of SATIM sectors
- EIntensityQA_FS(FS,C,AY)    Energy Intensity of SATIM sectors linked to QA rather than GVA
+ EIntensity_FH(FH,C,AY)    Energy Intensity of eMOD households
+ EIntensity_FS(FS,C,AY)    Energy Intensity of eMOD sectors
+ EIntensityQA_FS(FS,C,AY)    Energy Intensity of eMOD sectors linked to QA rather than GVA
 
- FIntensity_FS(FS,F,AY)    Factor Intensity of SATIM sectors
+ FIntensity_FS(FS,F,AY)    Factor Intensity of eMOD sectors
 
 * ICA change/growth parameters
- ICAFSGR(C,FS,AY) change in ICA for SATIM sectors
- IFAFSGR(F,FS,AY) change in IFA for SATIM sectors
+ ICAFSGR(C,FS,AY) change in ICA for eMOD sectors
+ IFAFSGR(F,FS,AY) change in IFA for eMOD sectors
 
  ICAGR(C,A,AY) change in ICA
  IFAGR(F,A,AY) change in IFA

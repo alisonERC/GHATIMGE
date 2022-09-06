@@ -2,10 +2,10 @@ sets
   MOD models /eMOD, eSAGE/
   QType quantitity types /qq, qd, qint, qe, qm, qh, qx, qxac/
   IN_OUT flow direction /IN, OUT, CO2/
-  SATIM_IND SATIM indicators /Activity, Capacity, NewCapacity, FlowIn, FlowOut, CO2, Investment, GVA, Employment/
+  eMOD_IND eMOD indicators /Activity, Capacity, NewCapacity, FlowIn, FlowOut, CO2, Investment, GVA, Employment/
   CGE_IND /GVA, Employment/
 
-  SATIM_LAB(UC_N) SATIM employment constraint names / UCPWR_FLAB-M, UCPWR_FLAB-P, UCPWR_FLAB-S, UCPWR_FLAB-T/
+  eMOD_LAB(UC_N) eMOD employment constraint names / UCPWR_FLAB-M, UCPWR_FLAB-P, UCPWR_FLAB-S, UCPWR_FLAB-T/
 
   HH_EI Household Energy Indicators /TRA, OTH/
 
@@ -14,15 +14,15 @@ sets
 parameters
  BalanceCheck(QType,C,TC,RUN) balance check
 
- EBCHECK(MOD,FSeMOD,IN_OUT,C,TC,TT,RUN) Final Energy Demand for SATIM sectors in SATIM and eSAGE models
+ EBCHECK(MOD,FSeMOD,IN_OUT,C,TC,TT,RUN) Final Energy Demand for eMOD sectors in eMOD and eSAGE models
 
- EIntensity(MOD,FSeMOD,C,TC,TT,RUN) Energy Intensity in SATIM and ESAGE models
+ EIntensity(MOD,FSeMOD,C,TC,TT,RUN) Energy Intensity in eMOD and ESAGE models
 
  CO2OUT(C) CO2 emission factors for linked model
 
  CGE_OUTPUT(A,TC,CGE_IND,RUN) CGE indicators by run and activity
 
- SATIM_OUTPUT(PRC,COM,TC,SATIM_IND,RUN) SATIM indicators by run and activity
+ eMOD_OUTPUT(PRC,COM,TC,eMOD_IND,RUN) eMOD indicators by run and activity
 
  HH_Energy(MOD,HH_EI,C,TC,RUN) Household energy consumption
 ;

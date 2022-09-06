@@ -19,14 +19,14 @@ $SETGLOBAL GDXoutfolder %workingfolder%GDXout\
 SETS
 * Overall sets
   RUN                            simulations
-  SATIMCASES                     simulations in SATIM(TIMES)
+  eMODCASES                     simulations in eMOD(TIMES)
   X                              simulations in eSAGE (CGE)
   XC(X)                          active simulations
   XNB(X)                  nonbase simulations
-  MRUNCASE(RUN,SATIMCASES)       Mapping RUN to TIMES CASE
+  MRUNCASE(RUN,eMODCASES)       Mapping RUN to TIMES CASE
   MRUNX(RUN,X)                   Mappinf RUN to CGE sim
   PamsSector                     Pams Sectors for NDC / RES, COM, TRA, WASTE, AFOLU/
-* SATIM sets
+* eMOD sets
   REG                            TIMES regions    /REGION1/
   ALLYEAR                        All Years /1850*2200, 0/
   T(ALLYEAR)                     Time periods /2005*2070/
@@ -63,8 +63,8 @@ SETS
 
 * eSAGE sets
   TC(T)                   eSAGE active time periods
-  TT(T)                   SATIM-eSAGE Iterations
-  TTIMES(T)               SATIM years (for demand)
+  TT(T)                   eMOD-eSAGE Iterations
+  TTIMES(T)               eMOD years (for demand)
 ;
 
 ALIAS (ALLYEAR,AY), (ALLYEAR,AYP), (DATAYEAR,DM_YEAR);
@@ -73,7 +73,7 @@ Alias (PRC,P);
 PARAMETERS
 * Scenario Dash Parameters
   INCLRUN(RUN)                   whether to include or not RUN in batch run
-  SIM_SATIM(RUN)                 whether to rerun SATIM or not
+  SIM_eMOD(RUN)                 whether to rerun eMOD or not
   SIM_ESAGE(RUN)                   whether to run linked model or not
   SIM_WASTE(RUN)                   whether to run waste model or not
   SIM_AFOLU(RUN)                   whether to run AFOLU models or not
@@ -92,9 +92,9 @@ PARAMETERS
 
 
 * Import sets and parameters and data from control spreadsheet-------------------------------
-$call   "gdxxrw i=SATIMGE.xlsm o=SATIMGE index=index!a6 checkdate"
-$gdxin  SATIMGE.gdx
-$load RUN SATIMCASES X XC INCLRUN SIM_SATIM SIM_ESAGE SIM_WASTE SIM_AFOLU MRUNCASE MRUNX TC TT TTIMES PAMS SIM_CO2CUMUL
+$call   "gdxxrw i=GHATIMGE.xlsm o=GHATIMGE index=index!a6 checkdate"
+$gdxin  GHATIMGE.gdx
+$load RUN eMODCASES X XC INCLRUN SIM_eMOD SIM_ESAGE SIM_WASTE SIM_AFOLU MRUNCASE MRUNX TC TT TTIMES PAMS SIM_CO2CUMUL
 
 
 XNB(XC) = YES;
@@ -103,19 +103,19 @@ XNB('BASE') = NO;
 
 
 SETS
-* Sector groupings in SATIM
-  FSeMOD                  sector groupings in SATIM model
+* Sector groupings in eMOD
+  FSeMOD                  sector groupings in eMOD model
   FS(FSeMOD)              TIMES economic sectors
-  FSeMODNOELEC(FSeMOD)     sector groupings in SATIM excluding electricity
+  FSeMODNOELEC(FSeMOD)     sector groupings in eMOD excluding electricity
   FSGDP(FS)           sectors without fa and al
-  FH(FSeMOD)              household groupings in SATIM model
-  FT(FSeMOD)              passenger transport groupings in SATIM
+  FH(FSeMOD)              household groupings in eMOD model
+  FT(FSeMOD)              passenger transport groupings in eMOD
 
   FS_L(FS)                Linked subsectors ie excl com agr ele
 
-  Sector                 SATIM sectors
-  SubSector              SATIM subsectors
-  SubSubSector           SATIM subsubsectors
+  Sector                 eMOD sectors
+  SubSector              eMOD subsectors
+  SubSubSector           eMOD subsubsectors
   MPRCSector(PRC,Sector) MAP for PRC to sectors
   MPRCSubSector(PRC,Sector,SubSector)          Map for PRC to subsectors
   MPRCSubsubSector(PRC,Sector,SubSector,SubSubSector)  Map for PRC to subsubsectors
@@ -151,12 +151,12 @@ SETS
   PamsSector                     PAMS sectors
 
 * mapping sets
-  MFHH(FH,H)              mapping SAGE and SATIM households
-  MFSA(FS,A)              mapping SAGE and SATIM sectors
-  MPRCFS(PRC,FSeMOD)          mapping SATIM PRCs to SATIM sectors (temporarily until sectors are reaggregated in the same way in both models)
-  MPRCFS2(PRC,FSeMOD)          mapping SATIM PRCs to SATIM sectors (used to pass CGE aggregates to SATIM sectors)
-  mCOMC(COM,C)            mapping SAGE and SATIM fuels
-  mCOMF(COM,F)            mapping SAGE factors and SATIM factor commodities
+  MFHH(FH,H)              mapping SAGE and eMOD households
+  MFSA(FS,A)              mapping SAGE and eMOD sectors
+  MPRCFS(PRC,FSeMOD)          mapping eMOD PRCs to eMOD sectors (temporarily until sectors are reaggregated in the same way in both models)
+  MPRCFS2(PRC,FSeMOD)          mapping eMOD PRCs to eMOD sectors (used to pass CGE aggregates to eMOD sectors)
+  mCOMC(COM,C)            mapping SAGE and eMOD fuels
+  mCOMF(COM,F)            mapping SAGE factors and eMOD factor commodities
 
   MHPRCH(PRC,H)           mapping SAGE households to reporting households
   MCTCG(C,TCG)            mapping SAGE trade commodities to aggregate trade commodity groups
@@ -165,9 +165,9 @@ SETS
   MFSP(FSeMOD,PRC)           mapping of technologies used for each sector to track process emissions
 
 
-* Other SATIM Sets
+* Other eMOD Sets
  ELE(REG,PRC) power sectir technologies in TIMES
- SUPELE(PRC)  power sector technologies in SATIM
+ SUPELE(PRC)  power sector technologies in eMOD
  COALSUP(PRC) detailed coal supply techs for power sector
 
  CCOAL(C)              coal commodities in eSAGE / ccoal-low, ccoal-hgh /
@@ -177,9 +177,9 @@ SETS
 *FH*----------------------------------------------------------------------------
  MFHHT(FH,H,AY) reverse mapping (TIMES to CGE) for households
 
-  Indicators SATIM indicators /Activity, Capacity, NewCapacity, CapFac, FlowIn, FlowOut, AnnInvCost, FOM, VOM, FuelCosts, Marginals, Levies, ExternalityCosts, CO2Tax, CO2, CO2C, CH4, N2O, CF4, C2F6, CO2eq, FlowInMt, Investment,Price, GVA, Population, Consumption, Employment-p, Employment-m,Employment-s,Employment-t,PalmaRatio,20-20Ratio,TradeDeficit,Imports,Exports,pkm, tkm/
+  Indicators eMOD indicators /Activity, Capacity, NewCapacity, CapFac, FlowIn, FlowOut, AnnInvCost, FOM, VOM, FuelCosts, Marginals, Levies, ExternalityCosts, CO2Tax, CO2, CO2C, CH4, N2O, CF4, C2F6, CO2eq, FlowInMt, Investment,Price, GVA, Population, Consumption, Employment-p, Employment-m,Employment-s,Employment-t,PalmaRatio,20-20Ratio,TradeDeficit,Imports,Exports,pkm, tkm/
   Emiss(Indicators) / CO2, CH4, N2O, CF4, C2F6, CO2eq/
-  IndicatorsH SATIM Sub-annual indicators /FlowIn, FlowOut, Marginal, Price, Demand/
+  IndicatorsH eMOD Sub-annual indicators /FlowIn, FlowOut, Marginal, Price, Demand/
 
 
 * Other
@@ -242,9 +242,9 @@ PARAMETERS
 
 * Intermediate parameters
 
-  GVA_FS(FS,AY)                  SATIM Sector GVA
-  GVA_FS_Start(FS,AY)            SATIM Sector GVA used to first iteration of linked model
-  QA_FS(FS,AY)                   SATIM Sector QA (used for setting absolute levels for ica for new sectors)
+  GVA_FS(FS,AY)                  eMOD Sector GVA
+  GVA_FS_Start(FS,AY)            eMOD Sector GVA used to first iteration of linked model
+  QA_FS(FS,AY)                   eMOD Sector QA (used for setting absolute levels for ica for new sectors)
   POP(AY)                        Population Projection to be read from drivers workbook
   STFHPOP(AY)                    sum of population CGE
   POP_GR(AY)                     Population growth to be read from drivers workbook
@@ -276,7 +276,7 @@ PARAMETERS
   SCAP(ALLYEAR,PRC)              Scaled Capacity by CAPACT
 
   COMBALEM(ALLYEAR,FuelPrices,RUN) aggregate marginals [2015 R per GJ]
-  T_COMBALEM(REG,AY,COM)         Commodity marginals from TIMES-SATIM
+  T_COMBALEM(REG,AY,COM)         Commodity marginals from TIMES-eMOD
 
   CST_INV(AY,PRC)           Annual investment costs
   CST_ACT(AY,PRC)           Annual activity costs
@@ -327,7 +327,7 @@ PARAMETERS
   POBjz(RUN)                     Objective function
   REG_OBJ(REG)                   Objective function from TIMES
 
-* SATIM Aggregates
+* eMOD Aggregates
   AvgCoalPrice(ALLYEAR,RUN)      Average Marginal for power plant coal
   TotalFinal(ALLYEAR,RUN)
   CoalFinal(ALLYEAR,RUN)
@@ -351,8 +351,8 @@ PARAMETERS
   QD_FS(FS,AY)            domestic demand to drive energy model
 
 * Electrolysers and Fuel Cells
-  ELCTCAP(AY,RUN)            Electrolyser capacity in SATIM
-  FCELLCAP(AY,RUN)            Fuelcell capacity in SATIM
+  ELCTCAP(AY,RUN)            Electrolyser capacity in eMOD
+  FCELLCAP(AY,RUN)            Fuelcell capacity in eMOD
 
 * SubAnnual Analysis parameters
   TS_Duration(TS_DAYNITE)                  duration in hours of each daynite timeslice
@@ -398,7 +398,7 @@ LOOP(TS_HOURLY,
  FILE SIM_OTHPAR_FILE /".\GHATIM\%TIMESfolder%\sim_othpar+REGION1.dds"/;
  FILE RUNTIMES2 /".\GHATIM\%TIMESfolder%\RUNTIMES2.CMD"/;
  FILE ShowRunNumber /".\GHATIM\%TIMESfolder%\ShowRunNumber.CMD"/;
- FILE SATIM_Scen;
+ FILE eMOD_Scen;
  FILE CGE_Scen;
  FILE Scen;
 *-------------------------------------------------------------------------------
@@ -512,7 +512,7 @@ ELSE
   execute_load "drivers.gdx" GVA_FS POP YHE TFHPOP MFHHT QD_FS;
 
 
-  if(SIM_SATIM(RUN) eq 1,
+  if(SIM_eMOD(RUN) eq 1,
 * Write Drivers to DMD_PROJ workbook
          execute_unload "drivers.gdx" GVA_FS POP YHE TFHPOP MFHHT QD_FS PAMS_RUN;
          execute 'gdxxrw.exe i=drivers.gdx o=.\GHATIM\DataSpreadsheets\DMD_PRJ.xlsx index=index_G2E!a6';
@@ -560,7 +560,7 @@ ELSE
 $include GHATIM\includes\2runTIMES.inc
 
   );
-* if(SIM_SATIM(RUN) eq 1
+* if(SIM_eMOD(RUN) eq 1
 
 
 * Get Energy Model Results
@@ -607,7 +607,7 @@ execute_unload REPORT_RUN
 *-------------------------------------------------------------------------------
 
 execute_unload "REPORT.gdx" REPORT
-execute 'gdxdump REPORT.gdx output=REPORT_00.csv symb=REPORT format=csv header="Process,Commodity,Year,Scenario,Indicator,SATIMGE"';
+execute 'gdxdump REPORT.gdx output=REPORT_00.csv symb=REPORT format=csv header="Process,Commodity,Year,Scenario,Indicator,eMOD"';
 
 
 

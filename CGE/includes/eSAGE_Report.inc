@@ -3,13 +3,13 @@
 *--------------------------------------------------------------
 
 
-* Calculate Employment per SATIM sector
+* Calculate Employment per eMOD sector
 REPORT(PRC,'ACTGRP',TC,RUN,'Employment-p') = sum(FS$MPRCFS2(PRC,FS),sum(A$MFSA(FS,A),QFX('flab-p',A,'nat',XC,TC,'2050')));
 REPORT(PRC,'ACTGRP',TC,RUN,'Employment-m') = sum(FS$MPRCFS2(PRC,FS),sum(A$MFSA(FS,A),QFX('flab-m',A,'nat',XC,TC,'2050')));
 REPORT(PRC,'ACTGRP',TC,RUN,'Employment-s') = sum(FS$MPRCFS2(PRC,FS),sum(A$MFSA(FS,A),QFX('flab-s',A,'nat',XC,TC,'2050')));
 REPORT(PRC,'ACTGRP',TC,RUN,'Employment-t') = sum(FS$MPRCFS2(PRC,FS),sum(A$MFSA(FS,A),QFX('flab-t',A,'nat',XC,TC,'2050')));
 
-* Overwrite Elc Sector with SATIM coeffs
+* Overwrite Elc Sector with eMOD coeffs
  REPORT(PRC,'ACTGRP',TC,RUN,'Employment-p')$UC_CAP('UCPWR_FLAB-P','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-P','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
  REPORT(PRC,'ACTGRP',TC,RUN,'Employment-m')$UC_CAP('UCPWR_FLAB-M','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-M','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
  REPORT(PRC,'ACTGRP',TC,RUN,'Employment-s')$UC_CAP('UCPWR_FLAB-S','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-S','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
@@ -25,7 +25,7 @@ REPORT(PRCH,'ACTGRP',TC,RUN,'Consumption') = sum(H$MHPRCH(PRCH,H),EHX(H,XC,TC,'2
 REPORT(PRCH,'ACTGRP',TC,RUN,'Population') = sum(H$MHPRCH(PRCH,H),HPOPX(H,XC,TC,'2050'));
 
 
-*Calculate Consumption per SATIM income group
+*Calculate Consumption per eMOD income group
 
 
 *Calculate Real Trade Balance

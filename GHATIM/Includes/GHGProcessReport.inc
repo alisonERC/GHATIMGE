@@ -5,8 +5,8 @@ REPORT('I2A1','ACTGRP',TC,RUN,'CO2') = sum(PRC$MPRCSubSubSector(PRC,'Industry','
 REPORT('I2A2','ACTGRP',TC,RUN,'CO2') = sum(PRC$MPRCSubSubSector(PRC,'Industry','NMMProducts34','Lime'),REPORT(PRC,'CO2SPLIM',TC,RUN,'FlowOut'));
 REPORT('I2A3','ACTGRP',TC,RUN,'CO2') = sum(PRC$MPRCSubSubSector(PRC,'Industry','NMMProducts34','Glass'),REPORT(PRC,'CO2SP',TC,RUN,'FlowOut'));
 
-* Chemical Industry (currently not in SATIM),
-* Ammonia now in SATIM
+* Chemical Industry (currently not in eMOD),
+* Ammonia now in eMOD
 *REPORT('I2B1','ACTGRP',TC,RUN,'CH4') = 7.962*GVA_FS('cp',TC)/GVA_FS('cp','2019');
 *REPORT('I2B1','ACTGRP',TC,RUN,'CO2') = 241.415*GVA_FS('cp',TC)/GVA_FS('cp','2019');
 
@@ -17,7 +17,7 @@ REPORT('I2B6','ACTGRP',TC,RUN,'CO2') = 152.39*GVA_FS('cp',TC)/GVA_FS('cp','2019'
 REPORT('I2B8','ACTGRP',TC,RUN,'CO2') = 127.24*GVA_FS('cp',TC)/GVA_FS('cp','2019');
 REPORT('I2B8','ACTGRP',TC,RUN,'CH4') = 0.0029*GVA_FS('cp',TC)/GVA_FS('cp','2019');
 
-* Metals Industry (lead 2C5 and zinc 2C6 currently not in SATIM)
+* Metals Industry (lead 2C5 and zinc 2C6 currently not in eMOD)
 REPORT('I2C1','ACTGRP',TC,RUN,'CO2') = sum(PRC$MPRCSubSector(PRC,'Industry','Iron_Steel351'),REPORT(PRC,'CO2SP',TC,RUN,'FlowOut'));
 REPORT('I2C2','ACTGRP',TC,RUN,'CO2') = sum(PRC$MPRCSubSector(PRC,'Industry','FerroAlloys'),REPORT(PRC,'CO2SPIFC',TC,RUN,'FlowOut'))+sum(PRC$MPRCSubSector(PRC,'Industry','FerroAlloys'),REPORT(PRC,'CO2SPIFM',TC,RUN,'FlowOut'));
 REPORT('I2C2','ACTGRP',TC,RUN,'CH4') = sum(PRC$MPRCSubSector(PRC,'Industry','FerroAlloys'),REPORT(PRC,'CH4S',TC,RUN,'FlowOut'));
@@ -36,7 +36,7 @@ REPORT('I2C2','ACTGRP',TC,RUN,'CO2C') = sum(PRC$MPRCSector(PRC,'CO2Capture&Stora
 * still need to add others if needed
 
 
-* Other  (currently not in SATIM)
+* Other  (currently not in eMOD)
 REPORT('I2D1','ACTGRP',TC,RUN,'CO2') = 272.94*sum(fs,GVA_FS(fs,TC))/sum(fs,GVA_FS(fs,'2019'));
 REPORT('I2D2','ACTGRP',TC,RUN,'CO2') = 2.7*sum(fs,GVA_FS(fs,TC))/sum(fs,GVA_FS(fs,'2019'));
 

@@ -2,9 +2,9 @@
 *Process TIMES results -------------------------------------
 *--------------------------------------------------------------
 
-loop(MRUNCASE(RUN,SATIMCASES),
+loop(MRUNCASE(RUN,eMODCASES),
 
- put_utilities SATIM_Scen 'gdxin' / "%GDXfolder%",SATIMCASES.TL:50;
+ put_utilities eMOD_Scen 'gdxin' / "%GDXfolder%",eMODCASES.TL:50;
  execute_load MILESTONYR ELE RTP B E V TS_MAP COM_NRGELC PRC_ANNUAL PRC_WEEKLY PRC_SEASON PRC_DAYNIT PRC_RCAP
  execute_load COM_PROJ REG_OBJ PAR_NCAPL PRC_RESID PRC_CAPACT PAR_CAPL VARACT F_IN F_OUT NCAP_ILED OB_ICOST OB_ACT PAR_COMBALEM CST_FIXC CST_ACTC CST_INVC VAR_CAP UC_CAP G_YRFR COM_CSTNET;
 * VAR_RCAP;
@@ -93,7 +93,7 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
  TVACT(TC,PRC)     = VARACT('REGION1',TC,PRC);
 * TVCAP(TC,PRC)     = PAR_CAPL('REGION1',TC,PRC);
 
-* Calculate final consumption for SATIM industry sectors and freight
+* Calculate final consumption for eMOD industry sectors and freight
  FLOW_IN_FS(FSeMOD,COM,TC) = SUM(PRC$MPRCFS(PRC,FSeMOD), TVFLOWIN(COM,TC,PRC));
  FLOW_OUT_FS(FSeMOD,COM,TC) = SUM(PRC$MPRCFS(PRC,FSeMOD), TVFLOWOUT(COM,TC,PRC));
 
@@ -104,7 +104,7 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
  FLOW_OUT_FSFactors(FS,F,TC) = SUM(COM$MCOMF(COM,F),FLOW_OUT_FS(FS,COM,TC));
 
 
-*bm methane rich gas is currently a product of sasol which is accounted for in SATIM, but not in eSAGE so making this zero
+*bm methane rich gas is currently a product of sasol which is accounted for in eMOD, but not in eSAGE so making this zero
  FLOW_OUT_FSFuels('petr','cngas',TC) = 0;
 *bm correcting for elc autogeneration which should be excluded from elc demand
  FLOW_IN_FSFuels('petr','celec',TC) = max(0,FLOW_IN_FSFuels('petr','celec',TC)-FLOW_OUT_FSFuels('petr','celec',TC));
@@ -275,19 +275,19 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
  IFAFSGR(F,FS,TC)$FIntensity_FS(FS,F,TC-1) = FIntensity_FS(FS,F,TC)/FIntensity_FS(FS,F,TC-1);
 
 
-* Electrolyser sector - supply of electrolysers is linked to electrolyser exports and PEM electrolyser capacity in SATIM
+* Electrolyser sector - supply of electrolysers is linked to electrolyser exports and PEM electrolyser capacity in eMOD
  ELCTCAP(TC,RUN) = TVNCAP(TC,'UELEP1HGN')+TVNCAP(TC,'IISHALKHGNO')+TVNCAP(TC,'UELEA1HGN')+TVACT(TC,'PEXHETP')*0.4;
 *0.5;
 
 * fuelcell sector - supply of fuel cells is linked to fuel cell export and fuel cell capacity in trucks - !!! still need to add fcell to mining 5%?
-* it works out in the CGE that with 0.24, 3 times value of trucks goes to export, which is what is intented in SATIM
+* it works out in the CGE that with 0.24, 3 times value of trucks goes to export, which is what is intented in eMOD
  FCELLCAP(TC,RUN) = TVCAP(TC,'HFCP-TRAHCV-N')+TVACT(TC,'PEXHFCP')*0.2;
 *0.24;
 
 
 * Energy Model Indicators
 
- REPORT('SATIMMarginals',COM,TC,RUN,'Marginals') = T_COMBALEM('REGION1',TC,COM);
+ REPORT('eMODMarginals',COM,TC,RUN,'Marginals') = T_COMBALEM('REGION1',TC,COM);
 
  REPORT(PRC,'ACTGRP',TC,RUN,'Activity') = TVACT(TC,PRC);
  REPORT(PRC,'ACTGRP',TC,RUN,'Capacity') = TVCAP(TC,PRC);
