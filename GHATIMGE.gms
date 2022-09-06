@@ -1,14 +1,14 @@
-*This batch file runs the SATMGE model. The file can be used to run the SATIM
-*only, CGE only and linked model. The model run is controlled through the MCSIM file.
+*This batch file runs the GHATMGE model. The file can be used to run the GHATIM
+*only, CGE only and linked model. The model run is controlled through the GHATIMGE.xlsm file.
 *The file includes the TIMES model, the simulation files of the CGE model and the CGE
 *model results files. To run the batch file for the CGE only or linked model the
 *restart file should be set as follows: r=cge\model.
 
 *1.Set directories*-------------------------------------------------------------
-$SETGLOBAL workingfolder C:\Models\SATIMGE\
+$SETGLOBAL workingfolder C:\Models\GHATIMGE\
 * TIMES GDX output folder
 $SETGLOBAL TIMESfolder Gams_WrkTI
-$SETGLOBAL gdxfolder %workingfolder%SATIM\%TIMESfolder%\Gamssave\
+$SETGLOBAL gdxfolder %workingfolder%GHATIM\%TIMESfolder%\Gamssave\
 * Subset of TIMES GDX output folder
 $SETGLOBAL GDXoutfolder %workingfolder%GDXout\
 
@@ -394,10 +394,10 @@ LOOP(TS_HOURLY,
 
 * File declarations------------------------------------------------------------
 *INCLUDE NOTES!!!What are these files for?
- FILE SIM_DEM_FILE /".\satim\%TIMESfolder%\DMD_ALL+REGION1.dds"/;
- FILE SIM_OTHPAR_FILE /".\satim\%TIMESfolder%\sim_othpar+REGION1.dds"/;
- FILE RUNTIMES2 /".\satim\%TIMESfolder%\RUNTIMES2.CMD"/;
- FILE ShowRunNumber /".\satim\%TIMESfolder%\ShowRunNumber.CMD"/;
+ FILE SIM_DEM_FILE /".\GHATIM\%TIMESfolder%\DMD_ALL+REGION1.dds"/;
+ FILE SIM_OTHPAR_FILE /".\GHATIM\%TIMESfolder%\sim_othpar+REGION1.dds"/;
+ FILE RUNTIMES2 /".\GHATIM\%TIMESfolder%\RUNTIMES2.CMD"/;
+ FILE ShowRunNumber /".\GHATIM\%TIMESfolder%\ShowRunNumber.CMD"/;
  FILE SATIM_Scen;
  FILE CGE_Scen;
  FILE Scen;
@@ -515,10 +515,10 @@ ELSE
   if(SIM_SATIM(RUN) eq 1,
 * Write Drivers to DMD_PROJ workbook
          execute_unload "drivers.gdx" GVA_FS POP YHE TFHPOP MFHHT QD_FS PAMS_RUN;
-         execute 'gdxxrw.exe i=drivers.gdx o=.\SATIM\DataSpreadsheets\DMD_PRJ.xlsx index=index_G2E!a6';
+         execute 'gdxxrw.exe i=drivers.gdx o=.\GHATIM\DataSpreadsheets\DMD_PRJ.xlsx index=index_G2E!a6';
 
 * Read resulting Demand from DMD_PROJ workbook
-         execute 'gdxxrw.exe i=.\SATIM\DataSpreadsheets\DMD_PRJ.xlsx o=EnergyDemand.gdx index=index_E2G!a6';
+         execute 'gdxxrw.exe i=.\GHATIM\DataSpreadsheets\DMD_PRJ.xlsx o=EnergyDemand.gdx index=index_E2G!a6';
          execute_load "EnergyDemand.gdx" SIM_DEMX;
 
 
@@ -557,14 +557,14 @@ ELSE
          PUTCLOSE "";
 
 
-$include SATIM\includes\2runTIMES.inc
+$include GHATIM\includes\2runTIMES.inc
 
   );
 * if(SIM_SATIM(RUN) eq 1
 
 
 * Get Energy Model Results
-$include SATIM\includes\2TIMESReport.inc
+$include GHATIM\includes\2TIMESReport.inc
 REPORT(PRC,'ACTGRP',TC,RUN,'GVA') = SUM(FS$MPRCFS2(PRC,FS),GVA_FS(FS,TC));
 
 
@@ -572,16 +572,16 @@ REPORT(PRC,'ACTGRP',TC,RUN,'GVA') = SUM(FS$MPRCFS2(PRC,FS),GVA_FS(FS,TC));
 *if(SIM_ESAGE(RUN) eq 1,
 
 * Sub-annual results
-$include SATIM\includes\2TIMESSubAnnualReport.inc
+$include GHATIM\includes\2TIMESSubAnnualReport.inc
 
 
 GDP_RUN(TC) = SUM(FSGDP,GVA_FS(FSGDP,TC));
 
 *$ontext
-$include SATIM\includes\GHGEnergyReport.inc
+$include GHATIM\includes\GHGEnergyReport.inc
 
 *Get Process Emissions
-$include SATIM\includes\GHGProcessReport.inc
+$include GHATIM\includes\GHGProcessReport.inc
 
 if(SIM_WASTE(RUN) eq 1,
 * Run Waste Model

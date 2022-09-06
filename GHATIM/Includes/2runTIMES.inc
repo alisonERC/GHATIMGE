@@ -19,12 +19,12 @@
 
 * will remove below when imported into ANSWER
 
-  loop(MRUNCASE(RUN,SATIMCASES), put ".\satim\%TIMESfolder%\RUNTIMES.CMD ", "%workingfolder%":38,SATIMCASES.TL:20,"%TIMESfolder%");
+  loop(MRUNCASE(RUN,SATIMCASES), put ".\GHATIM\%TIMESfolder%\RUNTIMES.CMD ", "%workingfolder%":38,SATIMCASES.TL:20,"%TIMESfolder%");
 
   PUTCLOSE "";
 
 * Run TIMES model
- execute ".\satim\%TIMESfolder%\ShowRunNumber.CMD"
- execute ".\satim\%TIMESfolder%\RUNTIMES2.CMD"
+ execute ".\GHATIM\%TIMESfolder%\ShowRunNumber.CMD"
+ execute ".\GHATIM\%TIMESfolder%\RUNTIMES2.CMD"
  execute "echo --- Return to CGE model"
 

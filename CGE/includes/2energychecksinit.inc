@@ -1,5 +1,5 @@
 sets
-  MOD models /SATIM, eSAGE/
+  MOD models /eMOD, eSAGE/
   QType quantitity types /qq, qd, qint, qe, qm, qh, qx, qxac/
   IN_OUT flow direction /IN, OUT, CO2/
   SATIM_IND SATIM indicators /Activity, Capacity, NewCapacity, FlowIn, FlowOut, CO2, Investment, GVA, Employment/
@@ -27,13 +27,15 @@ parameters
  HH_Energy(MOD,HH_EI,C,TC,RUN) Household energy consumption
 ;
 
+$ontext
+*FSM
  CO2OUT('ccoal-low') = 96.25;
  CO2OUT('ccoal-hgh') = 96.25;
  CO2OUT('cngas') = 56.1;
  CO2OUT('cpetr-p') = 69.3;
  CO2OUT('cpetr-d') = 74.0667;
-* bm average for HFO, LPG and Kerosene
  CO2OUT('cpetr-h') = 77.4;
  CO2OUT('cpetr-k') = 72.9;
  CO2OUT('cpetr-l') = 63.1;
+$offtext
 

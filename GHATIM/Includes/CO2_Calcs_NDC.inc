@@ -135,8 +135,8 @@ SATIM_OUTPUT2(PRC,'ACTGRP',TC,Emiss,GDXFile)$MFSP(FS,PRC) = ProcessEmissions(FS,
 );
 
 execute_unload "SATIM_OUTPUT.gdx" SATIM_OUTPUT2
-execute 'gdxxrw.exe i=SATIM_OUTPUT.gdx o=.\Emissions_Calibration\SATIM_OUTPUT.xlsx index=index!a6';
+execute 'gdxxrw.exe i=SATIM_OUTPUT.gdx o=.\Emissions_Calibration\GHATIM_OUTPUT.xlsx index=index!a6';
 
 *execute_unload "HH_En.gdx" HH_Energy2
-*execute 'gdxxrw.exe i=HH_En.gdx o=C:\SATIMGE_03\Emissions_Calibration\Private_Transport_Results_v00.xlsx index=index!a6';
+*execute 'gdxxrw.exe i=HH_En.gdx o=C:\GHATIMGE_03\Emissions_Calibration\Private_Transport_Results_v00.xlsx index=index!a6';
 
