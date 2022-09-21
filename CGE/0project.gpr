@@ -1008,10 +1008,10 @@ RowDim=1
 Squeeze=1
 Order=3,1,2
 Decim=4
-PlaneRownr=22
+PlaneRownr=21
 PlaneFilter1=Level
 SqTrail0=0
-PlaneFilter2=cngas
+PlaneFilter2=ccoil
 
 [GDXDISP: QINT0 Par 2]
 PlaneDim=1
@@ -6904,13 +6904,6 @@ Order=2,1
 Decim=5
 PlaneRownr=-1
 
-[OPENWINDOW_1]
-MAXIM=0
-TOP=0
-LEFT=0
-HEIGHT=760
-WIDTH=1138
-
 [RP:2SIMULATION]
 1=r=model s=simulation gdx=simulation solvelink=1
 2=r=model s=simulation gdx=simulation 
@@ -6938,12 +6931,20 @@ WIDTH=1138
 5=
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\model.gdx
-2=C:\Models\GHATIMGE\CGE\energy.gdx
-3=C:\Models\GHATIMGE\CGE\1model.lst
-4=C:\Models\GHATIMGE\CGE\1model.gms
-5=C:\Models\GHATIMGE\CGE\1model.dat
-6=C:\W\New folder\CGE\includes\3report_loop.inc
-7=C:\W\New folder\CGE\includes\3report_init.inc
-8=C:\W\New folder\CGE\includes\3report.gms
-9=C:\W\New folder\CGE\3report.gms
+1=C:\Models\GHATIMGE\CGE\energy.gdx
+2=C:\Models\GHATIMGE\CGE\1model.dat
+3=C:\W\New folder\CGE\includes\3report_loop.inc
+4=C:\W\New folder\CGE\includes\3report_init.inc
+5=C:\W\New folder\CGE\includes\3report.gms
+6=C:\W\New folder\CGE\3report.gms
+
+[OPENWINDOW_1]
+FILE0=C:\Models\GHATIMGE\CGE\1model.gms
+FILE1=C:\Models\GHATIMGE\CGE\1model.lst
+FILE2=C:\Models\GHATIMGE\CGE\model.gdx
+FILE3=C:\Models\GHATIMGE\CGE\model.gdx
+MAXIM=0
+TOP=0
+LEFT=0
+HEIGHT=760
+WIDTH=1138
