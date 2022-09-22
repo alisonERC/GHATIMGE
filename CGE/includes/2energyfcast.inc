@@ -11,7 +11,7 @@
  QA_FS(FS,T) = SUM(A$MFSA(FS,A), QAX(A,XC,T,TT));
 
 * Domestic demand for energy model
- QD_FS('is',T) = QA_FS('is',T)-QEX('ciron','rest',XC,T,TT);
+* QD_FS('is',T) = QA_FS('is',T)-QEX('ciron','rest',XC,T,TT);
 *# QD_FS('am',T) = QA_FS('am',T)-QEX('cammo','rest',XC,T,TT);
 
 

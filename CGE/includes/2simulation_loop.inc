@@ -2,13 +2,71 @@
 *4. Time period loop
 *----------------------------------------------------------------------
 
-$include includes\2initialize.inc
 
- TAPSX(X,T) = 0;
+
+
 
 LOOP(XC,
 
-$include includes\2varinit.inc
+ LOOP(TT,
+
+$include cge\includes\2varinit.inc
+
+if(SIM_eMOD(RUN) eq 1,
+
+* Write Drivers to DMD_PROJ workbook
+*         execute 'gdxxrw.exe i=drivers.gdx o=.\eMOD\DataSpreadsheets\DMD_PRJ.xlsx index=index_G2E!a6';
+* Read resulting Demand from DMD_PROJ workbook
+*         execute 'gdxxrw.exe i=.\eMOD\DataSpreadsheets\DMD_PRJ.xlsx o=EnergyDemand.gdx index=index_E2G!a6';
+*         execute_load "EnergyDemand.gdx" SIM_DEMX;
+* Need to Add Occupancy and Freight loading per vehicle category to calculate pkm and tkm
+
+* Adjust Transport Demand
+*  LOOP(TC$(ORD(TC) gt 6),
+*        SIM_DEMX(TPPR,TC)$(SUM(H,QHX('cprtr',H,XC,TC-1,TT-1))) = SIM_DEMX(TPPR,TC-1)*SUM(H,QHX('cprtr',H,XC,TC,TT-1))/SUM(H,QHX('cprtr',H,XC,TC-1,TT-1));
+*);
+* LOOP(TC,
+
+$ontext
+* Write Demand DDS File
+         PUT  SIM_DEM_FILE;
+         SIM_DEM_FILE.pc = 2;
+         SIM_DEM_FILE.nd = 13;
+         SIM_DEM_FILE.ap = 0;
+
+         PUT 'PARAMETER ACOM_PROJ /' /;
+
+         LOOP((DEM1,TTIMES),
+                 EFVAL = SIM_DEMX(DEM1,TTIMES);
+                 if(EFVAL,
+                         PUT "REGION1.", DEM1.TL, ".", TTIMES.TL, EFVAL /;
+                 else
+                         PUT "REGION1.", DEM1.TL, ".", TTIMES.TL, "eps" /;
+
+                 );
+         );
+         PUT "/;"/;
+
+*Write Cumulative CO2 CAP bound
+         PUT 'PARAMETER ACOMCUMNET /' /;
+         EFVAL = SIM_CO2CUMUL(RUN)*1000000;
+         if(EFVAL,
+                 PUT "REGION1.CO2EQSB.2021.2050.'UP'  ", EFVAL /;
+         );
+         PUTCLOSE "/;";
+
+         PUT  ShowRunNumber;
+         RUNTIMES2.pc = 2;
+         RUNTIMES2.nd = 5;
+         RUNTIMES2.ap = 0;
+         PUTCLOSE "";
+$offtext
+
+$include GHATIM\includes\2runTIMES.inc
+  );
+* if(SIM_SATIM(RUN) eq 1,
+
+$include GHATIM\includes\2TIMESReport.inc
 
   LOOP(TC,
     IF(NOT T1(TC),
@@ -31,7 +89,7 @@ $include includes\2varinit.inc
       trnsfr(INS,ACNT) = trnsfr(INS,ACNT) * (1+TRNSFRGR(INS,ACNT,XC,TC));
 
 *     Capital stock accumulation and allocation
-$include includes\2capital.inc
+$include cge\includes\2capital.inc
 
 *     Labor supply growth
       QF.L(FLAB,A,RD)$(NOT T1(TC)) = QF.L(FLAB,A,RD)*(1+FACGR(FLAB,XC,TC));
@@ -43,12 +101,20 @@ $include includes\2capital.inc
 
     );
 
-$include includes\2closures.inc
+$include cge\includes\2closures.inc
 
  STANDCGE.SOLVELINK = 2;
  SOLVE standcge USING MCP ;
 
-$include includes\2results.inc
+$include cge\includes\2results.inc
+$include cge\includes\2energychecks.inc
 
   );
+*end of TC loop
+$include cge\includes\2energyfcast.inc
+
+ );
+* end of TT loop
+
 );
+* end of XC loop

@@ -15,58 +15,59 @@ TGAP(MILESTONYR) = E(MILESTONYR) - B(MILESTONYR)+1;
 SUPELE(PRC)$ELE('REGION1',PRC) = YES;
 
 * interpolate all TIMES results for CGE link and report tables
+*not needed because GHATIM has annual timesteps
 
 RESID(REG,MILESTONYR,PRC) = PRC_RESID(REG,MILESTONYR,PRC);
 * perform interpolation
 *$BATINCLUDE interpolate PRC_RESID 'REG' 'PRC' ",'0','0','0','0','0'" TC 'RTP(REG,TC,PRC)'
-$BATINCLUDE GHATIM\Includes\interpolate.inc RESID 'REG' 'PRC' ",'0','0','0','0','0'" TC 'RTP(REG,TC,PRC)'
 
-$BATINCLUDE GHATIM\Includes\interpolate.inc PAR_CAPL 'REG' 'PRC' ",'0','0','0','0','0'" TC 'PAR_CAPL(REG,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc RESID 'REG' 'PRC' ",'0','0','0','0','0'" TC 'RTP(REG,TC,PRC)'
+
+*$BATINCLUDE GHATIM\Includes\interpolate.inc PAR_CAPL 'REG' 'PRC' ",'0','0','0','0','0'" TC 'PAR_CAPL(REG,TC,PRC)'
 
 *$BATINCLUDE interpolate PAR_RCAPL 'REG' 'PRC' ",'0','0','0','0','0'" TC 'PAR_RCAPL(REG,TC,PRC)'
 
-$BATINCLUDE GHATIM\Includes\interpolate.inc VARACT 'REG' 'PRC' ",'0','0','0','0','0'" TC 'VARACT(REG,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc VARACT 'REG' 'PRC' ",'0','0','0','0','0'" TC 'VARACT(REG,TC,PRC)'
 
  NCAP_ILED(REG,TC,PRC) = NCAP_ILED(REG,'2012',PRC);
 
  OBICOST(REG,TC,PRC) = OB_ICOST(REG,PRC,'CUR',TC);
-$BATINCLUDE GHATIM\Includes\interpolate.inc OBICOST 'REG' 'PRC' ",'0','0','0','0','0'" TC 'RTP(REG,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc OBICOST 'REG' 'PRC' ",'0','0','0','0','0'" TC 'RTP(REG,TC,PRC)'
 
  OBACT(REG,TC,PRC) = OB_ACT(REG,PRC,'CUR',TC);
-$BATINCLUDE GHATIM\Includes\interpolate.inc OBACT 'REG' 'PRC' ",'0','0','0','0','0'" TC 'RTP(REG,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc OBACT 'REG' 'PRC' ",'0','0','0','0','0'" TC 'RTP(REG,TC,PRC)'
 
  TVFLOWIN(COM,TC,PRC) = SUM((V,S), F_IN('REGION1',V,TC,PRC,COM,S));
-$BATINCLUDE GHATIM\Includes\interpolate.inc TVFLOWIN 'COM' 'PRC' ",'0','0','0','0','0'" TC 'TVFLOWIN(COM,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc TVFLOWIN 'COM' 'PRC' ",'0','0','0','0','0'" TC 'TVFLOWIN(COM,TC,PRC)'
 
  TVFLOWOUT(COM,TC,PRC) = SUM((V,S), F_OUT('REGION1',V,TC,PRC,COM,S));
-$BATINCLUDE GHATIM\Includes\interpolate.inc TVFLOWOUT 'COM' 'PRC' ",'0','0','0','0','0'" TC 'TVFLOWOUT(COM,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc TVFLOWOUT 'COM' 'PRC' ",'0','0','0','0','0'" TC 'TVFLOWOUT(COM,TC,PRC)'
 
  TCST_INVC(REG,TC,PRC)= sum(V,CST_INVC(REG,V,TC,PRC,'INV'));
-$BATINCLUDE GHATIM\Includes\interpolate.inc TCST_INVC 'REG' 'PRC' ",'0','0','0','0','0'" TC 'TCST_INVC(REG,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc TCST_INVC 'REG' 'PRC' ",'0','0','0','0','0'" TC 'TCST_INVC(REG,TC,PRC)'
 
  TCST_ACTC(REG,TC,PRC)= sum(V,CST_ACTC(REG,V,TC,PRC,'-'));
-$BATINCLUDE GHATIM\Includes\interpolate.inc TCST_ACTC 'REG' 'PRC' ",'0','0','0','0','0'" TC 'TCST_ACTC(REG,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc TCST_ACTC 'REG' 'PRC' ",'0','0','0','0','0'" TC 'TCST_ACTC(REG,TC,PRC)'
 
  TCST_FIXC(REG,TC,PRC)= sum(V,CST_FIXC(REG,V,TC,PRC));
-$BATINCLUDE GHATIM\Includes\interpolate.inc TCST_FIXC 'REG' 'PRC' ",'0','0','0','0','0'" TC 'TCST_FIXC(REG,TC,PRC)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc TCST_FIXC 'REG' 'PRC' ",'0','0','0','0','0'" TC 'TCST_FIXC(REG,TC,PRC)'
 
  COM_CSTCO2('REGION1',TC,'CO2EQST')= COM_CSTNET('REGION1',TC,'CO2EQST','ANNUAL','CUR');
-*$BATINCLUDE GHATIM\Includes\interpolate.inc COM_CSTCO2 'REG' 'COM' ",'0','0','0','0','0'" TC 'COM_CSTCO2(REG,TC,COM)'
+**$BATINCLUDE GHATIM\Includes\interpolate.inc COM_CSTCO2 'REG' 'COM' ",'0','0','0','0','0'" TC 'COM_CSTCO2(REG,TC,COM)'
 
 
 
  T_COMBALEM(REG,TC,COM) = PAR_COMBALEM(REG,TC,COM,'ANNUAL');
 *Special calc for hydrogen for power
  T_COMBALEM('REGION1',TC,'PWRHGN')$SUM((V,S),F_OUT('REGION1',V,TC,'XPWRHGN','PWRHGN',S)) = SUM(S,PAR_COMBALEM('REGION1',TC,'PWRHGN',S)*SUM(V,F_OUT('REGION1',V,TC,'XPWRHGN','PWRHGN',S)))/SUM((V,S),F_OUT('REGION1',V,TC,'XPWRHGN','PWRHGN',S));
-$BATINCLUDE GHATIM\Includes\interpolate.inc T_COMBALEM 'REG' 'COM' ",'0','0','0','0','0'" TC 'T_COMBALEM(REG,TC,COM)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc T_COMBALEM 'REG' 'COM' ",'0','0','0','0','0'" TC 'T_COMBALEM(REG,TC,COM)'
 
-$BATINCLUDE GHATIM\Includes\interpolate.inc COM_PROJ 'REG' 'COM' ",'0','0','0','0','0'" TC 'COM_PROJ(REG,TC,COM)'
+*$BATINCLUDE GHATIM\Includes\interpolate.inc COM_PROJ 'REG' 'COM' ",'0','0','0','0','0'" TC 'COM_PROJ(REG,TC,COM)'
 
 
 * Attempt at putting parameter for results equal to variable:
  PAR_VCAPL(REG,TC,PRC) = VAR_CAP.L(REG,TC,PRC);
-$BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0','0','0'" TC 'PAR_VCAPL(REG,TC,PRC)'
-
+*$BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0','0','0'" TC 'PAR_VCAPL(REG,TC,PRC)'
 
 
 
@@ -105,7 +106,7 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
 
 
 *bm methane rich gas is currently a product of sasol which is accounted for in eMOD, but not in eSAGE so making this zero
- FLOW_OUT_FSFuels('petr','cngas',TC) = 0;
+*FSM FLOW_OUT_FSFuels('petr','cngas',TC) = 0;
 *bm correcting for elc autogeneration which should be excluded from elc demand
  FLOW_IN_FSFuels('petr','celec',TC) = max(0,FLOW_IN_FSFuels('petr','celec',TC)-FLOW_OUT_FSFuels('petr','celec',TC));
  FLOW_OUT_FSFuels('petr','celec',TC) = 0;
@@ -116,7 +117,7 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
 
 *Correction made for power sector gas. New energy balance implies all gas consumed in chemical sector. Old EB had some gas going to power.
 * Sasol autoproducers are no longer included in power.
- FLOW_IN_FSFuels('elec','cngas',TC) = max(FLOW_IN_FSFuels('elec','cngas',TC),3);
+*FSM FLOW_IN_FSFuels('elec','cngas',TC) = max(FLOW_IN_FSFuels('elec','cngas',TC),3);
 
 
 *UCONV_C_T2C(C);
@@ -126,16 +127,16 @@ $BATINCLUDE GHATIM\Includes\interpolate.inc PAR_VCAPL 'REG' 'PRC' ",'0','0','0',
  OIL_FLOW(RUN,TC) = sum(C,FLOW_OUT_FSFuels('petr',C,TC));
 
 *bm calc coal flow - putting in a minimum value to avoid problems with theta calcs in CGE
- COAL_FLOW(RUN,TC,'ccoal-low') = max(30,sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-low',TC)));
- COAL_FLOW(RUN,TC,'ccoal-hgh') = max(30,sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-hgh',TC)));
+*FSM COAL_FLOW(RUN,TC,'ccoal-low') = max(30,sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-low',TC)));
+*FSM COAL_FLOW(RUN,TC,'ccoal-hgh') = max(30,sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-hgh',TC)));
 
 * EIntensityQA_FS(FS,C,TC)$(QA_FS(FS,TC) GT 0.1) = FLOW_IN_FSFuels(FS,C,TC)/QA_FS(FS,TC);
 
- EIntensity_FS(FS,C,TC)$(GVA_FS(FS,TC) GT 0.1) = FLOW_IN_FSFuels(FS,C,TC)/GVA_FS(FS,TC);
-* EIntensity_FS(FS,C,TC)$(QA_FS(FS,TC) GT 0.1) = FLOW_IN_FSFuels(FS,C,TC)/QA_FS(FS,TC);
+* EIntensity_FS(FS,C,TC)$(GVA_FS(FS,TC) GT 0.1) = FLOW_IN_FSFuels(FS,C,TC)/GVA_FS(FS,TC);
+** EIntensity_FS(FS,C,TC)$(QA_FS(FS,TC) GT 0.1) = FLOW_IN_FSFuels(FS,C,TC)/QA_FS(FS,TC);
 
 *bm calculating coal mining capacity based on consumption+exports)
- COALMINCAP(TC) = sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-hgh',TC))+sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-low',TC));
+*FSM COALMINCAP(TC) = sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-hgh',TC))+sum(FSeMOD,FLOW_IN_FSFuels(FSeMOD,'ccoal-low',TC));
 
 * For households on transport
 * multiply by share of pkm by household to allocate consumption to different hh
@@ -192,22 +193,24 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
 
 * EFLOW('NAT',XC,TC,TT) = SUM(SUPELE, TVACT(TC,SUPELE))/3.6;
 * !!EFLOW now calculated from flow through transmission. When we include distributed generation we also need to include them in the calc
- ELC_FLOW2(RUN,TC) = (TVACT(TC,'XAGRELC') + TVACT(TC,'XCOMELC') +TVACT(TC,'XINDELC') + TVACT(TC,'XRESELC') + TVACT(TC,'XTRAELC') + TVACT(TC,'XUPSELC') + TVACT(TC,'PEXELC'));
- ELC_FLOW(RUN,TC) = sum(FSeMODNOELEC,FLOW_IN_FSFuels(FSeMODNOELEC,'celec',TC));
+* ELC_FLOW2(RUN,TC) = (TVACT(TC,'XAGRELC') + TVACT(TC,'XCOMELC') +TVACT(TC,'XINDELC') + TVACT(TC,'XRESELC') + TVACT(TC,'XTRAELC') + TVACT(TC,'XUPSELC') + TVACT(TC,'PEXELC'));
+* ELC_FLOW(RUN,TC) = sum(FSeMODNOELEC,FLOW_IN_FSFuels(FSeMODNOELEC,'celec',TC));
+
+*!!! here need to resolve whether to include distributed generators as part of 'elec' sector or not!!!
+ ELC_FLOW(RUN,TC) = sum(PRC$MPRCSubSector(PRC,'Power','EDist'),TVACT(TC,PRC));
+
+*SUM(COM$MCOMF(COM,F),FLOW_OUT_FS(FS,COM,TC));
+
 
 * recalculate intensity for energy sectors, where GVA not suitable
  EIntensity_FS('elec',C,TC) = FLOW_IN_FSFuels('elec',C,TC)/ELC_FLOW(RUN,TC);
- EIntensity_FS('elec','ccoal-low',TC) = max(0.01,EIntensity_FS('elec','ccoal-low',TC));
 
- EIntensity_FS(FS,'ccoal-hgh',TC) = max(0.0001,EIntensity_FS(FS,'ccoal-hgh',TC));
 
- EIntensity_FS('hydr',C,TC)$(FLOW_OUT_FSFuels('hydr','chydr',TC) GT .001) = FLOW_IN_FSFuels('hydr',C,TC)/FLOW_OUT_FSFuels('hydr','chydr',TC);
- EIntensity_FS('petr',C,TC)$OIL_FLOW(RUN,TC) = FLOW_IN_FSFuels('petr',C,TC)/OIL_FLOW(RUN,TC);
+* EIntensity_FS('hydr',C,TC)$(FLOW_OUT_FSFuels('hydr','chydr',TC) GT .001) = FLOW_IN_FSFuels('hydr',C,TC)/FLOW_OUT_FSFuels('hydr','chydr',TC);
+* EIntensity_FS('petr',C,TC)$OIL_FLOW(RUN,TC) = FLOW_IN_FSFuels('petr',C,TC)/OIL_FLOW(RUN,TC);
 
- EIntensity_FS('petr','ccoal-low',TC) = max(0.01,EIntensity_FS('petr','ccoal-low',TC));
-
- EIntensity_FS('am',C,TC)$FLOW_OUT_FSFuels('am','cammo',TC) = FLOW_IN_FSFuels('am',C,TC)/FLOW_OUT_FSFuels('am','cammo',TC);
- EIntensity_FS('is',C,TC) = FLOW_IN_FSFuels('is',C,TC)/(FLOW_OUT_FS('is','IISCRS',TC)+VARACT('REGION1',TC,'PEXGDRI'));
+* EIntensity_FS('am',C,TC)$FLOW_OUT_FSFuels('am','cammo',TC) = FLOW_IN_FSFuels('am',C,TC)/FLOW_OUT_FSFuels('am','cammo',TC);
+* EIntensity_FS('is',C,TC) = FLOW_IN_FSFuels('is',C,TC)/(FLOW_OUT_FS('is','IISCRS',TC)+VARACT('REGION1',TC,'PEXGDRI'));
 
 * BM!!! need to create QA_FSStart
 * EIntensityQA_FS(FS,'chydr',TC)$FLOW_IN_FSFuels(FS,'chydr',TC) = FLOW_IN_FSFuels(FS,'chydr',TC)/QA_FS(FS,TC);
@@ -255,9 +258,9 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
 * Elc Price
  ETPRICE(TC) = TCST_ELE(RUN,TC)/ELC_FLOW(RUN,TC);
 
- AggFixPrice('ELC',TC,RUN) = Sum(PRCBulkPower,(REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'AnnInvCost')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'FOM')))/TVCAP(TC,'ETRANS');
+ AggFixPrice('ELC',TC,RUN) = Sum(PRCBulkPower,(REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'AnnInvCost')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'FOM')))/TVCAP(TC,'GHEL00T00');
  AggVarCost('ELC',TC,RUN) = Sum(PRCBulkPower, (REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'VOM')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'FuelCosts')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'CO2Tax')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'Levies')));
- AggVarPrice('ELC',TC,RUN)$REPORT('ETRANS','ELC',TC,RUN,'FlowOut') = AggVarCost('ELC',TC,RUN)/REPORT('ETRANS','ELC',TC,RUN,'FlowOut');
+ AggVarPrice('ELC',TC,RUN)$REPORT('GHEL00T00','GHEL00T',TC,RUN,'FlowOut') = AggVarCost('GHEL00T',TC,RUN)/REPORT('GHEL00T00','ELC',TC,RUN,'FlowOut');
 
 
 
@@ -276,12 +279,12 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
 
 
 * Electrolyser sector - supply of electrolysers is linked to electrolyser exports and PEM electrolyser capacity in eMOD
- ELCTCAP(TC,RUN) = TVNCAP(TC,'UELEP1HGN')+TVNCAP(TC,'IISHALKHGNO')+TVNCAP(TC,'UELEA1HGN')+TVACT(TC,'PEXHETP')*0.4;
+* ELCTCAP(TC,RUN) = TVNCAP(TC,'UELEP1HGN')+TVNCAP(TC,'IISHALKHGNO')+TVNCAP(TC,'UELEA1HGN')+TVACT(TC,'PEXHETP')*0.4;
 *0.5;
 
 * fuelcell sector - supply of fuel cells is linked to fuel cell export and fuel cell capacity in trucks - !!! still need to add fcell to mining 5%?
 * it works out in the CGE that with 0.24, 3 times value of trucks goes to export, which is what is intented in eMOD
- FCELLCAP(TC,RUN) = TVCAP(TC,'HFCP-TRAHCV-N')+TVACT(TC,'PEXHFCP')*0.2;
+* FCELLCAP(TC,RUN) = TVCAP(TC,'HFCP-TRAHCV-N')+TVACT(TC,'PEXHFCP')*0.2;
 *0.24;
 
 
@@ -293,6 +296,9 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
  REPORT(PRC,'ACTGRP',TC,RUN,'Capacity') = TVCAP(TC,PRC);
  REPORT(PRC,'ACTGRP',TC,RUN,'NewCapacity') = TVNCAP(TC,PRC);
 
+
+ TVCAP(TC,PRC)$(TVCAP(TC,PRC) = eps) = 0;
+
  REPORT(PRC,'ACTGRP',TC,RUN,'CapFac')$(TVCAP(TC,PRC)*PRC_CAPACT('REGION1',PRC)) = TVACT(TC,PRC)/(TVCAP(TC,PRC)*PRC_CAPACT('REGION1',PRC));
 
  REPORT(PRC,COM,TC,RUN,'FlowIn') = TVFLOWIN(COM,TC,PRC);
@@ -300,18 +306,18 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
 
  REPORT(PRC,'ACTGRP',TC,RUN,'Investment') = INVCOST(RUN,TC,PRC);
 
- REPORT(PRC,'ACTGRP',TC,RUN,'Employment-p')$UC_CAP('UCPWR_FLAB-P','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-P','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
- REPORT(PRC,'ACTGRP',TC,RUN,'Employment-m')$UC_CAP('UCPWR_FLAB-M','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-M','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
- REPORT(PRC,'ACTGRP',TC,RUN,'Employment-s')$UC_CAP('UCPWR_FLAB-S','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-S','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
- REPORT(PRC,'ACTGRP',TC,RUN,'Employment-t')$UC_CAP('UCPWR_FLAB-T','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-T','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
+* REPORT(PRC,'ACTGRP',TC,RUN,'Employment-p')$UC_CAP('UCPWR_FLAB-P','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-P','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
+* REPORT(PRC,'ACTGRP',TC,RUN,'Employment-m')$UC_CAP('UCPWR_FLAB-M','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-M','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
+* REPORT(PRC,'ACTGRP',TC,RUN,'Employment-s')$UC_CAP('UCPWR_FLAB-S','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-S','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
+* REPORT(PRC,'ACTGRP',TC,RUN,'Employment-t')$UC_CAP('UCPWR_FLAB-T','LHS','REGION1','2012',PRC) = UC_CAP('UCPWR_FLAB-T','LHS','REGION1',TC,PRC)*(-1)*TVCAP(TC,PRC);
 
- REPORT('ETRANSDUM','ELC',TC,RUN,'Price') = ETPRICE(TC);
+* REPORT('ETRANSDUM','ELC',TC,RUN,'Price') = ETPRICE(TC);
 
 
 * Other indicators - this could be done more elegantly
- REPORT('hhd-le','ACTGRP',TC,RUN,'Population') = TFHPOP('hhd-le',TC)*POP(TC);
- REPORT('hhd-me','ACTGRP',TC,RUN,'Population') = TFHPOP('hhd-me',TC)*POP(TC);
- REPORT('hhd-he','ACTGRP',TC,RUN,'Population') = TFHPOP('hhd-he',TC)*POP(TC);
+* REPORT('hhd-le','ACTGRP',TC,RUN,'Population') = TFHPOP('hhd-le',TC)*POP(TC);
+* REPORT('hhd-me','ACTGRP',TC,RUN,'Population') = TFHPOP('hhd-me',TC)*POP(TC);
+* REPORT('hhd-he','ACTGRP',TC,RUN,'Population') = TFHPOP('hhd-he',TC)*POP(TC);
 
 * pkm and tkm
  REPORT(PRC,'ACTGRP',TC,RUN,'pkm')$PassengerOccupancy(PRC) = TVACT(TC,PRC)*PassengerOccupancy(PRC);
@@ -324,11 +330,11 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2012',PRC) LT 0),
 * Exception for biofuels in transport
 * Note that this is not perfect in that it doesn't take into account possible upstream emissions from production
 * it would be better in future iterations to have a sink linked to the supply of bioenergy
-EmisFactorCor('TRAODS','CO2',TC,RUN)$(REPORT('XTRAODS','TRAODS',TC,RUN,'FlowOut')+REPORT('XTRABID','TRAODS',TC,RUN,'FlowOut')) =
-         EmisFactor('TRAODS','CO2')*REPORT('XTRAODS','TRAODS',TC,RUN,'FlowOut')/(REPORT('XTRAODS','TRAODS',TC,RUN,'FlowOut')+REPORT('XTRABID','TRAODS',TC,RUN,'FlowOut'))+eps;
+*EmisFactorCor('TRAODS','CO2',TC,RUN)$(REPORT('XTRAODS','TRAODS',TC,RUN,'FlowOut')+REPORT('XTRABID','TRAODS',TC,RUN,'FlowOut')) =
+*         EmisFactor('TRAODS','CO2')*REPORT('XTRAODS','TRAODS',TC,RUN,'FlowOut')/(REPORT('XTRAODS','TRAODS',TC,RUN,'FlowOut')+REPORT('XTRABID','TRAODS',TC,RUN,'FlowOut'))+eps;
 
-EmisFactorCor('TRAOGS','CO2',TC,RUN)$(REPORT('XTRAOGS','TRAOGS',TC,RUN,'FlowOut')+REPORT('XTRABIE','TRAOGS',TC,RUN,'FlowOut')) =
-         EmisFactor('TRAOGS','CO2')*REPORT('XTRAOGS','TRAOGS',TC,RUN,'FlowOut')/(REPORT('XTRAOGS','TRAOGS',TC,RUN,'FlowOut')+REPORT('XTRABIE','TRAOGS',TC,RUN,'FlowOut'))+eps;
+*EmisFactorCor('TRAOGS','CO2',TC,RUN)$(REPORT('XTRAOGS','TRAOGS',TC,RUN,'FlowOut')+REPORT('XTRABIE','TRAOGS',TC,RUN,'FlowOut')) =
+*         EmisFactor('TRAOGS','CO2')*REPORT('XTRAOGS','TRAOGS',TC,RUN,'FlowOut')/(REPORT('XTRAOGS','TRAOGS',TC,RUN,'FlowOut')+REPORT('XTRABIE','TRAOGS',TC,RUN,'FlowOut'))+eps;
 
 
 

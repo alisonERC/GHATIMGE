@@ -1,7 +1,7 @@
 * this module is run at the end to compile energy sector emissions
 
-REPORT(PRC,COM,TC,RUN,Emiss)$EmisFactorCor(Com,Emiss,TC,RUN) = REPORT(PRC,COM,TC,RUN,'FlowIn')*EmisFactorCor(Com,Emiss,TC,RUN);
-REPORT(PRC,COM,TC,RUN,Emiss)$(Not EmisFactorCor(Com,Emiss,TC,RUN)) = REPORT(PRC,COM,TC,RUN,'FlowIn')*EmisFactor(Com,Emiss);
+*REPORT(PRC,COM,TC,RUN,Emiss)$EmisFactorCor(Com,Emiss,TC,RUN) = REPORT(PRC,COM,TC,RUN,'FlowIn')*EmisFactorCor(Com,Emiss,TC,RUN);
+*REPORT(PRC,COM,TC,RUN,Emiss)$(Not EmisFactorCor(Com,Emiss,TC,RUN)) = REPORT(PRC,COM,TC,RUN,'FlowIn')*EmisFactor(Com,Emiss);
 
 * Exception for International Jet Kerosene
 REPORT(PRC,COM,TC,RUN,Emiss)$MPRCSubSector(PRC,'Transport','Aviation-International') = 0;
@@ -47,7 +47,7 @@ REPORT('XUPSGAS','ACTGRP',TC,RUN,'CH4') = sum(PRC,REPORT(PRC,'CH4SF',TC,RUN,'Flo
 
 
 * CO2 capture accounted for under CO2C
-REPORT('ETGICGT-N','ACTGRP',TC,RUN,'CO2C') = REPORT('UPWRCO2SCRG','CO2CAPT',TC,RUN,'FlowOut')*(-1);
-REPORT('ETCLEKUSI-N','ACTGRP',TC,RUN,'CO2C') = REPORT('UPWRCO2SCRC','CO2CAPT',TC,RUN,'FlowOut')*(-1);
-REPORT('ETGICCC-CCS-N','ACTGRP',TC,RUN,'CO2C') = REPORT('UPWRCO2SCD','CO2CAPT',TC,RUN,'FlowOut')*(-1);
-REPORT('UDACCO2S2','ACTGRP',TC,RUN,'CO2C') = REPORT('UDACCO2S2','CO2CAPT',TC,RUN,'FlowOut')*(-1);
+*REPORT('ETGICGT-N','ACTGRP',TC,RUN,'CO2C') = REPORT('UPWRCO2SCRG','CO2CAPT',TC,RUN,'FlowOut')*(-1);
+*REPORT('ETCLEKUSI-N','ACTGRP',TC,RUN,'CO2C') = REPORT('UPWRCO2SCRC','CO2CAPT',TC,RUN,'FlowOut')*(-1);
+*REPORT('ETGICCC-CCS-N','ACTGRP',TC,RUN,'CO2C') = REPORT('UPWRCO2SCD','CO2CAPT',TC,RUN,'FlowOut')*(-1);
+*REPORT('UDACCO2S2','ACTGRP',TC,RUN,'CO2C') = REPORT('UDACCO2S2','CO2CAPT',TC,RUN,'FlowOut')*(-1);

@@ -18,7 +18,15 @@ IF (KOPTION EQ 2,
 *Targeted capital stock growth rate
  GFCF                    = SUM(C, PQ.L(C)*QINV.L(C,'S-I')) ;
  QINVK                   = GFCF / (alphainv*SUM(C, iwts(C,'S-I')*PQ0(C)));
- NGFCF                   = QINVK - SUM((RD,A,FCAPP)$AFX(A,RD), QF.L(FCAPP,A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
+ IF(EFX(TT,TC),
+   NGFCF                   = QINVK - SUM((RD,A,FCAPP)$AFX(A,RD), QF.L(FCAPP,A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
+* Remove TIMES imposed real energy investment cost (deflator is first term in denominator and price of capital is second)
+* Note that depreciation is implicityly contained in EINVCOST from TIMES
+   EINVQINV(XC,TC,TT) =  EINVCOST(RUN,TC)/(SUM(C$PQ0(C), iwts(C,'S-I')*PQ.L(C)/PQ0(C))*(alphainv*SUM(C, iwts(C,'S-I')*PQ0(C)))) ;
+   NGFCF = NGFCF -  EINVQINV(XC,TC,TT);
+  ELSE
+   NGFCF                   = QINVK - SUM((RD,A,FCAPP)$AFX(A,RD), QF.L(FCAPP,A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
+
 );
 
  WFADJ(FCAP)$CAPSHR2TOT(FCAP) = SUM((RD,A)$ANFX(A,RD), WF.L(FCAP)*WFDIST.L(FCAP,A,RD)*QF.L(FCAP,A,RD))/SUM((RD,A)$ANFX(A,RD), QF.L(FCAP,A,RD));

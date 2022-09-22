@@ -170,7 +170,7 @@ SETS
  SUPELE(PRC)  power sector technologies in eMOD
  COALSUP(PRC) detailed coal supply techs for power sector
 
- CCOAL(C)              coal commodities in eSAGE / ccoal-low, ccoal-hgh /
+ CCOAL(C)              coal commodities in eSAGE / /
  RTC(C)                commodities attracting retaliatory taxes
 
 * sets used for reverse mapping of households
@@ -458,7 +458,7 @@ EmisFactor(COM,'CO2eq') = 0;
 $include cge\includes\2energychecksinit.inc
 
 
-$include KLEM\KLEM_init.inc
+*$include KLEM\KLEM_init.inc
 
 
 Alias (MILESTONYR,MY), (P,PP);
@@ -501,7 +501,7 @@ $offtext
 
 if(SIM_ESAGE(RUN) eq 1,
 
-$batinclude cge\includes\2simulation_loop.inc
+*$batinclude cge\includes\2simulation_loop.inc
 
 ELSE
 
@@ -581,21 +581,20 @@ GDP_RUN(TC) = SUM(FSGDP,GVA_FS(FSGDP,TC));
 $include GHATIM\includes\GHGEnergyReport.inc
 
 *Get Process Emissions
-$include GHATIM\includes\GHGProcessReport.inc
+*$include GHATIM\includes\GHGProcessReport.inc
 
 if(SIM_WASTE(RUN) eq 1,
 * Run Waste Model
-$include Waste\includes\GHGWasteReport.inc
+*$include Waste\includes\GHGWasteReport.inc
 );
 
 if(SIM_AFOLU(RUN) eq 1,
 * Run AFOLU Model
-$include AFOLU\includes\GHGAfoluReport.inc
+*$include AFOLU\includes\GHGAfoluReport.inc
 *$offtext
-
 );
 
-$include KLEM\KLEM_Report.inc
+*$include KLEM\KLEM_Report.inc
 
 * generate report for run, which can then be combined later
 REPORT_RUN(PRC,COM,TC,Indicators) = REPORT(PRC,COM,TC,RUN,Indicators);

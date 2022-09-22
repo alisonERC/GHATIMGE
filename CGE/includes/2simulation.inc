@@ -7,12 +7,12 @@ OPTIONS ITERLIM=10000, LIMROW=3, LIMCOL=3, SOLPRINT=OFF, MCP=PATH, NLP=MINOS, SO
 
 SETS
 *Simulations
- X                       simulations
- XC(X)                   active simulations
- XNB(X)                  nonbase simulations
+* X                       simulations
+* XC(X)                   active simulations
+* XNB(X)                  nonbase simulations
 *Time periods
- T                       time periods
- TC(T)                   active time periods
+* T                       time periods
+* TC(T)                   active time periods
  TCN1(T)                 TC except base year
  T1(T)                   base year of simulation
  T2(T)                   second year of simulation
@@ -25,6 +25,14 @@ SETS
  FL(A)                   sector-specific (fixed) land demand
  AFX(A,RD)               sectors with calibrated capital stock growth
  ANFX(A,RD)              sectors without calibrated capital stock growth
+ EFX(T,T)                CGE years (TP) when elec capital is fixed during TIMES years (T)
+ CEGY(C)                 energy commodities   / ccoil,  celec, cpetr /
+*cngas to be added when part of SAM
+
+  energy(c)       energy commodities     / ccoil, cpetr, celec /
+
+
+
 ;
 
 ALIAS (T,TP), (TC,TCP);
@@ -47,25 +55,30 @@ PARAMETERS
  BMAT(C,FCAP)            capital composition matrix by type of capital
  PKAP(FCAP)              price of capital good by type
  GFCF                    nominal gross fixed capital formation
+
+ ICAX(C,A,RD,X,T,TT)     tracking input output coefficients
+
 ;
 
-$call    "gdxxrw i=%basedata% o=basedata index=index!a6 checkdate"
+$call    "gdxxrw i=cge\%basedata% o=basedata index=index!a6 checkdate"
 $gdxin   basedata.gdx
 
-$load    X T
-$loaddc  XC TC FL AFX CLOSURES
+*$load    X T
+$loaddc  FL AFX CLOSURES
 
  T1(TC)$(ORD(TC) EQ SMIN(TCP, ORD(TCP))) = YES;
  T2(TC)$(ORD(TC) EQ 2)                   = YES;
  TN(TC)$(ORD(TC) EQ SMAX(TCP, ORD(TCP))) = YES;
  TNUM = SUM(T$TN(T), ORD(T)) - SUM(T$T1(T), ORD(T));
 
- XC('INIT') = NO;
+* XC('INIT') = NO;
  XNUM = MAX(CARD(XC)-1,1) ;
  XNB(XC) = YES;
  XNB('BASE') = NO;
 
  XBASINIT(XC,TC) = NO;
+
+ EFX(T,TCP)$(TT(T) AND (ORD(T) GE ORD(TCP))) = YES;
 
  ANFX(A,RD)$(NOT AFX(A,RD)) = YES;
 
@@ -74,7 +87,10 @@ $loaddc  XC TC FL AFX CLOSURES
 *1. Excel inputted scenario calibration
 *------------------------------------------------------------------------------
 
-$include includes\2projection.inc
+$include cge\includes\2projection.inc
+
+
+
 
 *----------------------------------------------------------------------
 *2. Non-excel inputted scenario calibration
@@ -110,3 +126,11 @@ LOOP(XC,
 
 *If no value is specified for a factor, impose FMOBFE:
  FMOBFE(XC,F)$(FMOBFE(XC,F) + FACTFE(XC,F) + FMOBUE(XC,F) EQ 0) = 1;
+
+
+
+$include cge\includes\2initialize.inc
+
+
+*Initialise links to TIMES model
+$include cge\includes\2energyinit.inc
