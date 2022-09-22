@@ -495,18 +495,36 @@ MAXIM=0
 TOP=0
 LEFT=0
 HEIGHT=760
-WIDTH=1144
+WIDTH=738
+
+[GDXDISP: GAS Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: GAS Par 2]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
 
 [RP:ENERGY]
 1=gdx=energy
 
 [MRUFILES]
-1=C:\W\SAGE_GH_Ag+En+OEn\Energy.lst
-2=C:\W\SAGE_GH_Ag+En+OEn\Energy.gms
-3=C:\W\SAGE_GH_Ag+En+OEn\energy.gdx
-4=C:\W\SAGE_GH_Ag+En\Energy.gms
-5=C:\W\SAGE_GH_Ag+En\includes\1sambal.inc
-6=C:\W\SAGE_GH_woenergylinks\Energy.gms
-7=C:\W\SAGE_GH_woenergylinks\energy.gdx
-8=C:\W\SAGE_GH_woenergylinks\1model.dat
-9=C:\W\SAGE_GH\Energy.gms
+1=C:\Models\GHATIMGE\CGE\energy.gdx
+2=C:\Models\GHATIMGE\CGE\Energy.gms
+3=C:\Models\GHATIMGE\CGE\modeldatab.gdx
+4=C:\Models\GHATIMGE\CGE\Energy.lst
+5=C:\W\SAGE_GH_Ag+En+OEn\Energy.lst
+6=C:\W\SAGE_GH_Ag+En+OEn\Energy.gms
+7=C:\W\SAGE_GH_Ag+En+OEn\energy.gdx
+8=C:\W\SAGE_GH_Ag+En\Energy.gms
+9=C:\W\SAGE_GH_Ag+En\includes\1sambal.inc
