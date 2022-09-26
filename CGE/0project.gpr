@@ -6931,18 +6931,18 @@ PlaneRownr=-1
 5=
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\energy.gdx
-2=C:\Models\GHATIMGE\CGE\1model.dat
+1=C:\Models\GHATIMGE\CGE\model.gdx
+2=C:\Models\GHATIMGE\CGE\energy.gdx
 3=C:\W\New folder\CGE\includes\3report_loop.inc
 4=C:\W\New folder\CGE\includes\3report_init.inc
 5=C:\W\New folder\CGE\includes\3report.gms
 6=C:\W\New folder\CGE\3report.gms
 
 [OPENWINDOW_1]
-FILE0=C:\Models\GHATIMGE\CGE\1model.gms
-FILE1=C:\Models\GHATIMGE\CGE\1model.lst
-FILE2=C:\Models\GHATIMGE\CGE\model.gdx
-FILE3=C:\Models\GHATIMGE\CGE\model.gdx
+FILE0=C:\Models\GHATIMGE\CGE\1model.dat
+FILE1=C:\Models\GHATIMGE\CGE\1model.gms
+FILE2=C:\Models\GHATIMGE\CGE\1model.lst
+FILE3=C:\Models\GHATIMGE\CGE\1model.lst
 MAXIM=0
 TOP=0
 LEFT=0
