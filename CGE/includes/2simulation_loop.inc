@@ -6,9 +6,9 @@
 
 
 
-LOOP(XC,
+LOOP(XC$MRUNX(RUN,XC),
 
- LOOP(TT,
+ LOOP(TT$(NOT fail),
 
 $include cge\includes\2varinit.inc
 
@@ -63,12 +63,12 @@ $ontext
 $offtext
 
 $include GHATIM\includes\2runTIMES.inc
-  );
+);
 * if(SIM_SATIM(RUN) eq 1,
 
 $include GHATIM\includes\2TIMESReport.inc
 
-  LOOP(TC,
+  LOOP(TC$(NOT fail),
     IF(NOT T1(TC),
 
 *     Long term TFP growth
@@ -100,10 +100,11 @@ $include cge\includes\2capital.inc
       QFS.L(F) = SUM((RD,A), QF.L(F,A,RD));
 
     );
+* IF(NOT T1(TC),
 
 $include cge\includes\2closures.inc
 
- STANDCGE.SOLVELINK = 2;
+
  SOLVE standcge USING MCP ;
 
 $include cge\includes\2results.inc
@@ -111,10 +112,12 @@ $include cge\includes\2energychecks.inc
 
   );
 *end of TC loop
-$include cge\includes\2energyfcast.inc
+*$include cge\includes\2energyfcast.inc
 
  );
 * end of TT loop
 
 );
 * end of XC loop
+
+

@@ -433,12 +433,12 @@ FSGDP(FS) = yes;
 FSGDP('fa') = no;
 FSGDP('al') = no;
 
-execute 'gdxxrw.exe i=Drivers.xlsm o=driverspop.gdx index=index_E2G!a6';
-execute_load "driverspop.gdx" POP_GR;
+*execute 'gdxxrw.exe i=Drivers.xlsm o=driverspop.gdx index=index_E2G!a6';
+*execute_load "driverspop.gdx" POP_GR;
 
 
 * CGE: Parameter and set declaration-------------------------------------------
-$batinclude cge\includes\2simulation.inc
+$include cge\includes\2simulation.inc
 
 $gdxin  SetsAndMaps\SetsMaps.gdx
 $load FHMM
@@ -501,7 +501,7 @@ $offtext
 
 if(SIM_ESAGE(RUN) eq 1,
 
-*$batinclude cge\includes\2simulation_loop.inc
+$include cge\includes\2simulation_loop.inc
 
 ELSE
 
