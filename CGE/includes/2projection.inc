@@ -39,7 +39,8 @@ PARAMETER
  DTAXGR(X,T)             direct tax rate on enterprises and households
 ;
 
-$loaddc AFXPROJ TFPPROJ FPRDPROJ FACPROJ MISCPROJ POPPROJ STFPAD SFACAD SFPRDAD SAFXAD SMISCAD SPOPAD WPROJ SWAD
+$loaddc AFXPROJ TFPPROJ FPRDPROJ FACPROJ MISCPROJ POPPROJ SFACAD SFPRDAD SAFXAD SMISCAD SPOPAD WPROJ SWAD
+*STFPAD
 
 SET
  SAGR(X,T)               fixed capital demand growth rates
@@ -139,7 +140,7 @@ LOOP(TC$(NOT T1(TC)),
 
 *Accumulate annual acceleration or deceleration rates over simulation period
 LOOP(TC$(NOT T1(TC)),
- TFPAD(A,RD,XC,TC)$STFP(XC,TC-1)     = TFPAD(A,RD,XC,TC-1) + STFPAD(A,RD,XC);
+* TFPAD(A,RD,XC,TC)$STFP(XC,TC-1)     = TFPAD(A,RD,XC,TC-1) + STFPAD(A,RD,XC);
  FACAD(F,XC,TC)$SFAC(XC,TC-1)        = FACAD(F,XC,TC-1) + SFACAD(F,XC);
  WAD(F,XC,TC)$SW(XC,TC-1)            = WAD(F,XC,TC-1) + SWAD(F,XC);
  FPRDAD(F,XC,TC)$SFPRD(XC,TC-1)      = FPRDAD(F,XC,TC-1) + SFPRDAD(F,XC);
@@ -148,7 +149,8 @@ LOOP(TC$(NOT T1(TC)),
 );
 
 *Add cumulative acceleration or deceleration rates to annual long-term growth rates
- TFPPROJ(A,RD,XC,TC)    = TFPPROJ(A,RD,XC,TC)    + TFPAD(A,RD,XC,TC);
+* TFPPROJ(A,RD,XC,TC)    = TFPPROJ(A,RD,XC,TC)    + TFPAD(A,RD,XC,TC);
+ TFPPROJ(A,RD,XC,TC)    = TFPPROJ(A,RD,XC,TC);
  FPRDPROJ(F,XC,TC)      = FPRDPROJ(F,XC,TC)      + FPRDAD(F,XC,TC);
  FACPROJ(F,XC,TC)       = FACPROJ(F,XC,TC)       + FACAD(F,XC,TC);
  WPROJ(F,XC,TC)         = WPROJ(F,XC,TC)         + WAD(F,XC,TC);
