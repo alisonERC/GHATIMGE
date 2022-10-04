@@ -113,7 +113,7 @@ RESID(REG,MILESTONYR,PRC) = PRC_RESID(REG,MILESTONYR,PRC);
 
 
 *Correction made for Pulp and paper own gen, this may have to be done to more sectors as own gen becomes more prevalent
- FLOW_IN_FSFuels('pp','celec',TC) = FLOW_IN_FSFuels('pp','celec',TC) - FLOW_OUT_FSFuels('pp','celec',TC);
+* FLOW_IN_FSFuels('pp','celec',TC) = FLOW_IN_FSFuels('pp','celec',TC) - FLOW_OUT_FSFuels('pp','celec',TC);
 
 *Correction made for power sector gas. New energy balance implies all gas consumed in chemical sector. Old EB had some gas going to power.
 * Sasol autoproducers are no longer included in power.
@@ -194,10 +194,10 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
 * EFLOW('NAT',XC,TC,TT) = SUM(SUPELE, TVACT(TC,SUPELE))/3.6;
 * !!EFLOW now calculated from flow through transmission. When we include distributed generation we also need to include them in the calc
 * ELC_FLOW2(RUN,TC) = (TVACT(TC,'XAGRELC') + TVACT(TC,'XCOMELC') +TVACT(TC,'XINDELC') + TVACT(TC,'XRESELC') + TVACT(TC,'XTRAELC') + TVACT(TC,'XUPSELC') + TVACT(TC,'PEXELC'));
-* ELC_FLOW(RUN,TC) = sum(FSeMODNOELEC,FLOW_IN_FSFuels(FSeMODNOELEC,'celec',TC));
+ ELC_FLOW(RUN,TC) = sum(FSeMODNOELEC,FLOW_IN_FSFuels(FSeMODNOELEC,'celec',TC));
 
 *!!! here need to resolve whether to include distributed generators as part of 'elec' sector or not!!!
- ELC_FLOW(RUN,TC) = sum(PRC$MPRCSubSector(PRC,'Power','EDist'),TVACT(TC,PRC));
+* ELC_FLOW(RUN,TC) = sum(PRC$MPRCSubSector(PRC,'Power','EDist'),TVACT(TC,PRC));
 
 *SUM(COM$MCOMF(COM,F),FLOW_OUT_FS(FS,COM,TC));
 
@@ -220,7 +220,6 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
  ICAFSGR(C,FS,T)$(EIntensity_FS(FS,C,T-1) GT 0.00001) = EIntensity_FS(FS,C,T)/EIntensity_FS(FS,C,T-1);
 
 
- ICAFSGR(C,'nf',T) = min(1,ICAFSGR(C,'nf',T));
 
 * ICAFSGR('cpetr_d','tranlp',T,TT) = 0.8;
 
