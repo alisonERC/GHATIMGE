@@ -19,7 +19,7 @@ IF (KOPTION EQ 2,
  GFCF                    = SUM(C, PQ.L(C)*QINV.L(C,'S-I')) ;
  QINVK                   = GFCF / (alphainv*SUM(C, iwts(C,'S-I')*PQ0(C)));
  IF(EFX(TT,TC),
-   NGFCF                   = QINVK - SUM((RD,A,FCAPP)$AFX(A,RD), QF.L(FCAPP,A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
+   NGFCF                   = QINVK - SUM((RD,A)$AFX(A,RD), QF.L('fcap',A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
 * Remove TIMES imposed real energy investment cost (deflator is first term in denominator and price of capital is second)
 * Note that depreciation is implicityly contained in EINVCOST from TIMES
    EINVQINV(XC,TC,TT) =  EINVCOST(RUN,TC)/(SUM(C$PQ0(C), iwts(C,'S-I')*PQ.L(C)/PQ0(C))*(alphainv*SUM(C, iwts(C,'S-I')*PQ0(C)))) ;

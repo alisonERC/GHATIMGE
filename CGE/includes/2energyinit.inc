@@ -107,8 +107,6 @@ FSXEP(FS) = Yes;
 *FSXEP('elec') = No;
 *FSXEP('tran') = No;
 *FSXEP('petr') = No;
-FSXEP('fa') = No;
-FSXEP('al') = No;
 
 
 * set commodities that get set using the main ica calc approach

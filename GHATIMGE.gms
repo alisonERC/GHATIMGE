@@ -175,7 +175,7 @@ SETS
 
 * sets used for reverse mapping of households
 *FH*----------------------------------------------------------------------------
- MFHHT(FH,H,AY) reverse mapping (TIMES to CGE) for households
+ MFHHT(H,FH) reverse mapping (TIMES to CGE) for households
 
   Indicators eMOD indicators /Activity, Capacity, NewCapacity, CapFac, FlowIn, FlowOut, AnnInvCost, FOM, VOM, FuelCosts, Marginals, Levies, ExternalityCosts, CO2Tax, CO2, CO2C, CH4, N2O, CF4, C2F6, CO2eq, FlowInMt, Investment,Price, GVA, Population, Consumption, Employment-p, Employment-m,Employment-s,Employment-t,PalmaRatio,20-20Ratio,TradeDeficit,Imports,Exports,pkm, tkm/
   Emiss(Indicators) / CO2, CH4, N2O, CF4, C2F6, CO2eq/
@@ -409,7 +409,7 @@ LOOP(TS_HOURLY,
 $call   "gdxxrw i=SetsAndMaps\SetsAndMaps.xlsm o=SetsAndMaps\SetsMaps index=index!a6 checkdate"
 $gdxin  SetsAndMaps\SetsMaps.gdx
 $loaddc PRC COM S TS_DAYNITE TS_WEEKLY TS_SEASON DEM1 UC_N FSeMOD FS FH COALSUP PRCH TCG
-$load MFHH MHPRCH MCTCG MFSA MPRCFS MPRCFS2 mCOMC mCOMF Sector SubSector SubSubSector MPRCSector MPRCSubSector MPRCSubSubSector COMEXT
+$load MFHH MFHHT MHPRCH MCTCG MFSA MPRCFS MPRCFS2 mCOMC mCOMF Sector SubSector SubSubSector MPRCSector MPRCSubSector MPRCSubSubSector COMEXT
 $load PassengerOccupancy  FreightLoad CoalCV
 
 
@@ -430,8 +430,6 @@ PRCBulkPower(PRC)$MPRCSubSubSector(PRC,'Power','EBattery','Ebattery_Dist') = no;
 PRCBulkPower(PRC)$MPRCSubSubSector(PRC,'Power','EPV','EPV_Dist') = no;
 
 FSGDP(FS) = yes;
-FSGDP('fa') = no;
-FSGDP('al') = no;
 
 *execute 'gdxxrw.exe i=Drivers.xlsm o=driverspop.gdx index=index_E2G!a6';
 *execute_load "driverspop.gdx" POP_GR;
@@ -508,8 +506,8 @@ ELSE
 
 
 * Read in GDP and Population from Drivers Workbook
-  execute 'gdxxrw.exe i=Drivers.xlsm o=drivers.gdx index=index_E2G!a6';
-  execute_load "drivers.gdx" GVA_FS POP YHE TFHPOP MFHHT QD_FS;
+*  execute 'gdxxrw.exe i=Drivers.xlsm o=drivers.gdx index=index_E2G!a6';
+*  execute_load "drivers.gdx" GVA_FS POP YHE TFHPOP MFHHT QD_FS;
 
 
   if(SIM_eMOD(RUN) eq 1,
@@ -565,7 +563,7 @@ $include GHATIM\includes\2runTIMES.inc
 
 * Get Energy Model Results
 $include GHATIM\includes\2TIMESReport.inc
-REPORT(PRC,'ACTGRP',TC,RUN,'GVA') = SUM(FS$MPRCFS2(PRC,FS),GVA_FS(FS,TC));
+*REPORT(PRC,'ACTGRP',TC,RUN,'GVA') = SUM(FS$MPRCFS2(PRC,FS),GVA_FS(FS,TC));
 
 
 );
@@ -575,7 +573,7 @@ REPORT(PRC,'ACTGRP',TC,RUN,'GVA') = SUM(FS$MPRCFS2(PRC,FS),GVA_FS(FS,TC));
 $include GHATIM\includes\2TIMESSubAnnualReport.inc
 
 
-GDP_RUN(TC) = SUM(FSGDP,GVA_FS(FSGDP,TC));
+*GDP_RUN(TC) = SUM(FSGDP,GVA_FS(FSGDP,TC));
 
 *$ontext
 $include GHATIM\includes\GHGEnergyReport.inc

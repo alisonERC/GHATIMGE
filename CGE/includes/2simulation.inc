@@ -34,7 +34,7 @@ SETS
  CEGY(C)                 energy commodities   / ccoil,  celec, cpetr /
 *cngas to be added when part of SAM
 
-  energy(c)       energy commodities     / ccoil, cpetr, celec /
+  energy(c)       energy commodities     / ccoil, cpetr, celec, cngas /
 
 
 

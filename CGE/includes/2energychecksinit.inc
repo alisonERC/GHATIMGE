@@ -1,5 +1,5 @@
 sets
-  MOD models /eMOD, eSAGE/
+  MOD models /eMOD, eGEM/
   QType quantitity types /qq, qd, qint, qe, qm, qh, qx, qxac/
   IN_OUT flow direction /IN, OUT, CO2/
   eMOD_IND eMOD indicators /Activity, Capacity, NewCapacity, FlowIn, FlowOut, CO2, Investment, GVA, Employment/
@@ -14,9 +14,9 @@ sets
 parameters
  BalanceCheck(QType,C,TC,RUN) balance check
 
- EBCHECK(MOD,FSeMOD,IN_OUT,C,TC,TT,RUN) Final Energy Demand for eMOD sectors in eMOD and eSAGE models
+ EBCHECK(MOD,FSeMOD,IN_OUT,C,TC,TT,RUN) Final Energy Demand for eMOD sectors in eMOD and eGEM models
 
- EIntensity(MOD,FSeMOD,C,TC,TT,RUN) Energy Intensity in eMOD and ESAGE models
+ EIntensity(MOD,FSeMOD,C,TC,TT,RUN) Energy Intensity in eMOD and EGEM models
 
  CO2OUT(C) CO2 emission factors for linked model
 

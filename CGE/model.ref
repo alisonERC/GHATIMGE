@@ -9674,7 +9674,7 @@
 157 FD 2 SET 1 0 154 disaggregate factors
 158 FLAB 2 SET 1 8 154 labor
 159 FLIV 2 SET 1 0 154 livestock
-160 FCAP 2 SET 1 1 154 capital
+160 FCAP 2 SET 1 2 154 capital
 161 FLND 2 SET 1 0 154 land (agriculture crops)
 162 INS 2 SET 1 18 137 institutions
 163 INSD 2 SET 1 17 162 domestic institutions

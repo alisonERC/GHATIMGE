@@ -4558,9 +4558,6 @@ SqTrail0=0
 3=r=rep
 4=
 
-[RP:2CAPITAL]
-1=
-
 [GDXDISP: HHDCX Par 3]
 PlaneDim=0
 RowDim=2
@@ -6923,6 +6920,9 @@ PlaneRownr=-1
 8=r=model gdx=simulation
 9=
 
+[RP:2CAPITAL]
+1=
+
 [RP:1MODEL]
 1=gdx=model s=model rf=model
 2=gdx=model s=model
@@ -6931,18 +6931,18 @@ PlaneRownr=-1
 5=
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\model.gdx
-2=C:\Models\GHATIMGE\CGE\energy.gdx
-3=C:\W\New folder\CGE\includes\3report_loop.inc
-4=C:\W\New folder\CGE\includes\3report_init.inc
-5=C:\W\New folder\CGE\includes\3report.gms
-6=C:\W\New folder\CGE\3report.gms
+1=C:\Models\GHATIMGE\CGE\energy.gdx
+2=C:\W\New folder\CGE\includes\3report_loop.inc
+3=C:\W\New folder\CGE\includes\3report_init.inc
+4=C:\W\New folder\CGE\includes\3report.gms
+5=C:\W\New folder\CGE\3report.gms
 
 [OPENWINDOW_1]
 FILE0=C:\Models\GHATIMGE\CGE\1model.dat
 FILE1=C:\Models\GHATIMGE\CGE\1model.gms
 FILE2=C:\Models\GHATIMGE\CGE\1model.lst
-FILE3=C:\Models\GHATIMGE\CGE\1model.lst
+FILE3=C:\Models\GHATIMGE\CGE\model.gdx
+FILE4=C:\Models\GHATIMGE\CGE\model.gdx
 MAXIM=0
 TOP=0
 LEFT=0
