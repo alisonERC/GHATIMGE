@@ -7,6 +7,8 @@
 
 
 LOOP(XC$MRUNX(RUN,XC),
+ execute_load "dem_start.gdx" ELCDEM
+ execute_unload "EnergyDemand.gdx" ELCDEM
 
  LOOP(TT$(NOT fail),
 
@@ -19,15 +21,15 @@ if(SIM_eMOD(RUN) eq 1,
 * Read resulting Demand from DMD_PROJ workbook
 *         execute 'gdxxrw.exe i=.\eMOD\DataSpreadsheets\DMD_PRJ.xlsx o=EnergyDemand.gdx index=index_E2G!a6';
 *         execute_load "EnergyDemand.gdx" SIM_DEMX;
+          execute_load "EnergyDemand.gdx" ELCDEM;
+          SIM_DEMX(DEM1,TC) = SUM(FSeMOD$MELCDEM(FSeMOD,DEM1),ELCDEM(FSeMOD,TC));
 * Need to Add Occupancy and Freight loading per vehicle category to calculate pkm and tkm
 
 * Adjust Transport Demand
 *  LOOP(TC$(ORD(TC) gt 6),
 *        SIM_DEMX(TPPR,TC)$(SUM(H,QHX('cprtr',H,XC,TC-1,TT-1))) = SIM_DEMX(TPPR,TC-1)*SUM(H,QHX('cprtr',H,XC,TC,TT-1))/SUM(H,QHX('cprtr',H,XC,TC-1,TT-1));
 *);
-* LOOP(TC,
 
-$ontext
 * Write Demand DDS File
          PUT  SIM_DEM_FILE;
          SIM_DEM_FILE.pc = 2;
@@ -45,6 +47,8 @@ $ontext
 
                  );
          );
+$ontext
+
          PUT "/;"/;
 
 *Write Cumulative CO2 CAP bound
@@ -53,6 +57,7 @@ $ontext
          if(EFVAL,
                  PUT "REGION1.CO2EQSB.2021.2050.'UP'  ", EFVAL /;
          );
+$offtext
          PUTCLOSE "/;";
 
          PUT  ShowRunNumber;
@@ -60,11 +65,10 @@ $ontext
          RUNTIMES2.nd = 5;
          RUNTIMES2.ap = 0;
          PUTCLOSE "";
-$offtext
 
-$include GHATIM\includes\2runTIMES.inc
+*$include GHATIM\includes\2runTIMES.inc
 );
-* if(SIM_SATIM(RUN) eq 1,
+* if(SIM_eMOD(RUN) eq 1,
 
 $include GHATIM\includes\2TIMESReport.inc
 
@@ -109,6 +113,10 @@ $include cge\includes\2closures.inc
 
 $include cge\includes\2results.inc
 $include cge\includes\2energychecks.inc
+ELCDEM(FSeMOD,TC) = EBCHECK('eGEM',FSeMOD,'IN','celec',TC,TT,RUN)*(-1);
+
+execute_unload "EnergyDemand.gdx" ELCDEM
+
 
   );
 *end of TC loop

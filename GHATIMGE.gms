@@ -164,6 +164,7 @@ SETS
 
   MFSP(FSeMOD,PRC)           mapping of technologies used for each sector to track process emissions
 
+  MELCDEM(FSeMOD,COM)        mapping of demand commodities to sectors
 
 * Other eMOD Sets
  ELE(REG,PRC) power sectir technologies in TIMES
@@ -239,7 +240,7 @@ PARAMETERS
 
 * Data from Demand Model (spreadsheet-based at this stage)
   SIM_DEMX(COM,AY)               Demand extracted from excel
-
+  ELCDEM(FSeMOD,AY)              Electricity demand from CGE to TIMES model
 * Intermediate parameters
 
   GVA_FS(FS,AY)                  eMOD Sector GVA
@@ -409,7 +410,7 @@ LOOP(TS_HOURLY,
 $call   "gdxxrw i=SetsAndMaps\SetsAndMaps.xlsm o=SetsAndMaps\SetsMaps index=index!a6 checkdate"
 $gdxin  SetsAndMaps\SetsMaps.gdx
 $loaddc PRC COM S TS_DAYNITE TS_WEEKLY TS_SEASON DEM1 UC_N FSeMOD FS FH COALSUP PRCH TCG
-$load MFHH MFHHT MHPRCH MCTCG MFSA MPRCFS MPRCFS2 mCOMC mCOMF Sector SubSector SubSubSector MPRCSector MPRCSubSector MPRCSubSubSector COMEXT
+$load MFHH MFHHT MHPRCH MCTCG MFSA MPRCFS MPRCFS2 MELCDEM mCOMC mCOMF Sector SubSector SubSubSector MPRCSector MPRCSubSector MPRCSubSubSector COMEXT
 $load PassengerOccupancy  FreightLoad CoalCV
 
 
