@@ -1,0 +1,18 @@
+ITEMS FILTERS
+-	_ALLPROC	1	All Processes	1	11/7/2006 11:34:32 PM	null	(((([GroupFlags]\1) Mod 2) = 1))	null	null	null	null	null	null	null
+-	GH_SOLAR	1	All utility PV techs generic and specific in Ghana	1	10/7/2022 11:10:39 PM	null	(((tblITEMS.Item = "GHSOPC00")) OR ((tblITEMS.Item = "GHSOPCZ001")) OR ((tblITEMS.Item = "GHSOPCZ002")) OR ((tblITEMS.Item = "GHSOPCZ003")) OR ((tblITEMS.Item = "GHSOPCZ004")) OR ((tblITEMS.Item = "GHSOPCZ005")))	null	null	null	null	null	null	null
+-	GH_WIND	1	All wind techs Generic and Specific Ghana	1	10/7/2022 11:06:05 PM	null	(((tblITEMS.Item = "GHWDLC00")) OR ((tblITEMS.Item = "GHWDLCZ001")) OR ((tblITEMS.Item = "GHWDLCZ002")) OR ((tblITEMS.Item = "GHWDLCZ003")) OR ((tblITEMS.Item = "GHWDLCZ004")) OR ((tblITEMS.Item = "GHWDLCZ005")))	null	null	null	null	null	null	null
+ITEMS FILTERS CELLS
+-	_ALLPROC	1	3	True	PRC
+-	GH_SOLAR	6	1	True	= "GHSOPCZ005"
+-	GH_SOLAR	5	1	True	= "GHSOPCZ004"
+-	GH_SOLAR	4	1	True	= "GHSOPCZ003"
+-	GH_SOLAR	3	1	True	= "GHSOPCZ002"
+-	GH_SOLAR	2	1	True	= "GHSOPCZ001"
+-	GH_SOLAR	1	1	True	= "GHSOPC00"
+-	GH_WIND	6	1	True	= "GHWDLCZ005"
+-	GH_WIND	5	1	True	= "GHWDLCZ004"
+-	GH_WIND	4	1	True	= "GHWDLCZ003"
+-	GH_WIND	3	1	True	= "GHWDLCZ002"
+-	GH_WIND	2	1	True	= "GHWDLCZ001"
+-	GH_WIND	1	1	True	= "GHWDLC00"
