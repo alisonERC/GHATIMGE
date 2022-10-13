@@ -1,0 +1,1903 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20214.22.0812.0355                               -->
+<workbook original-version='18.1' source-build='2021.4.10 (20214.22.0812.0355)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style>
+    <style-rule element='worksheet'>
+      <format attr='font-size' value='12' />
+    </style-rule>
+  </style>
+  <datasources>
+    <datasource caption='REPORT_00.csv+ (Multiple Connections)' inline='true' name='federated.1y1rny11rykgda1gt9sd5098jqi4' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='REPORT_00' name='textscan.0xd2sw40t80wkg1f44hui0szv4z5'>
+            <connection class='textscan' directory='Data/GHATIMGE' filename='REPORT_00.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='SetsAndMaps' name='excel-direct.1dlhzt71gh4kil177b3em168gwiy'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='Data/GHATIMGE/SetsAndMaps/SetsAndMaps.xlsm' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.0xd2sw40t80wkg1f44hui0szv4z5' name='REPORT_00.csv' table='[REPORT_00#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_ZA'>
+            <column datatype='string' name='Process' ordinal='0' />
+            <column datatype='string' name='Commodity' ordinal='1' />
+            <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='2' />
+            <column datatype='string' name='Scenario' ordinal='3' />
+            <column datatype='string' name='Indicator' ordinal='4' />
+            <column datatype='real' name='eMOD' ordinal='5' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='textscan.0xd2sw40t80wkg1f44hui0szv4z5' name='REPORT_00.csv' table='[REPORT_00#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_ZA'>
+              <column datatype='string' name='Process' ordinal='0' />
+              <column datatype='string' name='Commodity' ordinal='1' />
+              <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='2' />
+              <column datatype='string' name='Scenario' ordinal='3' />
+              <column datatype='string' name='Indicator' ordinal='4' />
+              <column datatype='real' name='eMOD' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1dlhzt71gh4kil177b3em168gwiy' name='mapCOM' table='[mapCOM$]' type='table'>
+            <columns gridOrigin='A1:D563:no:A1:D563:0' header='yes' outcome='2'>
+              <column datatype='string' name='Commodity' ordinal='0' />
+              <column datatype='string' name='Description' ordinal='1' />
+              <column datatype='string' name='Short Description' ordinal='2' />
+              <column datatype='string' name='Commodity_Name' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1dlhzt71gh4kil177b3em168gwiy' name='mapPRC' table='[mapPRC$]' type='table'>
+            <columns gridOrigin='A1:I1098:no:A1:I1098:0' header='yes' outcome='2'>
+              <column datatype='string' name='Process' ordinal='0' />
+              <column datatype='string' name='Sector' ordinal='1' />
+              <column datatype='string' name='Subsector' ordinal='2' />
+              <column datatype='string' name='Subsubsector' ordinal='3' />
+              <column datatype='string' name='TechDescription' ordinal='4' />
+              <column datatype='string' name='IPCC_Category_L1' ordinal='5' />
+              <column datatype='string' name='IPCC_Category_L2' ordinal='6' />
+              <column datatype='string' name='IPCC_Category_L3' ordinal='7' />
+              <column datatype='string' name='IPCC_Category_L4' ordinal='8' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Commodity (mapCOM)]' value='[mapCOM].[Commodity]' />
+          <map key='[Commodity]' value='[REPORT_00.csv].[Commodity]' />
+          <map key='[Commodity_Name]' value='[mapCOM].[Commodity_Name]' />
+          <map key='[Description]' value='[mapCOM].[Description]' />
+          <map key='[IPCC_Category_L1]' value='[mapPRC].[IPCC_Category_L1]' />
+          <map key='[IPCC_Category_L2]' value='[mapPRC].[IPCC_Category_L2]' />
+          <map key='[IPCC_Category_L3]' value='[mapPRC].[IPCC_Category_L3]' />
+          <map key='[IPCC_Category_L4]' value='[mapPRC].[IPCC_Category_L4]' />
+          <map key='[Indicator]' value='[REPORT_00.csv].[Indicator]' />
+          <map key='[Process (mapPRC)]' value='[mapPRC].[Process]' />
+          <map key='[Process]' value='[REPORT_00.csv].[Process]' />
+          <map key='[Scenario]' value='[REPORT_00.csv].[Scenario]' />
+          <map key='[Sector]' value='[mapPRC].[Sector]' />
+          <map key='[Short Description]' value='[mapCOM].[Short Description]' />
+          <map key='[Subsector]' value='[mapPRC].[Subsector]' />
+          <map key='[Subsubsector]' value='[mapPRC].[Subsubsector]' />
+          <map key='[TechDescription]' value='[mapPRC].[TechDescription]' />
+          <map key='[Year]' value='[REPORT_00.csv].[Year]' />
+          <map key='[eMOD]' value='[REPORT_00.csv].[eMOD]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[REPORT_00.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;R&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_ZA&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot; &quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[mapCOM]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D563:no:A1:D563:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:I1098:no:A1:I1098:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Process</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Process]</local-name>
+            <parent-name>[REPORT_00.csv]</parent-name>
+            <remote-alias>Process</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Commodity</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Commodity]</local-name>
+            <parent-name>[REPORT_00.csv]</parent-name>
+            <remote-alias>Commodity</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[REPORT_00.csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Scenario</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Scenario]</local-name>
+            <parent-name>[REPORT_00.csv]</parent-name>
+            <remote-alias>Scenario</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Indicator</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Indicator]</local-name>
+            <parent-name>[REPORT_00.csv]</parent-name>
+            <remote-alias>Indicator</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>eMOD</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[eMOD]</local-name>
+            <parent-name>[REPORT_00.csv]</parent-name>
+            <remote-alias>eMOD</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Commodity</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Commodity (mapCOM)]</local-name>
+            <parent-name>[mapCOM]</parent-name>
+            <remote-alias>Commodity</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapCOM_54E069D160E44F3EB58AE631290FFCB5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[mapCOM]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapCOM_54E069D160E44F3EB58AE631290FFCB5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Short Description</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Short Description]</local-name>
+            <parent-name>[mapCOM]</parent-name>
+            <remote-alias>Short Description</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapCOM_54E069D160E44F3EB58AE631290FFCB5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Commodity_Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Commodity_Name]</local-name>
+            <parent-name>[mapCOM]</parent-name>
+            <remote-alias>Commodity_Name</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapCOM_54E069D160E44F3EB58AE631290FFCB5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Process</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Process (mapPRC)]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>Process</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sector</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sector]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>Sector</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Subsector</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Subsector]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>Subsector</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Subsubsector</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Subsubsector]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>Subsubsector</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TechDescription</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[TechDescription]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>TechDescription</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IPCC_Category_L1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[IPCC_Category_L1]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>IPCC_Category_L1</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IPCC_Category_L2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[IPCC_Category_L2]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>IPCC_Category_L2</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IPCC_Category_L3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[IPCC_Category_L3]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>IPCC_Category_L3</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IPCC_Category_L4</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[IPCC_Category_L4]</local-name>
+            <parent-name>[mapPRC]</parent-name>
+            <remote-alias>IPCC_Category_L4</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RZA_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[mapPRC_5581F79211C1431B8369990D07E8CDBB]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='TWh' datatype='real' name='[Calculation_1780047768966176768]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[eMOD]/3.6' />
+      </column>
+      <column caption='Commodity Name' datatype='string' name='[Commodity_Name]' role='dimension' type='nominal' />
+      <column caption='IPCC Category L1' datatype='string' name='[IPCC_Category_L1]' role='dimension' type='nominal' />
+      <column caption='IPCC Category L2' datatype='string' name='[IPCC_Category_L2]' role='dimension' type='nominal' />
+      <column caption='IPCC Category L3' datatype='string' name='[IPCC_Category_L3]' role='dimension' type='nominal' />
+      <column caption='IPCC Category L4' datatype='string' name='[IPCC_Category_L4]' role='dimension' type='nominal' />
+      <column caption='Capacity' datatype='real' name='[PeakDemand (copy)_2239133459044761601]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='iif([Subsector]=&quot;ETrans&quot;,0,[eMOD])' />
+      </column>
+      <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+      <column caption='PeakDemand' datatype='real' name='[TWh (copy)_2239133459044364288]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='iif([Subsector]=&quot;ETrans&quot;,[eMOD]/.81,0)' />
+      </column>
+      <column caption='Tech Description' datatype='string' name='[TechDescription]' role='dimension' type='nominal' />
+      <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='REPORT_00.csv' datatype='table' name='[__tableau_internal_object_id__].[REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='mapCOM' datatype='table' name='[__tableau_internal_object_id__].[mapCOM_54E069D160E44F3EB58AE631290FFCB5]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='mapPRC' datatype='table' name='[__tableau_internal_object_id__].[mapPRC_5581F79211C1431B8369990D07E8CDBB]' role='measure' type='quantitative' />
+      <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+      <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Subsector:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;ECoal_CCS&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Extraction-Bio&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;EBiomass&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;EHydro&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;EOil&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;Extraction-Gas&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;ETrans&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;EWind&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;ECoal&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Imports&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;TakeOrPayContracts&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;EPV&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;ECSP&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;EDist&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Extraction-RE&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;EGas&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Subsector:nk]&#10;[:Measure Names]' type='palette'>
+            <map-pri to='multiordinal_blue_10_0'>
+              <bucket>&quot;EPV&quot;</bucket>
+            </map-pri>
+            <map-pri to='multiordinal_gold_10_0'>
+              <bucket>&quot;EGas&quot;</bucket>
+            </map-pri>
+            <map-pri to='multiordinal_gray_10_0'>
+              <bucket>&quot;EBattery&quot;</bucket>
+            </map-pri>
+            <map-pri to='multiordinal_green_10_0'>
+              <bucket>&quot;EHydro&quot;</bucket>
+            </map-pri>
+            <map-pri to='multiordinal_orange_10_0'>
+              <bucket>&quot;EWind&quot;</bucket>
+            </map-pri>
+            <map-pri to='multiordinal_red_10_0'>
+              <bucket>&quot;ETrans&quot;</bucket>
+            </map-pri>
+            <map-pri to='multiordinal_teal_10_0'>
+              <bucket>&quot;EOil&quot;</bucket>
+            </map-pri>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;South Africa&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='Process' />
+        <field-sort-custom-order field='Commodity' />
+        <field-sort-custom-order field='Year' />
+        <field-sort-custom-order field='Scenario' />
+        <field-sort-custom-order field='Indicator' />
+        <field-sort-custom-order field='eMOD' />
+        <field-sort-custom-order field='Calculation_1780047768966176768' />
+        <field-sort-custom-order field='TWh (copy)_2239133459044364288' />
+        <field-sort-custom-order field='PeakDemand (copy)_2239133459044761601' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='REPORT_00.csv' id='REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83'>
+            <properties context=''>
+              <relation connection='textscan.0xd2sw40t80wkg1f44hui0szv4z5' name='REPORT_00.csv' table='[REPORT_00#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_ZA'>
+                  <column datatype='string' name='Process' ordinal='0' />
+                  <column datatype='string' name='Commodity' ordinal='1' />
+                  <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='2' />
+                  <column datatype='string' name='Scenario' ordinal='3' />
+                  <column datatype='string' name='Indicator' ordinal='4' />
+                  <column datatype='real' name='eMOD' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='mapCOM' id='mapCOM_54E069D160E44F3EB58AE631290FFCB5'>
+            <properties context=''>
+              <relation connection='excel-direct.1dlhzt71gh4kil177b3em168gwiy' name='mapCOM' table='[mapCOM$]' type='table'>
+                <columns gridOrigin='A1:D563:no:A1:D563:0' header='yes' outcome='2'>
+                  <column datatype='string' name='Commodity' ordinal='0' />
+                  <column datatype='string' name='Description' ordinal='1' />
+                  <column datatype='string' name='Short Description' ordinal='2' />
+                  <column datatype='string' name='Commodity_Name' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='mapPRC' id='mapPRC_5581F79211C1431B8369990D07E8CDBB'>
+            <properties context=''>
+              <relation connection='excel-direct.1dlhzt71gh4kil177b3em168gwiy' name='mapPRC' table='[mapPRC$]' type='table'>
+                <columns gridOrigin='A1:I1098:no:A1:I1098:0' header='yes' outcome='2'>
+                  <column datatype='string' name='Process' ordinal='0' />
+                  <column datatype='string' name='Sector' ordinal='1' />
+                  <column datatype='string' name='Subsector' ordinal='2' />
+                  <column datatype='string' name='Subsubsector' ordinal='3' />
+                  <column datatype='string' name='TechDescription' ordinal='4' />
+                  <column datatype='string' name='IPCC_Category_L1' ordinal='5' />
+                  <column datatype='string' name='IPCC_Category_L2' ordinal='6' />
+                  <column datatype='string' name='IPCC_Category_L3' ordinal='7' />
+                  <column datatype='string' name='IPCC_Category_L4' ordinal='8' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[Commodity]' />
+              <expression op='[Commodity (mapCOM)]' />
+            </expression>
+            <first-end-point object-id='REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83' />
+            <second-end-point object-id='mapCOM_54E069D160E44F3EB58AE631290FFCB5' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Process]' />
+              <expression op='[Process (mapPRC)]' />
+            </expression>
+            <first-end-point object-id='REPORT_00.csv_5B193AB4C5354CE2BF84A2EEFC52FE83' />
+            <second-end-point object-id='mapPRC_5581F79211C1431B8369990D07E8CDBB' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='AnnualizedInvestment'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsubsector]' role='dimension' type='nominal' />
+            <column caption='Tech Description' datatype='string' name='[TechDescription]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsubsector]' derivation='None' name='[none:Subsubsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[TechDescription]' derivation='None' name='[none:TechDescription:nk]' pivot='key' type='nominal' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[sum:eMOD:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;AnnInvCost&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Power&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;EPV&quot;</bucket>
+              <bucket>&quot;EWind&quot;</bucket>
+              <bucket>&quot;EBiomass&quot;</bucket>
+              <bucket>&quot;EHydro&quot;</bucket>
+              <bucket>&quot;EGas&quot;</bucket>
+              <bucket>&quot;EOil&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EBiomass&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECoal_Existing&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_New&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECSP&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EGas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Egas_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydro&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroDam&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydrogenTurbine&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroROR&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EImports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EOil&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPumpStorage&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Etrans&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EWind&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Exports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Koeberg&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;New Nuclear&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Onsite Storage-Iron and Steel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Other&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]' scope='rows' value='m$' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+              <lod column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:TechDescription:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{D96A1975-B1E0-40E2-956A-8FD64EF8F3CE}' />
+    </worksheet>
+    <worksheet name='CO2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Commodity]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Commodity]' derivation='None' name='[none:Commodity:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[sum:eMOD:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Commodity:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Commodity:nk]' member='&quot;PWRCO2I00&quot;' />
+              <groupfilter function='member' level='[none:Commodity:nk]' member='&quot;PWRCO2X00&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;FlowOut&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Commodity:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{179F6203-3A6E-4179-8D0F-B80C753AAABB}' />
+    </worksheet>
+    <worksheet name='CO2 (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Commodity]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Commodity]' derivation='None' name='[none:Commodity:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[sum:eMOD:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Commodity:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Commodity:nk]' member='&quot;PWRCO2I00&quot;' />
+              <groupfilter function='member' level='[none:Commodity:nk]' member='&quot;PWRCO2X00&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;FlowOut&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Commodity:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{961CD968-9C44-4D03-BFD9-A235E062D5FA}' />
+    </worksheet>
+    <worksheet name='ElcCapacity'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column caption='Capacity' datatype='real' name='[PeakDemand (copy)_2239133459044761601]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='iif([Subsector]=&quot;ETrans&quot;,0,[eMOD])' />
+            </column>
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsubsector]' role='dimension' type='nominal' />
+            <column caption='PeakDemand' datatype='real' name='[TWh (copy)_2239133459044364288]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='iif([Subsector]=&quot;ETrans&quot;,[eMOD]/.81,0)' />
+            </column>
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsubsector]' derivation='None' name='[none:Subsubsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[PeakDemand (copy)_2239133459044761601]' derivation='Sum' name='[sum:PeakDemand (copy)_2239133459044761601:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[TWh (copy)_2239133459044364288]' derivation='Sum' name='[sum:TWh (copy)_2239133459044364288:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year' name='[yr:Year:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;Capacity&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Power&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;EPV&quot;</bucket>
+              <bucket>&quot;EWind&quot;</bucket>
+              <bucket>&quot;EBiomass&quot;</bucket>
+              <bucket>&quot;EHydro&quot;</bucket>
+              <bucket>&quot;EGas&quot;</bucket>
+              <bucket>&quot;EOil&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EBiomass&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECoal_Existing&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_New&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECSP&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EGas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Egas_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydro&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroDam&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydrogenTurbine&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroROR&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EImports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EOil&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPumpStorage&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Etrans&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EWind&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Exports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Koeberg&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;New Nuclear&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Onsite Storage-Iron and Steel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Other&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[yr:Year:ok]' member='2022' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2023' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2024' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2025' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2026' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2027' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2028' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2029' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2030' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2031' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2032' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2033' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2034' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2035' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2036' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2037' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2038' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2039' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2040' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2041' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2042' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2043' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2044' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2045' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2046' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2047' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2048' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2049' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2050' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:TWh (copy)_2239133459044364288:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:PeakDemand (copy)_2239133459044761601:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[:Measure Names]' />
+              <text column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:TWh (copy)_2239133459044364288:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:PeakDemand (copy)_2239133459044761601:qk] + [federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:TWh (copy)_2239133459044364288:qk])</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{886D2BEA-9457-4259-B054-5D8AA2014F7D}' />
+    </worksheet>
+    <worksheet name='ElcCosts'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsubsector]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsubsector]' derivation='None' name='[none:Subsubsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[sum:eMOD:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year' name='[yr:Year:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;AnnInvCost&quot;' />
+              <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;FOM&quot;' />
+              <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;FuelCosts&quot;' />
+              <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;VOM&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Power&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;EPV&quot;</bucket>
+              <bucket>&quot;EWind&quot;</bucket>
+              <bucket>&quot;EBiomass&quot;</bucket>
+              <bucket>&quot;EHydro&quot;</bucket>
+              <bucket>&quot;EGas&quot;</bucket>
+              <bucket>&quot;EOil&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EBiomass&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECoal_Existing&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_New&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECSP&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EGas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Egas_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydro&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroDam&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydrogenTurbine&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroROR&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EImports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EOil&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPumpStorage&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EWind&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Exports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Koeberg&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;New Nuclear&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Onsite Storage-Iron and Steel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Other&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;TakeOrPayContracts-Diesel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;TakeOrPayContracts-Gas&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[yr:Year:ok]' member='2022' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2023' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2024' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2025' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2026' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2027' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2028' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2029' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2030' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2031' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2032' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2033' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2034' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2035' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2036' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2037' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2038' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2039' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2040' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2041' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2042' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2043' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2044' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2045' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2046' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2047' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2048' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2049' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2050' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]' scope='rows' value='M$' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{F16A6522-DB93-4406-9650-A14334C9BDEC}' />
+    </worksheet>
+    <worksheet name='ElcInvestment'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsubsector]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[cum:sum:eMOD:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+            </column-instance>
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsubsector]' derivation='None' name='[none:Subsubsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;Investment&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Power&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EBiomass&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECoal_Existing&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_New&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECSP&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EGas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Egas_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydro&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydrogenTurbine&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EImports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EOil&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPumpStorage&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EWind&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Exports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Koeberg&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;New Nuclear&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Onsite Storage-Iron and Steel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Other&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1y1rny11rykgda1gt9sd5098jqi4].[cum:sum:eMOD:qk]' scope='rows' value='b$' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[cum:sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{ED8F74FA-769E-4296-A415-B4366127AAD6}' />
+    </worksheet>
+    <worksheet name='ElcNewCapacity'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsubsector]' role='dimension' type='nominal' />
+            <column caption='Tech Description' datatype='string' name='[TechDescription]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsubsector]' derivation='None' name='[none:Subsubsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[TechDescription]' derivation='None' name='[none:TechDescription:nk]' pivot='key' type='nominal' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[sum:eMOD:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year' name='[yr:Year:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;NewCapacity&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Power&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EBiomass&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECoal_Existing&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_New&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECSP&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EGas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Egas_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydro&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydrogenTurbine&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EImports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EOil&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPumpStorage&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EWind&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Exports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Koeberg&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;New Nuclear&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Onsite Storage-Iron and Steel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Other&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[yr:Year:ok]' member='2022' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2023' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2024' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2025' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2026' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2027' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2028' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2029' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2030' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2031' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2032' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2033' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2034' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2035' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2036' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2037' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2038' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2039' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2040' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2041' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2042' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2043' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2044' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2045' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2046' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2047' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2048' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2049' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2050' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]' scope='rows' value='GW' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+              <lod column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:TechDescription:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{95C13C6A-1CA1-4D9A-9258-DBDD1C3CD932}' />
+    </worksheet>
+    <worksheet name='ElcProduction'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column caption='TWh' datatype='real' name='[Calculation_1780047768966176768]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[eMOD]/3.6' />
+            </column>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsubsector]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsubsector]' derivation='None' name='[none:Subsubsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1780047768966176768]' derivation='Sum' name='[sum:Calculation_1780047768966176768:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year' name='[yr:Year:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;Activity&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Power&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;EPV&quot;</bucket>
+              <bucket>&quot;EWind&quot;</bucket>
+              <bucket>&quot;EBiomass&quot;</bucket>
+              <bucket>&quot;EHydro&quot;</bucket>
+              <bucket>&quot;EGas&quot;</bucket>
+              <bucket>&quot;EOil&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EBiomass&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECoal_Existing&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_New&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECSP&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EGas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Egas_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydro&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroDam&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydrogenTurbine&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroROR&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EImports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EOil&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPumpStorage&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EWind&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Exports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Koeberg&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;New Nuclear&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Onsite Storage-Iron and Steel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Other&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[yr:Year:ok]' member='2022' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2023' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2024' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2025' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2026' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2027' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2028' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2029' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2030' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2031' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2032' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2033' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2034' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2035' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2036' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2037' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2038' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2039' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2040' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2041' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2042' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2043' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2044' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2045' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2046' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2047' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2048' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2049' />
+              <groupfilter function='member' level='[yr:Year:ok]' member='2050' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[yr:Year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:Calculation_1780047768966176768:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{EE504505-91DB-4008-A1FE-0F5BF37C29BA}' />
+    </worksheet>
+    <worksheet name='ElcProduction (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsubsector]' role='dimension' type='nominal' />
+            <column caption='Tech Description' datatype='string' name='[TechDescription]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsubsector]' derivation='None' name='[none:Subsubsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[TechDescription]' derivation='None' name='[none:TechDescription:nk]' pivot='key' type='nominal' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[sum:eMOD:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;Activity&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Power&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;EPV&quot;</bucket>
+              <bucket>&quot;EWind&quot;</bucket>
+              <bucket>&quot;EBiomass&quot;</bucket>
+              <bucket>&quot;EHydro&quot;</bucket>
+              <bucket>&quot;EGas&quot;</bucket>
+              <bucket>&quot;EOil&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-Chemical-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Coal&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;AutoGen-EnergySupply-Gas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ebattery_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EBiomass&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECoal_Existing&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Ecoal_New&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;ECSP&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EGas&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Egas_CCS&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydro&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroDam&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydrogenTurbine&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EHydroROR&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EImports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EOil&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPumpStorage&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Dist&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EPV_Grid&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;EWind&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Exports&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Koeberg&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;New Nuclear&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Onsite Storage-Iron and Steel&quot;' />
+              <groupfilter function='member' level='[none:Subsubsector:nk]' member='&quot;Other&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsubsector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]' scope='rows' value='PJ' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+              <lod column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:TechDescription:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{10408315-3C74-447B-A77C-E25F615E8D54}' />
+    </worksheet>
+    <worksheet name='PrimaryEnergy'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='REPORT_00.csv+ (Multiple Connections)' name='federated.1y1rny11rykgda1gt9sd5098jqi4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1y1rny11rykgda1gt9sd5098jqi4'>
+            <column datatype='string' name='[Indicator]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sector]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Subsector]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='E Mod' datatype='real' name='[eMOD]' role='dimension' type='ordinal' />
+            <column-instance column='[Indicator]' derivation='None' name='[none:Indicator:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sector]' derivation='None' name='[none:Sector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Subsector]' derivation='None' name='[none:Subsector:nk]' pivot='key' type='nominal' />
+            <column-instance column='[eMOD]' derivation='Sum' name='[sum:eMOD:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Year]' derivation='Year-Trunc' name='[tyr:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]'>
+            <groupfilter function='member' level='[none:Indicator:nk]' member='&quot;Activity&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]'>
+            <groupfilter function='member' level='[none:Sector:nk]' member='&quot;Supply&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Extraction-RE&quot;</bucket>
+              <bucket>&quot;Extraction-Bio&quot;</bucket>
+              <bucket>&quot;Extraction-Gas&quot;</bucket>
+              <bucket>&quot;Imports&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Sector:nk]</column>
+            <column>[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Indicator:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]' scope='rows' value='PJ' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1y1rny11rykgda1gt9sd5098jqi4].[sum:eMOD:qk]</rows>
+        <cols>[federated.1y1rny11rykgda1gt9sd5098jqi4].[tyr:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{62D2ED3D-4AB5-472C-90D5-32328839D2D5}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='ElcProduction'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CD614DCB-EC12-4C03-AC79-A02EA757BA4B}' />
+    </window>
+    <window class='worksheet' name='ElcProduction (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C6416146-99E3-4021-8933-F8B614C4D17D}' />
+    </window>
+    <window class='worksheet' name='AnnualizedInvestment'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{6D85C95C-8709-4F47-A528-9573145BE1A3}' />
+    </window>
+    <window class='worksheet' maximized='true' name='ElcCapacity'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]&#10;[federated.1y1rny11rykgda1gt9sd5098jqi4].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{708E1A14-7541-4940-9026-E14D087FE4F9}' />
+    </window>
+    <window class='worksheet' name='ElcCosts'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E283BF7A-F9F9-4C6D-B45E-66EE1CB9D217}' />
+    </window>
+    <window class='worksheet' name='ElcNewCapacity'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{007F7313-D3FF-4414-BF79-8CC9FDAD7D38}' />
+    </window>
+    <window class='worksheet' name='ElcInvestment'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F9757F4A-3AD5-4D3D-9406-EEF21007464A}' />
+    </window>
+    <window class='worksheet' name='PrimaryEnergy'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D571C64D-95C9-45B8-BF1D-C7E80BC36612}' />
+    </window>
+    <window class='worksheet' name='CO2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F0069C64-2511-4E70-9EA7-CE3AFDA9A0DF}' />
+    </window>
+    <window class='worksheet' name='CO2 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1y1rny11rykgda1gt9sd5098jqi4].[none:Subsector:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BFB50065-B49A-4E6F-8B03-CE95EC3D6AAD}' />
+    </window>
+  </windows>
+</workbook>
