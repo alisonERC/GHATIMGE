@@ -66,11 +66,15 @@ $offtext
          RUNTIMES2.ap = 0;
          PUTCLOSE "";
 
-*$include GHATIM\includes\2runTIMES.inc
+$include GHATIM\includes\2runTIMES.inc
 );
 * if(SIM_eMOD(RUN) eq 1,
 
 $include GHATIM\includes\2TIMESReport.inc
+
+* adjust capital intensity - still need to add labour intensity
+IFAGR(F,A,TC) = SUM(FS$MFSA(FS,A),IFAFSGR(F,FS,TC));
+
 
   LOOP(TC$(NOT fail),
     IF(NOT T1(TC),
@@ -88,6 +92,8 @@ $include GHATIM\includes\2TIMESReport.inc
 
 *     Population growth
       hpop(H) = hpop(H) * (1+POPGR(H,XC,TC));
+
+      ifa(F,A,'nat') = ifa(F,A,'nat')*IFAGR(F,A,TC);
 
 *     Exgenous transfer changes
       trnsfr(INS,ACNT) = trnsfr(INS,ACNT) * (1+TRNSFRGR(INS,ACNT,XC,TC));
