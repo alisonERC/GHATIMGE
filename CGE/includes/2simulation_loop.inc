@@ -74,7 +74,8 @@ $include GHATIM\includes\2TIMESReport.inc
 
 * adjust capital intensity - still need to add labour intensity
 IFAGR(F,A,TC) = SUM(FS$MFSA(FS,A),IFAFSGR(F,FS,TC));
-
+* do reverse mapping for industry sectors (excludes power and petroleum)
+ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 
   LOOP(TC$(NOT fail),
     IF(NOT T1(TC),
@@ -93,7 +94,30 @@ IFAGR(F,A,TC) = SUM(FS$MFSA(FS,A),IFAFSGR(F,FS,TC));
 *     Population growth
       hpop(H) = hpop(H) * (1+POPGR(H,XC,TC));
 
+*adjust ifas
       ifa(F,A,'nat') = ifa(F,A,'nat')*IFAGR(F,A,TC);
+
+* adjust icas
+*      if(ord(TC) = 2,
+*         ica('cpetr','aelec','NAT') = ica('ccoil','aelec','NAT');
+*         ica('ccoil','aelec','NAT') = 0.0001;
+*      );
+
+*      if(ord(TC) > 2,
+*         ica(C,A,'NAT')$(ICAGR(C,A,TC) and ica0(C,A,'NAT')) = ica(C,A,'NAT')*ICAGR(C,A,TC);
+*      );
+
+      if(ord(TC) < 8,
+         ica('cpetr','aelec','NAT') = ica('cpetr','aelec','NAT')*2;
+         ica('ccoil','aelec','NAT') = ica('ccoil','aelec','NAT')*0.5;
+
+      );
+
+      if(ord(TC) > 4,
+         ica('cngas','aelec','NAT') = max(0.00001,EIntensity_FS('elec','cngas',TC));
+         ica('cpetr','aelec','NAT') = max(0.00001,ica('cpetr','aelec','NAT')*0.5);
+      );
+
 
 *     Exgenous transfer changes
       trnsfr(INS,ACNT) = trnsfr(INS,ACNT) * (1+TRNSFRGR(INS,ACNT,XC,TC));

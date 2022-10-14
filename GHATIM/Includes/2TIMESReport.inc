@@ -216,8 +216,8 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
 * EIntensityQA_FS(FS,'chydr',TC)$FLOW_IN_FSFuels(FS,'chydr',TC) = FLOW_IN_FSFuels(FS,'chydr',TC)/QA_FS(FS,TC);
 
 
-*BM+FH 201218: SETTING STARTING POINT FOR HYDROGEN
  ICAFSGR(C,FS,T)$(EIntensity_FS(FS,C,T-1) GT 0.00001) = EIntensity_FS(FS,C,T)/EIntensity_FS(FS,C,T-1);
+
 
 
 
