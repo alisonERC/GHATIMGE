@@ -490,13 +490,6 @@ Order=1,2
 Decim=7
 PlaneRownr=-1
 
-[OPENWINDOW_1]
-MAXIM=0
-TOP=0
-LEFT=0
-HEIGHT=760
-WIDTH=738
-
 [GDXDISP: GAS Par 1]
 PlaneDim=0
 RowDim=1
@@ -519,12 +512,20 @@ PlaneRownr=-1
 1=gdx=energy
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\energy.gdx
-2=C:\Models\GHATIMGE\CGE\Energy.gms
-3=C:\Models\GHATIMGE\CGE\modeldatab.gdx
-4=C:\Models\GHATIMGE\CGE\Energy.lst
-5=C:\W\SAGE_GH_Ag+En+OEn\Energy.lst
-6=C:\W\SAGE_GH_Ag+En+OEn\Energy.gms
-7=C:\W\SAGE_GH_Ag+En+OEn\energy.gdx
-8=C:\W\SAGE_GH_Ag+En\Energy.gms
-9=C:\W\SAGE_GH_Ag+En\includes\1sambal.inc
+1=C:\Models\GHATIMGE\CGE\modeldatab.gdx
+2=C:\Models\GHATIMGE\CGE\Energy.lst
+3=C:\W\SAGE_GH_Ag+En+OEn\Energy.lst
+4=C:\W\SAGE_GH_Ag+En+OEn\Energy.gms
+5=C:\W\SAGE_GH_Ag+En+OEn\energy.gdx
+6=C:\W\SAGE_GH_Ag+En\Energy.gms
+7=C:\W\SAGE_GH_Ag+En\includes\1sambal.inc
+
+[OPENWINDOW_1]
+FILE0=C:\Models\GHATIMGE\CGE\energy.gdx
+FILE1=C:\Models\GHATIMGE\CGE\Energy.gms
+FILE2=C:\Models\GHATIMGE\CGE\Energy.gms
+MAXIM=0
+TOP=0
+LEFT=0
+HEIGHT=760
+WIDTH=738

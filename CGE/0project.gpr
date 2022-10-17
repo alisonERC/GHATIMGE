@@ -6923,6 +6923,13 @@ PlaneRownr=-1
 [RP:2CAPITAL]
 1=
 
+[OPENWINDOW_1]
+MAXIM=0
+TOP=0
+LEFT=0
+HEIGHT=760
+WIDTH=1138
+
 [RP:1MODEL]
 1=gdx=model s=model rf=model
 2=gdx=model s=model
@@ -6931,20 +6938,12 @@ PlaneRownr=-1
 5=
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\energy.gdx
-2=C:\W\New folder\CGE\includes\3report_loop.inc
-3=C:\W\New folder\CGE\includes\3report_init.inc
-4=C:\W\New folder\CGE\includes\3report.gms
-5=C:\W\New folder\CGE\3report.gms
-
-[OPENWINDOW_1]
-FILE0=C:\Models\GHATIMGE\CGE\1model.dat
-FILE1=C:\Models\GHATIMGE\CGE\1model.gms
-FILE2=C:\Models\GHATIMGE\CGE\1model.lst
-FILE3=C:\Models\GHATIMGE\CGE\model.gdx
-FILE4=C:\Models\GHATIMGE\CGE\1model.lst
-MAXIM=0
-TOP=0
-LEFT=0
-HEIGHT=760
-WIDTH=1138
+1=C:\Models\GHATIMGE\CGE\model.gdx
+2=C:\Models\GHATIMGE\CGE\1model.gms
+3=C:\Models\GHATIMGE\CGE\1model.dat
+4=C:\Models\GHATIMGE\CGE\1model.lst
+5=C:\Models\GHATIMGE\CGE\energy.gdx
+6=C:\W\New folder\CGE\includes\3report_loop.inc
+7=C:\W\New folder\CGE\includes\3report_init.inc
+8=C:\W\New folder\CGE\includes\3report.gms
+9=C:\W\New folder\CGE\3report.gms

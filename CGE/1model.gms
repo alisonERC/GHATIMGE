@@ -487,6 +487,9 @@ PARAMETER TRMSHR(C,RW);
 * QM0('CELEC','REST') = CALIB('AELEC','QM');
 * PM0('CELEC','REST')$QM0('CELEC','REST') = (SAM('ROW','CELEC')+SAM('MTAX','CELEC')+SAM('TRM','CELEC')) / QM0('CELEC','REST');
 
+ QM0('CPETR','REST') = CALIB('APETR','QM');
+ PM0('CPETR','REST')$QM0('CPETR','REST') = (SAM('ROW','CPETR')+SAM('MTAX','CPETR')+SAM('TRM','CPETR')) / QM0('CPETR','REST');
+
 *World price = import value (in foreign currency / import quantity
  PWM0(C,RW)$CMRW(C,RW) = (SAM('ROW',C)*REGIMP(C,RW)/EXR0) / QM0(C,RW);
  tm0(C,RW)$(SAM('ROW',C)*REGIMP(C,RW))  = (TAXPAR('IMPTAX',C)*REGTAR(C,RW)) / (SAM('ROW',C)*REGIMP(C,RW));
@@ -581,6 +584,10 @@ SCALAR
  PQI0('CELEC',A,RD)$(QINTA0(A,RD)*ica('CELEC',A,RD))
          = SUM(ARD$MARD(ARD,A,RD), SAM('CELEC',ARD) + SAM('UTAX',ARD))
           /(SUM(ARD$MARD(ARD,A,RD), SAM('CELEC',ARD))/PQ0('CELEC'));
+
+ PQI0('CPETR',A,RD)$(QINTA0(A,RD)*ica('CPETR',A,RD))
+         = SUM(ARD$MARD(ARD,A,RD), SAM('CPETR',ARD) + SAM('PTAX',ARD))
+          /(SUM(ARD$MARD(ARD,A,RD), SAM('CPETR',ARD))/PQ0('CPETR'));
 
  tui0(C,A,RD) = 0;
  tui0(C,A,RD)$PQ0(C) = (PQI0(C,A,RD) - PQ0(C))/PQ0(C);
@@ -817,12 +824,13 @@ SET
 *Household consumption spending and consumption quantities.
 *fh energy - utax
 * EH0(H)         = SUM(C, SAM(C,H)) + SUM(A, QHA0(A,H)*PA0(A));
- EH0(H)         = SUM(C, SAM(C,H)) + SAM('UTAX',H) + SUM(A, QHA0(A,H)*PA0(A));
+ EH0(H)         = SUM(C, SAM(C,H)) + SAM('UTAX',H)+SAM('PTAX',H) + SUM(A, QHA0(A,H)*PA0(A));
  QH0(C,H)$PQ0(C) = SAM(C,H)/PQ0(C);
 
 *fh energy - utax --------------------------------------------------------------
  PQH0(C,H) = PQ0(C);
  PQH0('CELEC',H) = (SAM('CELEC',H)+SAM('UTAX',H))/QH0('CELEC',H);
+ PQH0('CPETR',H) = (SAM('CPETR',H)+SAM('PTAX',H))/QH0('CPETR',H);
 
  tuh0(C,H) = 0;
  tuh0(C,H)$PQ0(C) = (PQH0(C,H) - PQ0(C))/PQ0(C);
@@ -849,14 +857,17 @@ $ontext
                   /(SUM(CP, SAM(CP,H)) + SUM(AP, QHA0(AP,H)*PA0(AP)));
 $offtext
 
- BUDSHR(C,H)$(SUM(CP, SAM(CP,H)) + SAM('UTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)))
-         = SAM(C,H)/(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)));
+ BUDSHR(C,H)$(SUM(CP, SAM(CP,H)) + SAM('UTAX',H)+ SAM('PTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)))
+         = SAM(C,H)/(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+ SAM('PTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)));
 
  BUDSHR('CELEC',H)$(SUM(CP, SAM(CP,H)) + SAM('UTAX',H) + SUM(AP, QHA0(AP,H)*PA0(AP)))
-         = (SAM('CELEC',H)+SAM('UTAX',H))/(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)));
+         = (SAM('CELEC',H)+SAM('UTAX',H))/(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+ SAM('PTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)));
 
- BUDSHR2(A,H)$(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)))
-         = QHA0(A,H)*PA0(A)/(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)));
+ BUDSHR('CPETR',H)$(SUM(CP, SAM(CP,H)) + SAM('PTAX',H) + SUM(AP, QHA0(AP,H)*PA0(AP)))
+         = (SAM('CPETR',H)+SAM('PTAX',H))/(SUM(CP, SAM(CP,H))+SAM('UTAX',H) +SAM('PTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)));
+
+ BUDSHR2(A,H)$(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+SAM('PTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)))
+         = QHA0(A,H)*PA0(A)/(SUM(CP, SAM(CP,H)) +SAM('UTAX',H)+SAM('PTAX',H)+ SUM(AP, QHA0(AP,H)*PA0(AP)));
 
  BUDSHRCHK(H)   = SUM(C, BUDSHR(C,H)) + SUM(A, BUDSHR2(A,H)) - 1 ;
  ELASCHK(H)     = SUM(C, BUDSHR(C,H)*YELASTAB(C,H))
@@ -888,11 +899,11 @@ $ontext
 *                      * ( BUDSHR2(A,H) + betah(A,H)/FRISCH(H));
 
  gammam0(C,H)$BUDSHR(C,H)
-     =  ((SUM(CP, SAM(CP,H)) + SAM('UTAX',H) + SUM(AP, QHA0(AP,H)*PA0(AP)))
+     =  ((SUM(CP, SAM(CP,H)) + SAM('UTAX',H)+ SAM('PTAX',H) + SUM(AP, QHA0(AP,H)*PA0(AP)))
          / PQH0(C,H))*( BUDSHR(C,H) + betam(C,H)/FRISCH(H));
 
  gammah0(A,H)$BUDSHR2(A,H)
-     =  ( (SUM(CP, SAM(CP,H)) + SAM('UTAX',H) + SUM(AP, QHA0(AP,H)*PA0(AP))) / PA0(A) )
+     =  ( (SUM(CP, SAM(CP,H)) + SAM('UTAX',H)+ SAM('PTAX',H) + SUM(AP, QHA0(AP,H)*PA0(AP))) / PA0(A) )
                       * ( BUDSHR2(A,H) + betah(A,H)/FRISCH(H));
 
  gammam(C,H)   =  gammam0(C,H);
@@ -968,7 +979,7 @@ $offtext
 * TABS0         = SUM((C,H), SAM(C,H)) + SUM((A,H), QHA0(A,H)*PA0(A))
 *                 + SUM(C, SAM(C,'GOV')) + SUM((IT,C), SAM(C,IT))
 *                 + SUM(C, SAM(C,'DSTK'));
- TABS0         = SUM((C,H), SAM(C,H)) + SUM(H, SAM('UTAX',H)) + SUM((A,H), QHA0(A,H)*PA0(A))
+ TABS0         = SUM((C,H), SAM(C,H)) + SUM(H, SAM('UTAX',H)+ SAM('PTAX',H)) + SUM((A,H), QHA0(A,H)*PA0(A))
                  + SUM(C, SAM(C,'GOV')) + SUM((IT,C), SAM(C,IT))
                  + SUM(C, SAM(C,'DSTK'));
 
@@ -1417,7 +1428,15 @@ EQUATIONS
 
  LEOAGGVA(A,RD)$QVA0(A,RD)..     QVA(A,RD) =E= iva(A,RD)*QAR(A,RD);
 
- CESVAPRD(A,RD)$(QVA0(A,RD) AND NOT AFLEO(A))..   QVA(A,RD) =E= alphava(A,RD)*
+Parameter
+alphavb0(A,RD)
+alphavb(A,RD)
+;
+
+alphavb0(A,RD)=1;
+alphavb(A,RD)=alphavb0(A,RD);
+
+ CESVAPRD(A,RD)$(QVA0(A,RD) AND NOT AFLEO(A))..   QVA(A,RD) =E= alphava(A,RD)*alphavb(A,RD)*
          (SUM(F$MFA1(F,A,RD), deltava(F,A,RD)*(fprd(F,A,RD)*QF(F,A,RD))**(-rhova(A,RD))) )**(-1/rhova(A,RD)) ;
 
  CESVAFOC(F,A,RD)$(MFA1(F,A,RD) AND QF0(F,A,RD) AND QVA0(A,RD)  AND NOT AFLEO(A))..
