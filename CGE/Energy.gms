@@ -13,10 +13,11 @@ SETS
 PARAMETER
  SAM(AC,AC)              standard SAM
  SAMBALCHK(AC)           column minus row total for SAM
+ GAS(*,*)                details for gas separation
 ;
 
 $load AC A H
-$loaddc SAM
+$loaddc SAM GAS
 
 ALIAS
  (AC,ACP), (ACNT,ACNTP), (A, AP), (H, HP);
@@ -58,10 +59,45 @@ ALIAS
  SAM('TOTAL',AC) = SUM(ACNT, SAM(ACNT,AC));
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
  SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
-display SAMBALCHK;
-
+*$exit
 *-------------------------------------------------------------------------------
-*2. Adjusting SAM to account for energy volumes
+*20/09/22
+*2. Separarting natural gas and crude oil
+*-------------------------------------------------------------------------------
+*net exports
+Parameter
+TEST
+;
+
+ SAM('ANGAS','CNGAS')=GAS('PRODUCTION','VALUE');
+ SAM('ANGAS','TOTAL')=SAM('ANGAS','CNGAS');
+
+ SAM(ACNT,'ANGAS')=SAM('ANGAS','TOTAL')*(SAM(ACNT,'ACOIL')/SUM(ACNTP,SAM(ACNTP,'ACOIL')));
+
+ SAM('CNGAS','ROW') = 0.000001;
+ SAM('CNGAS','AELEC') = GAS('POWER','VALUE')-0.000001;
+ SAM('CNGAS','TOTAL') = SUM(ACNT, SAM('CNGAS',ACNT));
+
+ SAM('ROW','CNGAS') = GAS('IMPORTS','VALUE');
+* SAM('MTAX','CNGAS')= SAM('MTAX','CCOIL');
+* SAM('TRC','CNGAS') = (SAM('TRC','CCOIL')/SAM('TOTAL','CCOIL'))*SAM('CNGAS','TOTAL');
+
+ SAM('ACOIL','CCOIL')=SAM('ACOIL','CCOIL')-SAM('ANGAS','CNGAS');
+ SAM(ACNT,'ACOIL')= SAM(ACNT,'ACOIL')- SAM(ACNT,'ANGAS');
+
+ SAM('CCOIL','ROW')  = SAM('CCOIL','ROW')  -SAM('CNGAS','ROW');
+ SAM('CCOIL','AELEC')= SAM('CCOIL','AELEC')-SAM('CNGAS','AELEC');
+
+ SAM('ROW' ,'CCOIL') = SAM('ROW' ,'CCOIL')  -  SAM('ROW','CNGAS');
+* SAM('MTAX','CCOIL')=  SAM('MTAX','CCOIL') -  SAM('MTAX','CNGAS');
+* SAM('TRC' ,'CCOIL') = SAM('TRC' ,'CCOIL')  -  SAM('TRC','CNGAS') ;
+
+ SAM('TOTAL',AC) = SUM(ACNT, SAM(ACNT,AC));
+ SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
+ SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
+*$exit
+*-------------------------------------------------------------------------------
+*3. Adjusting SAM to account for energy volumes
 *-------------------------------------------------------------------------------
 Sets
  ea
@@ -88,15 +124,28 @@ $loaddc XPRICE EBAL
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
  SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
 display SAMBALCHK;
-$ontext
+
 *Add in net electricity exports
 *SAM currently includes very small volumes which seem incorrect given the energy balance
 *1sambal.inc is used to balance the SAM
 
-*include new value for exports
- SAM('celec','row')  =  (ebal('exp')-ebal('imp'))*xprice('celec');
+*Create net imports
+ SAM('row','celec')=SAM('row','celec')-SAM('celec','row');
+ SAM('celec','row')=0;
 
-*$ontext
+ SAM('TOTAL',AC) = SUM(ACNT, SAM(ACNT,AC));
+ SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
+ SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
+
+
+$ontext
+*include new value for exports
+* SAM('celec','row')  =  (ebal('exp')-ebal('imp'))*xprice('celec');
+ SAM('celec','dstk')=SAM('celec','dstk')+(SAM('row','celec')-SAM('celec','row')+
+                         (ebal('imp')-ebal('exp'))*xprice('celec'));
+ SAM('row','celec')  =  (ebal('imp')-ebal('exp'))*xprice('celec');
+ SAM('celec','row')  = 0;
+
  SAM('gov','mtax')=SAM('gov','mtax')-SAM('mtax', 'celec');
  SAM('s-i','gov')=SAM('s-i','gov')-SAM('mtax', 'celec');
 
@@ -108,12 +157,8 @@ $ontext
  SAM('row', 'celec')=0;
  SAM('mtax', 'celec')=0;
 
-*$include includes/1sambal.inc
+$include includes/1sambal.inc
 $offtext
-
-*net electricity
- SAM('row','celec')=SAM('row','celec')-SAM('celec','row');
- SAM('celec','row')=0;
 
  SAM('TOTAL',AC) = SUM(ACNT, SAM(ACNT,AC));
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
@@ -137,7 +182,7 @@ display SAMBALCHK;
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
  SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
 display SAMBALCHK;
-
+*$exit
 *-------------------------------------------------------------------------------
 *2. Capital account for electricity
 *-------------------------------------------------------------------------------
@@ -152,7 +197,7 @@ display SAMBALCHK;
  SAM('TOTAL',AC) = SUM(ACNT, SAM(ACNT,AC));
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
  SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
-
+*$exit
 *-------------------------------------------------------------------------------
 *3. Matching petroleum
 *-------------------------------------------------------------------------------
@@ -198,7 +243,6 @@ display SAMBALCHK;
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
  SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
 display SAMBALCHK;
-
+*$exit
  execute_unload "boom.gdx" SAM;
  execute 'gdxxrw.exe i=boom.gdx o=%modeldata% index=index2!a80';
-
