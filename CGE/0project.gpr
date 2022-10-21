@@ -1660,12 +1660,12 @@ Decim=5
 PlaneRownr=-1
 
 [GDXDISP: QXAC Var 2]
-PlaneDim=2
+PlaneDim=1
 RowDim=1
 Squeeze=1
 Order=3,1,2
-Decim=0
-PlaneRownr=41
+Decim=3
+PlaneRownr=-1
 SqTrail0=0
 PlaneFilter1=Level
 PlaneFilter2=aelec
@@ -3587,8 +3587,9 @@ PlaneDim=1
 RowDim=1
 Squeeze=1
 Order=2,1
-Decim=2
+Decim=4
 PlaneRownr=-1
+SqTrail0=0
 
 [GDXDISP: QX Var 1]
 PlaneDim=0
@@ -6923,13 +6924,6 @@ PlaneRownr=-1
 [RP:2CAPITAL]
 1=
 
-[OPENWINDOW_1]
-MAXIM=0
-TOP=0
-LEFT=0
-HEIGHT=760
-WIDTH=1138
-
 [RP:1MODEL]
 1=gdx=model s=model rf=model
 2=gdx=model s=model
@@ -6938,12 +6932,20 @@ WIDTH=1138
 5=
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\model.gdx
-2=C:\Models\GHATIMGE\CGE\1model.gms
-3=C:\Models\GHATIMGE\CGE\1model.dat
-4=C:\Models\GHATIMGE\CGE\1model.lst
-5=C:\Models\GHATIMGE\CGE\energy.gdx
-6=C:\W\New folder\CGE\includes\3report_loop.inc
-7=C:\W\New folder\CGE\includes\3report_init.inc
-8=C:\W\New folder\CGE\includes\3report.gms
-9=C:\W\New folder\CGE\3report.gms
+1=C:\Models\GHATIMGE\CGE\1model.dat
+2=C:\Models\GHATIMGE\CGE\1model.lst
+3=C:\Models\GHATIMGE\CGE\energy.gdx
+4=C:\W\New folder\CGE\includes\3report_loop.inc
+5=C:\W\New folder\CGE\includes\3report_init.inc
+6=C:\W\New folder\CGE\includes\3report.gms
+7=C:\W\New folder\CGE\3report.gms
+
+[OPENWINDOW_1]
+FILE0=C:\Models\GHATIMGE\CGE\1model.gms
+FILE1=C:\Models\GHATIMGE\CGE\model.gdx
+FILE2=C:\Models\GHATIMGE\CGE\model.gdx
+MAXIM=0
+TOP=0
+LEFT=0
+HEIGHT=760
+WIDTH=1138
