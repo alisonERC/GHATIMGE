@@ -405,4 +405,6 @@ $LOAD CALIB
 *Electricity generation quantities (TJ)
  QPROD('AELEC','NAT') = CALIB('AELEC','QA');
  QPROD('APETR','NAT') = CALIB('APETR','QA');
+ QPROD('ANGAS','NAT') = CALIB('ANGAS','QA');
+ QPROD('ACOIL','NAT') = CALIB('ACOIL','QA');
 *1000;

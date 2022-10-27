@@ -108,7 +108,7 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 *      );
 
       if(ord(TC) < 8,
-         ica('cpetr','aelec','NAT') = ica('cpetr','aelec','NAT')*2;
+*         ica('cpetr','aelec','NAT') = ica('cpetr','aelec','NAT')*2;
          ica('ccoil','aelec','NAT') = ica('ccoil','aelec','NAT')*0.5;
 
       );

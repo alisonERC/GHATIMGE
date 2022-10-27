@@ -183,10 +183,9 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
 * expenditure schedule in billions (2007 from 2010)
  INVCOST(RUN,TC,PRC) = SUM(TCP, BPINV(RUN,TCP,TC,PRC))/1000;
 
-*Sum across vintages to get total annual cost (billions of rands) and convert from 2015 to 2019 Rands for CGE
+*Sum across vintages to get total annual cost (billions of USD) Ghanain Cedi for the CGE
 * EINVCOST(XC,T,TT) = SUM((SUPELE AND SUPOIL), INVCOST(XC,T,TT,ELE));
- EINVCOST(RUN,TC) = SUM(PRCPower, INVCOST(RUN,TC,PRCPower))*1.22;
-* 0.852;
+ EINVCOST(RUN,TC) = SUM(PRCPower, INVCOST(RUN,TC,PRCPower))*5;
 
 * fixing end effect until we run past 2050
  EINVCOST(RUN,'2050') = EINVCOST(RUN,'2049');
@@ -271,7 +270,8 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
  TCST_ELE_INV(RUN,TC) = Sum(PRCPower,REPORT(PRCPower,'ACTGRP',TC,RUN,'AnnInvCost'));
  QFEGY_GR(RUN,TC)$TCST_ELE_INV(RUN,TC-1) = TCST_ELE_INV(RUN,TC)/TCST_ELE_INV(RUN,TC-1);
 
- FIntensity_FS('elec','fegy',TC) = TCST_ELE_INV(RUN,TC)/ELC_FLOW(RUN,TC);
+* *5 is to convert from USD to cedi
+ FIntensity_FS('elec','fegy',TC) = TCST_ELE_INV(RUN,TC)*5/ELC_FLOW(RUN,TC);
  FIntensity_FS('elec',FLAB,TC) = FLOW_OUT_FSFactors('elec',FLAB,TC)/ELC_FLOW(RUN,TC);
 
  IFAFSGR(F,FS,TC)$FIntensity_FS(FS,F,TC-1) = FIntensity_FS(FS,F,TC)/FIntensity_FS(FS,F,TC-1);
