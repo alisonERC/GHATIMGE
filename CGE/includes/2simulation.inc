@@ -101,11 +101,51 @@ $include cge\includes\2projection.inc
 *2. Non-excel inputted scenario calibration
 *----------------------------------------------------------------------
 Parameter
- COVID(X,T)
+ COVID(F,X,T)      scalar to reduce labour available (mimic lockdown)
+ COVIDCAP(A,F,X,T) scalar to reduce capital productivity (mimic lockdown)
 ;
 
- COVID(X,T)=1;
- COVID(X,'2020')=0.85;
+SETS
+AGR(A) /amaiz,asorg,arice,apuls,agnut,aoils,acass,aroot,avege,asugr,atoba,
+         acott,afrui,acoco,aocrp,acatt,apoul,aoliv,afore,afish/
+MIN(A) /acoil,angas,aomin/
+MAN(A) /ameat, afveg,afoil,agmll,asref,afood,abeve,aptob,atext,aclth,aleat,
+         awood,apetr,achem,anmet,ametl,amach,aoman/
+SER(A) /awatr,acons,atrad,atran,ahotl,afsrv,absrv,aosrv/
+SEP(A) /acomm,areal,apadm,aeduc,aheal/
+;
+
+ COVID(F,X,T)=1;
+ COVID('flab-rn',X,'2020')=1;
+ COVID('flab-rp',X,'2020')=1;
+ COVID('flab-rs',X,'2020')=1;
+ COVID('flab-rt',X,'2020')=1;
+ COVID('flab-un',X,'2020')=1;
+ COVID('flab-up',X,'2020')=1;
+ COVID('flab-us',X,'2020')=1;
+ COVID('flab-ut',X,'2020')=1;
+
+ COVIDCAP(A,F,X,T)=1;
+ COVIDCAP(AGR,'FCAP',X,'2020')=0.95;
+ COVIDCAP(MIN,'FCAP',X,'2020')=0.85;
+ COVIDCAP(MAN,'FCAP',X,'2020')=0.9;
+ COVIDCAP(SER,'FCAP',X,'2020')=0.9;
+ COVIDCAP(SEP,'FCAP',X,'2020')=1.4;
+ COVIDCAP('ahotl','FCAP',X,'2020')=0.6;
+
+ COVIDCAP(AGR,'FCAP',X,'2021')=1;
+ COVIDCAP(MIN,'FCAP',X,'2021')=0.95;
+ COVIDCAP(MAN,'FCAP',X,'2021')=1;
+ COVIDCAP(SER,'FCAP',X,'2021')=0.95;
+ COVIDCAP(SEP,'FCAP',X,'2021')=1;
+ COVIDCAP('ahotl','FCAP',X,'2021')=0.9;
+
+ COVIDCAP(AGR,'FCAP',X,'2022')=1;
+ COVIDCAP(MIN,'FCAP',X,'2022')=0.98;
+ COVIDCAP(MAN,'FCAP',X,'2022')=1;
+ COVIDCAP(SER,'FCAP',X,'2022')=0.98;
+ COVIDCAP(SEP,'FCAP',X,'2022')=1;
+ COVIDCAP('ahotl','FCAP',X,'2022')=0.95;
 
 *----------------------------------------------------------------------
 *3. Closures

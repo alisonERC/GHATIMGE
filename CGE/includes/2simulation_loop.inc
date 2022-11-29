@@ -84,7 +84,9 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
       alphava(A,RD) = alphava(A,RD) * (1+TFPGR(A,RD,XC,TC));
 
 *     Long term factor-specific productivity growth
-      fprd(F,A,RD)$(NOT AFX(A,RD)) = fprd(F,A,RD) * (1+FPRDGR(F,XC,TC));
+      fprd(F,A,RD)$(NOT AFX(A,RD)) = COVIDCAP(A,F,XC,TC);
+*fprd(F,A,RD)*(1+FPRDGR(F,XC,TC));
+*COVIDCAP(A,F,XC,TC);
 
 *     World price changes
 *      pwebar(C,RW) = pwebar(C,RW) * (1+PWEGR(C,XC,TC));
