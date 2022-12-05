@@ -275,7 +275,7 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
  FIntensity_FS('elec',FLAB,TC) = FLOW_OUT_FSFactors('elec',FLAB,TC)/ELC_FLOW(RUN,TC);
 
  IFAFSGR(F,FS,TC)$FIntensity_FS(FS,F,TC-1) = FIntensity_FS(FS,F,TC)/FIntensity_FS(FS,F,TC-1);
-
+ IFAFSGR(F,FS,IFACAPYRS) = 1;
 
 * Electrolyser sector - supply of electrolysers is linked to electrolyser exports and PEM electrolyser capacity in eMOD
 * ELCTCAP(TC,RUN) = TVNCAP(TC,'UELEP1HGN')+TVNCAP(TC,'IISHALKHGNO')+TVNCAP(TC,'UELEA1HGN')+TVACT(TC,'PEXHETP')*0.4;

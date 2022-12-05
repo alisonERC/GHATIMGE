@@ -1286,7 +1286,10 @@ Squeeze=1
 SqTrail0=0
 Order=5,3,2,4,1
 Decim=1
-PlaneRownr=-1
+PlaneRownr=2
+PlaneFilter1=2050
+PlaneFilter2=base
+PlaneFilter3=nat
 
 [GDXDISP: PVA Var 2]
 PlaneDim=0
@@ -1585,8 +1588,8 @@ RowDim=1
 Squeeze=1
 SqTrail0=0
 Order=5,3,1,4,2
-Decim=8
-PlaneRownr=-1
+Decim=2
+PlaneRownr=42
 PlaneFilter1=2050
 PlaneFilter2=BASE
 PlaneFilter3=celec
@@ -1597,7 +1600,7 @@ RowDim=3
 Squeeze=1
 SqTrail0=0
 Order=1,2,4,3
-Decim=7
+Decim=0
 PlaneRownr=-1
 
 [RP:2ENERGYCHECKS]
@@ -1959,7 +1962,7 @@ Squeeze=1
 SqTrail0=0
 Order=1,2,3
 Decim=7
-PlaneRownr=5
+PlaneRownr=-1
 PlaneFilter1=fegy
 
 [GDXDISP: iva0 Par 2]
@@ -2104,7 +2107,10 @@ Squeeze=1
 SqTrail0=0
 Order=5,3,2,1,4
 Decim=2
-PlaneRownr=-1
+PlaneRownr=2
+PlaneFilter1=2050
+PlaneFilter2=base
+PlaneFilter3=nat
 
 [GDXDISP: QINTA Var 2]
 PlaneDim=0
@@ -2222,9 +2228,6 @@ PlaneRownr=-1
 [RP:2CAPITAL]
 1=
 
-[RP:2TIMESREPORT]
-1=
-
 [GDXDISP: PQX Par 4]
 PlaneDim=0
 RowDim=3
@@ -2234,25 +2237,87 @@ Order=1,2,4,3
 Decim=2
 PlaneRownr=-1
 
+[GDXDISP: tabar Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[RP:2TIMESREPORT]
+1=
+
+[GDXDISP: TABS Var 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: FilesCompared Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: HFORE Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: MFHHT Set 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: YHE Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
 [RP:2SIMULATION_LOOP]
 1=
 
 [RP:GHATIMGE]
-1=r=cge\model, gdx = TestGHATIM2
-2=r=cge\model, gdx = TestGHATIM
-3=r=cge\model, gdx = TestGHATIMGE4
-4=r=cge\model, gdx = TestGHATIMGE3
-5=r=cge\model, gdx = TestGHATIMGE2
-6=r=cge\model, gdx = TestGHATIMGE
-7=
+1=r=cge\model, gdx = TestGHATIM5
+2=r=cge\model, gdx = TestGHATIM4
+3=r=cge\model, gdx = TestGHATIM3
+4=r=cge\model, gdx = TestGHATIM2
+5=r=cge\model, gdx = TestGHATIM
+6=r=cge\model, gdx = TestGHATIMGE4
+7=r=cge\model, gdx = TestGHATIMGE3
+8=r=cge\model, gdx = TestGHATIMGE2
+9=r=cge\model, gdx = TestGHATIMGE
+10=
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\1model.dat
-2=C:\Models\SATIMGE\CGE\includes\2simulation_loop.inc
-3=C:\Models\SATIMGE\CGE\includes\2capital.inc
-4=C:\Models\GHATIMGE\refresh_demStart.gms
-5=C:\Models\GHATIMGE\CGE\includes\2projection.inc
-6=C:\Models\GHATIMGE\cge\includes\2energyinit.inc
+1=C:\Users\bruno\OneDrive - University of Cape Town\Energy Systems Research Group\Projects\Active\WB-InfrastructureProject\WIP\NI_Base_Repro02_vs_Repro03_exogTRNSFRGR.gdx
+2=C:\Models\GHATIMGE\TestGHATIMGE4.gdx
+3=C:\Models\GHATIMGE\TestGHATIM2.gdx
+4=C:\Models\GHATIMGE\TestGHATIM.gdx
+5=C:\Models\GHATIMGE\CGE\includes\2simulation.inc
+6=C:\Models\GHATIMGE\CGE\includes\2capital.inc
+7=C:\Models\GHATIMGE\CGE\1model.dat
+8=C:\Models\SATIMGE\CGE\includes\2simulation_loop.inc
 
 [OPENWINDOW_1]
 FILE0=C:\Models\GHATIMGE\CGE\includes\2simulation_loop.inc
@@ -2260,22 +2325,22 @@ FILE1=C:\Models\GHATIMGE\GHATIM\Includes\2TIMESReport.inc
 FILE2=C:\Models\GHATIMGE\GHATIMGE.gms
 FILE3=C:\Models\GHATIMGE\GHATIMGE.lst
 FILE4=C:\Models\GHATIMGE\TestGHATIM.gdx
-FILE5=C:\Models\GHATIMGE\GHATIMGE.lst
+FILE5=C:\Models\GHATIMGE\TestGHATIM3.gdx
+FILE6=C:\Models\GHATIMGE\TestGHATIM4.gdx
+FILE7=C:\Models\GHATIMGE\TestGHATIM5.gdx
+FILE8=C:\Models\SATIMGE\CCDR_Runs\NZ_9.gdx
+FILE9=C:\Models\GHATIMGE\TestGHATIM4.gdx
 MAXIM=0
 TOP=29
 LEFT=15
-HEIGHT=1128
+HEIGHT=1100
 WIDTH=1381
 
 [OPENWINDOW_2]
-FILE0=C:\Models\GHATIMGE\CGE\includes\2capital.inc
-FILE1=C:\Models\GHATIMGE\CGE\includes\2simulation.inc
-FILE2=C:\Models\GHATIMGE\TestGHATIM.gdx
-FILE3=C:\Models\GHATIMGE\TestGHATIM2.gdx
-FILE4=C:\Models\GHATIMGE\TestGHATIMGE4.gdx
-FILE5=C:\Models\GHATIMGE\TestGHATIMGE4.gdx
+FILE0=C:\Models\GHATIMGE\TestGHATIM5.gdx
+FILE1=C:\Models\GHATIMGE\TestGHATIM5.gdx
 MAXIM=0
-TOP=13
-LEFT=1421
-HEIGHT=1196
-WIDTH=1133
+TOP=17
+LEFT=1384
+HEIGHT=1250
+WIDTH=1179

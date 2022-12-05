@@ -113,6 +113,8 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 *         ica('cpetr','aelec','NAT') = ica('cpetr','aelec','NAT')*2;
          ica('ccoil','aelec','NAT') = ica('ccoil','aelec','NAT')*0.5;
 
+* adjust elc intensity of mining down to same level as South Africa Gold Mining
+         ica('celec','aomin','NAT') = ica('celec','aomin','NAT')*0.92;
       );
 
       if(ord(TC) > 4,

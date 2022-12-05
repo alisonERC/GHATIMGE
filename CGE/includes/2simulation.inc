@@ -113,6 +113,8 @@ MAN(A) /ameat, afveg,afoil,agmll,asref,afood,abeve,aptob,atext,aclth,aleat,
          awood,apetr,achem,anmet,ametl,amach,aoman/
 SER(A) /awatr,acons,atrad,atran,ahotl,afsrv,absrv,aosrv/
 SEP(A) /acomm,areal,apadm,aeduc,aheal/
+
+IFACAPYRS(T) /2015*2021/
 ;
 
  COVID(F,X,T)=1;
