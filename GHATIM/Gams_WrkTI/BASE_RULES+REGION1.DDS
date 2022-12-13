@@ -1,11 +1,15 @@
-* This DDS contains Rule-based constraints that occur in scenario(s) 'BASE','OTHERBITS','DMD_ALL' for region REGION1
+* This DDS contains Rule-based constraints that occur in scenario(s) 'BASE','OTHERBITS','PWR_LAB','DMD_ALL' for region REGION1
 SET UC_N /
   'UC_PV_NCAP'               'Bound on new capacity for PV through transmission '
   'UC_WIND_NCAP'             'Bound on new capacity for wind                    '
+  'UCACT_FIRM'               'Constraint on dispatchable techs                  '
+  'UCCAP_BATR'               'Battery constraint                                '
 /;
 SET UC_N_UCRT /
   'REGION1'   .'UC_PV_NCAP'
   'REGION1'   .'UC_WIND_NCAP'
+  'REGION1'   .'UCACT_FIRM'
+  'REGION1'   .'UCCAP_BATR'
 /;
 
 * TS Data follows for Rule-based Constraint UC_PV_NCAP taken from scenario BASE
@@ -46,4 +50,6 @@ SET UC_N_UCRT /
 PARAMETER AUC_R_EACH /
   'REGION1'                 .'UC_PV_NCAP'                 1
   'REGION1'                 .'UC_WIND_NCAP'               1
+  'REGION1'                 .'UCACT_FIRM'                 1
+  'REGION1'                 .'UCCAP_BATR'                 1
 /;

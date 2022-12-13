@@ -5,7 +5,7 @@ sets
   eMOD_IND eMOD indicators /Activity, Capacity, NewCapacity, FlowIn, FlowOut, CO2, Investment, GVA, Employment/
   CGE_IND /GVA, Employment/
 
-  eMOD_LAB(UC_N) eMOD employment constraint names / UCPWR_FLAB-M, UCPWR_FLAB-P, UCPWR_FLAB-S, UCPWR_FLAB-T/
+  eMOD_LAB(UC_N) eMOD employment constraint names / UCPWR_FLAB-RN, UCPWR_FLAB-RP, UCPWR_FLAB-RS, UCPWR_FLAB-RT, UCPWR_FLAB-UN, UCPWR_FLAB-UP, UCPWR_FLAB-US, UCPWR_FLAB-UT/
 
   HH_EI Household Energy Indicators /TRA, OTH/
 

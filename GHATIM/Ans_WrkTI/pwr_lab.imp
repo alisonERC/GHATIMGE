@@ -1,0 +1,766 @@
+SCENARIO	_GLOBAL,REGION1
+Creation Date:	2022/12/13	3:40:39 PM
+Created By:	Export from database C:\Models\GHATIMGE\GHATIM\Ghana 30TS.mdb
+ANSWER Version:	6.9.27
+Scenario:	PWR_LAB	Labour coefficients Power Sector	
+Time Periods:	0	2015	2016	2017	2018	2019	2020	2021	2022	2023	2024	2025	2026	2027	2028	2029	2030	2031	2032	2033	2034	2035	2036	2037	2038	2039	2040	2041	2042	2043	2044	2045	2046	2047	2048	2049	2050
+
+REGIONS	_GLOBAL,REGION1
+_GLOBAL	Special region for data parameters with no REG arg	ALL_REG	
+REGION1	Initial internal region	ALL_REG,REG	
+
+ITEMS	_GLOBAL
+
+TS DATA	_GLOBAL
+
+TID DATA	_GLOBAL
+
+ITEMS	REGION1
+	C	UCACT_FIRM	Constraint on dispatchable techs	uconstraint	UC_N,UCRT,UCRULE	
+	C	UCCAP_BATR	Battery constraint	uconstraint	UC_N,UCRT,UCRULE	
+	C	UCCAP_DUMETR	dummy technology tracking the sum of centralised generation over and above peak grid demand'	uconstraint	UC_N,UCRT	
+	C	UCCAP_ERMELC	Energy Reserve Margin on ELCC	uconstraint	UC_N,UCRT	
+	C	UCCAP_RMELCC	Capacity Reserve Margin on ELCC	uconstraint	UC_N,UCRT	
+	C	UCNCAP_GAS	Max NCAP gas	uconstraint	UC_N,UCRT	
+	C	UCNCAP_PV	Max NCAP PV	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-RN	User Constraint Power - Factor-FLAB-RN	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-RP	User Constraint Power - Factor-FLAB-RP	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-RS	User Constraint Power - Factor-FLAB-RS	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-RT	User Constraint Power - Factor-FLAB-RT	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-UN	User Constraint Power - Factor-FLAB-UN	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-UP	User Constraint Power - Factor-FLAB-UP	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-US	User Constraint Power - Factor-FLAB-US	uconstraint	UC_N,UCRT	
+	C	UCPWR_FLAB-UT	User Constraint Power - Factor-FLAB-UT	uconstraint	UC_N,UCRT	
+	E	FLAB-RN	Factor-FLAB-RN	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	FLAB-RP	Factor-FLAB-RP	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	FLAB-RS	Factor-FLAB-RS	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	FLAB-RT	Factor-FLAB-RT	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	FLAB-UN	Factor-FLAB-UN	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	FLAB-UP	Factor-FLAB-UP	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	FLAB-US	Factor-FLAB-US	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	FLAB-UT	Factor-FLAB-UT	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-RN	Power - Factor-FLAB-RN	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-RP	Power - Factor-FLAB-RP	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-RS	Power - Factor-FLAB-RS	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-RT	Power - Factor-FLAB-RT	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-UN	Power - Factor-FLAB-UN	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-UP	Power - Factor-FLAB-UP	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-US	Power - Factor-FLAB-US	PJ	COM,NRG,ANNUAL,FOSSIL	
+	E	PWR_FLAB-UT	Power - Factor-FLAB-UT	PJ	COM,NRG,ANNUAL,FOSSIL	
+	T	EP_FLAB-RN	Power - Supply - FLAB-RN	PJ,PJa	PRC,PRE,ANNUAL	
+	T	EP_FLAB-RP	Power - Supply - FLAB-RP	PJ,PJa	PRC,PRE,ANNUAL	
+	T	EP_FLAB-RS	Power - Supply - FLAB-RS	PJ,PJa	PRC,PRE,ANNUAL	
+	T	EP_FLAB-RT	Power - Supply - FLAB-RT	PJ,PJa	PRC,PRE,ANNUAL	
+	T	EP_FLAB-UN	Power - Supply - FLAB-UN	PJ,PJa	PRC,PRE,ANNUAL	
+	T	EP_FLAB-UP	Power - Supply - FLAB-UP	PJ,PJa	PRC,PRE,ANNUAL	
+	T	EP_FLAB-US	Power - Supply - FLAB-US	PJ,PJa	PRC,PRE,ANNUAL	
+	T	EP_FLAB-UT	Power - Supply - FLAB-UT	PJ,PJa	PRC,PRE,ANNUAL	
+	T	MIN_FLAB-RN	Supply - Factor-FLAB-RN	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+	T	MIN_FLAB-RP	Supply - Factor-FLAB-RP	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+	T	MIN_FLAB-RS	Supply - Factor-FLAB-RS	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+	T	MIN_FLAB-RT	Supply - Factor-FLAB-RT	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+	T	MIN_FLAB-UN	Supply - Factor-FLAB-UN	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+	T	MIN_FLAB-UP	Supply - Factor-FLAB-UP	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+	T	MIN_FLAB-US	Supply - Factor-FLAB-US	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+	T	MIN_FLAB-UT	Supply - Factor-FLAB-UT	PJ,PJa	PRC,PRE,ANNUAL,IRE	
+
+TS DATA	REGION1
+	ACT_EFF	EP_FLAB-RN	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	EP_FLAB-RP	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	EP_FLAB-RS	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	EP_FLAB-RT	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	EP_FLAB-UN	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	EP_FLAB-UP	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	EP_FLAB-US	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	EP_FLAB-UT	-	ACTGRP	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-RN	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-RP	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-RS	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-RT	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-UN	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-UP	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-US	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC__RHSRT	UCPWR_FLAB-UT	-	-	-	-	FX	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-RN	LHS	EP_FLAB-RN	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-RP	LHS	EP_FLAB-RP	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-RS	LHS	EP_FLAB-RS	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-RT	LHS	EP_FLAB-RT	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-UN	LHS	EP_FLAB-UN	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-UP	LHS	EP_FLAB-UP	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-US	LHS	EP_FLAB-US	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_ACT	UCPWR_FLAB-UT	LHS	EP_FLAB-UT	-	ANNUAL	-	3	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHBATC00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHBMST00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHBWST00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHCOCS00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHCOSC00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRB00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC01	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC02	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC03	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC04	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC05	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC06	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC07	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC08	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRC09	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRI00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRR00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSRU00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHDSSC03	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHEL00T00	-	-	-	3	-0.01211	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHEL00TDC	-	-	-	3	-0.0238	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHEL00TDI	-	-	-	3	-0.02182	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHEL00TDR	-	-	-	3	-0.13254	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHEL00TDU	-	-	-	3	-0.13254	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHGOCV00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHFRC00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYDM00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYDT01	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYDT02	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYDT03	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYDT04	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYDT05	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYDT06	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYMI00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO01	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO02	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO03	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO04	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO06	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO07	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO08	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO09	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO10	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO11	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO12	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO13	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHHYRO14	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHNGCC00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHNGSC00	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHNGSC01	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHNGSC02	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHNGSC04	-	-	-	3	-0.01413	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPB00	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPC00	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPC01	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPCZ001	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPCZ002	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPCZ003	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPCZ004	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPCZ005	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPR00	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPS00	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOPU00	-	-	-	3	-0.01594	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOTG00	-	-	-	3	-0.01952	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHSOTS00	-	-	-	3	-0.01952	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHWDLC00	-	-	-	3	-0.01318	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHWDLC01	-	-	-	3	-0.01318	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHWDLCZ001	-	-	-	3	-0.01318	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHWDLCZ002	-	-	-	3	-0.01318	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHWDLCZ003	-	-	-	3	-0.01318	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHWDLCZ004	-	-	-	3	-0.01318	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RN	LHS	GHWDLCZ005	-	-	-	3	-0.01318	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHBATC00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHBMST00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHBWST00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHCOCS00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHCOSC00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRB00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC01	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC02	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC03	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC04	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC05	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC06	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC07	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC08	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRC09	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRI00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRR00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSRU00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHDSSC03	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHEL00T00	-	-	-	3	-0.0098	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHEL00TDC	-	-	-	3	-0.01927	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHEL00TDI	-	-	-	3	-0.01766	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHEL00TDR	-	-	-	3	-0.10729	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHEL00TDU	-	-	-	3	-0.10729	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHGOCV00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHFRC00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYDM00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYDT01	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYDT02	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYDT03	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYDT04	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYDT05	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYDT06	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYMI00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO01	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO02	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO03	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO04	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO06	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO07	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO08	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO09	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO10	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO11	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO12	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO13	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHHYRO14	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHNGCC00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHNGSC00	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHNGSC01	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHNGSC02	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHNGSC04	-	-	-	3	-0.01144	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPB00	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPC00	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPC01	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPCZ001	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPCZ002	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPCZ003	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPCZ004	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPCZ005	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPR00	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPS00	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOPU00	-	-	-	3	-0.01291	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOTG00	-	-	-	3	-0.0158	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHSOTS00	-	-	-	3	-0.0158	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHWDLC00	-	-	-	3	-0.01067	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHWDLC01	-	-	-	3	-0.01067	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHWDLCZ001	-	-	-	3	-0.01067	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHWDLCZ002	-	-	-	3	-0.01067	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHWDLCZ003	-	-	-	3	-0.01067	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHWDLCZ004	-	-	-	3	-0.01067	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RP	LHS	GHWDLCZ005	-	-	-	3	-0.01067	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHBATC00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHBMST00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHBWST00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHCOCS00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHCOSC00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRB00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC01	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC02	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC03	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC04	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC05	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC06	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC07	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC08	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRC09	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRI00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRR00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSRU00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHDSSC03	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHEL00T00	-	-	-	3	-0.01326	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHEL00TDC	-	-	-	3	-0.02606	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHEL00TDI	-	-	-	3	-0.0239	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHEL00TDR	-	-	-	3	-0.14516	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHEL00TDU	-	-	-	3	-0.14516	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHGOCV00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHFRC00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYDM00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYDT01	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYDT02	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYDT03	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYDT04	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYDT05	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYDT06	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYMI00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO01	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO02	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO03	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO04	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO06	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO07	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO08	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO09	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO10	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO11	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO12	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO13	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHHYRO14	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHNGCC00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHNGSC00	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHNGSC01	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHNGSC02	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHNGSC04	-	-	-	3	-0.01548	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPB00	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPC00	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPC01	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPCZ001	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPCZ002	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPCZ003	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPCZ004	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPCZ005	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPR00	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPS00	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOPU00	-	-	-	3	-0.01746	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOTG00	-	-	-	3	-0.02138	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHSOTS00	-	-	-	3	-0.02138	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHWDLC00	-	-	-	3	-0.01444	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHWDLC01	-	-	-	3	-0.01444	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHWDLCZ001	-	-	-	3	-0.01444	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHWDLCZ002	-	-	-	3	-0.01444	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHWDLCZ003	-	-	-	3	-0.01444	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHWDLCZ004	-	-	-	3	-0.01444	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RS	LHS	GHWDLCZ005	-	-	-	3	-0.01444	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHBATC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHBMST00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHBWST00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHCOCS00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHCOSC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRB00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC01	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC02	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC03	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC04	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC05	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC06	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC07	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC08	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRC09	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRI00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRR00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSRU00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHDSSC03	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHEL00T00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHEL00TDC	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHEL00TDI	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHEL00TDR	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHEL00TDU	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHGOCV00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHFRC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYDM00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYDT01	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYDT02	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYDT03	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYDT04	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYDT05	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYDT06	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYMI00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO01	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO02	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO03	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO04	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO06	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO07	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO08	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO09	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO10	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO11	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO12	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO13	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHHYRO14	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHNGCC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHNGSC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHNGSC01	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHNGSC02	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHNGSC04	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPB00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPC01	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPCZ001	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPCZ002	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPCZ003	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPCZ004	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPCZ005	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPR00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPS00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOPU00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOTG00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHSOTS00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHWDLC00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHWDLC01	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHWDLCZ001	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHWDLCZ002	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHWDLCZ003	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHWDLCZ004	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-RT	LHS	GHWDLCZ005	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHBATC00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHBMST00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHBWST00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHCOCS00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHCOSC00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRB00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC01	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC02	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC03	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC04	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC05	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC06	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC07	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC08	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRC09	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRI00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRR00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSRU00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHDSSC03	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHEL00T00	-	-	-	3	-0.09284	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHEL00TDC	-	-	-	3	-0.18245	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHEL00TDI	-	-	-	3	-0.16729	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHEL00TDR	-	-	-	3	-1.01614	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHEL00TDU	-	-	-	3	-1.01614	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHGOCV00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHFRC00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYDM00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYDT01	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYDT02	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYDT03	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYDT04	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYDT05	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYDT06	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYMI00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO01	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO02	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO03	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO04	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO06	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO07	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO08	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO09	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO10	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO11	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO12	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO13	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHHYRO14	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHNGCC00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHNGSC00	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHNGSC01	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHNGSC02	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHNGSC04	-	-	-	3	-0.10833	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPB00	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPC00	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPC01	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPCZ001	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPCZ002	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPCZ003	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPCZ004	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPCZ005	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPR00	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPS00	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOPU00	-	-	-	3	-0.12224	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOTG00	-	-	-	3	-0.14967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHSOTS00	-	-	-	3	-0.14967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHWDLC00	-	-	-	3	-0.10106	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHWDLC01	-	-	-	3	-0.10106	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHWDLCZ001	-	-	-	3	-0.10106	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHWDLCZ002	-	-	-	3	-0.10106	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHWDLCZ003	-	-	-	3	-0.10106	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHWDLCZ004	-	-	-	3	-0.10106	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UN	LHS	GHWDLCZ005	-	-	-	3	-0.10106	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHBATC00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHBMST00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHBWST00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHCOCS00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHCOSC00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRB00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC01	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC02	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC03	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC04	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC05	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC06	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC07	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC08	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRC09	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRI00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRR00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSRU00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHDSSC03	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHEL00T00	-	-	-	3	-0.34252	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHEL00TDC	-	-	-	3	-0.67315	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHEL00TDI	-	-	-	3	-0.61722	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHEL00TDR	-	-	-	3	-3.749	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHEL00TDU	-	-	-	3	-3.749	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHGOCV00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHFRC00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYDM00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYDT01	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYDT02	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYDT03	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYDT04	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYDT05	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYDT06	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYMI00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO01	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO02	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO03	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO04	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO06	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO07	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO08	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO09	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO10	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO11	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO12	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO13	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHHYRO14	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHNGCC00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHNGSC00	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHNGSC01	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHNGSC02	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHNGSC04	-	-	-	3	-0.39967	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPB00	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPC00	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPC01	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPCZ001	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPCZ002	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPCZ003	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPCZ004	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPCZ005	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPR00	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPS00	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOPU00	-	-	-	3	-0.45099	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOTG00	-	-	-	3	-0.5522	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHSOTS00	-	-	-	3	-0.5522	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHWDLC00	-	-	-	3	-0.37287	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHWDLC01	-	-	-	3	-0.37287	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHWDLCZ001	-	-	-	3	-0.37287	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHWDLCZ002	-	-	-	3	-0.37287	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHWDLCZ003	-	-	-	3	-0.37287	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHWDLCZ004	-	-	-	3	-0.37287	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UP	LHS	GHWDLCZ005	-	-	-	3	-0.37287	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHBATC00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHBMST00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHBWST00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHCOCS00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHCOSC00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRB00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC01	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC02	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC03	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC04	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC05	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC06	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC07	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC08	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRC09	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRI00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRR00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSRU00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHDSSC03	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHEL00T00	-	-	-	3	-0.06228	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHEL00TDC	-	-	-	3	-0.12239	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHEL00TDI	-	-	-	3	-0.11222	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHEL00TDR	-	-	-	3	-0.68164	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHEL00TDU	-	-	-	3	-0.68164	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHGOCV00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHFRC00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYDM00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYDT01	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYDT02	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYDT03	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYDT04	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYDT05	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYDT06	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYMI00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO01	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO02	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO03	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO04	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO06	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO07	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO08	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO09	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO10	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO11	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO12	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO13	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHHYRO14	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHNGCC00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHNGSC00	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHNGSC01	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHNGSC02	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHNGSC04	-	-	-	3	-0.07267	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPB00	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPC00	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPC01	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPCZ001	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPCZ002	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPCZ003	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPCZ004	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPCZ005	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPR00	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPS00	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOPU00	-	-	-	3	-0.082	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOTG00	-	-	-	3	-0.1004	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHSOTS00	-	-	-	3	-0.1004	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHWDLC00	-	-	-	3	-0.06779	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHWDLC01	-	-	-	3	-0.06779	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHWDLCZ001	-	-	-	3	-0.06779	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHWDLCZ002	-	-	-	3	-0.06779	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHWDLCZ003	-	-	-	3	-0.06779	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHWDLCZ004	-	-	-	3	-0.06779	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-US	LHS	GHWDLCZ005	-	-	-	3	-0.06779	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHBATC00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHBMST00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHBWST00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHCOCS00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHCOSC00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRB00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC01	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC02	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC03	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC04	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC05	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC06	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC07	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC08	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRC09	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRI00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRR00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSRU00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHDSSC03	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHEL00I00	-	-	-	3	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHEL00T00	-	-	-	3	-0.75884	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHEL00TDC	-	-	-	3	-1.49136	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHEL00TDI	-	-	-	3	-1.36744	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHEL00TDR	-	-	-	3	-8.30587	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHEL00TDU	-	-	-	3	-8.30587	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHGOCV00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHFRC00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYDM00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYDT01	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYDT02	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYDT03	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYDT04	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYDT05	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYDT06	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYMI00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO01	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO02	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO03	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO04	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO06	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO07	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO08	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO09	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO10	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO11	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO12	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO13	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHHYRO14	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHNGCC00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHNGSC00	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHNGSC01	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHNGSC02	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHNGSC04	-	-	-	3	-0.88546	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPB00	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPC00	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPC01	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPCZ001	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPCZ002	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPCZ003	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPCZ004	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPCZ005	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPR00	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPS00	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOPU00	-	-	-	3	-0.99916	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOTG00	-	-	-	3	-1.2234	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHSOTS00	-	-	-	3	-1.2234	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHWDLC00	-	-	-	3	-0.82608	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHWDLC01	-	-	-	3	-0.82608	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHWDLCZ001	-	-	-	3	-0.82608	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHWDLCZ002	-	-	-	3	-0.82608	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHWDLCZ003	-	-	-	3	-0.82608	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHWDLCZ004	-	-	-	3	-0.82608	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	UC_CAP	UCPWR_FLAB-UT	LHS	GHWDLCZ005	-	-	-	3	-0.82608	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+
+TID DATA	REGION1
+	PRC_ACTUNT	EP_FLAB-RN	-	PWR_FLAB-RN	-	-	-	1	
+	PRC_ACTUNT	EP_FLAB-RP	-	PWR_FLAB-RP	-	-	-	1	
+	PRC_ACTUNT	EP_FLAB-RS	-	PWR_FLAB-RS	-	-	-	1	
+	PRC_ACTUNT	EP_FLAB-RT	-	PWR_FLAB-RT	-	-	-	1	
+	PRC_ACTUNT	EP_FLAB-UN	-	PWR_FLAB-UN	-	-	-	1	
+	PRC_ACTUNT	EP_FLAB-UP	-	PWR_FLAB-UP	-	-	-	1	
+	PRC_ACTUNT	EP_FLAB-US	-	PWR_FLAB-US	-	-	-	1	
+	PRC_ACTUNT	EP_FLAB-UT	-	PWR_FLAB-UT	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-RN	-	FLAB-RN	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-RP	-	FLAB-RP	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-RS	-	FLAB-RS	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-RT	-	FLAB-RT	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-UN	-	FLAB-UN	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-UP	-	FLAB-UP	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-US	-	FLAB-US	-	-	-	1	
+	PRC_ACTUNT	MIN_FLAB-UT	-	FLAB-UT	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-RN	-	-	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-RP	-	-	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-RS	-	-	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-RT	-	-	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-UN	-	-	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-UP	-	-	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-US	-	-	-	-	-	1	
+	PRC_CAPACT	EP_FLAB-UT	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-RN	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-RP	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-RS	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-RT	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-UN	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-UP	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-US	-	-	-	-	-	1	
+	PRC_CAPACT	MIN_FLAB-UT	-	-	-	-	-	1	
+	TOP-IN	EP_FLAB-RN	FLAB-RN	-	-	-	-	1	
+	TOP-IN	EP_FLAB-RP	FLAB-RP	-	-	-	-	1	
+	TOP-IN	EP_FLAB-RS	FLAB-RS	-	-	-	-	1	
+	TOP-IN	EP_FLAB-RT	FLAB-RT	-	-	-	-	1	
+	TOP-IN	EP_FLAB-UN	FLAB-UN	-	-	-	-	1	
+	TOP-IN	EP_FLAB-UP	FLAB-UP	-	-	-	-	1	
+	TOP-IN	EP_FLAB-US	FLAB-US	-	-	-	-	1	
+	TOP-IN	EP_FLAB-UT	FLAB-UT	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-RN	PWR_FLAB-RN	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-RP	PWR_FLAB-RP	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-RS	PWR_FLAB-RS	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-RT	PWR_FLAB-RT	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-UN	PWR_FLAB-UN	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-UP	PWR_FLAB-UP	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-US	PWR_FLAB-US	-	-	-	-	1	
+	TOP-OUT	EP_FLAB-UT	PWR_FLAB-UT	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-RN	FLAB-RN	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-RP	FLAB-RP	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-RS	FLAB-RS	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-RT	FLAB-RT	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-UN	FLAB-UN	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-UP	FLAB-UP	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-US	FLAB-US	-	-	-	-	1	
+	TOP-OUT	MIN_FLAB-UT	FLAB-UT	-	-	-	-	1	
+	UC_R_EACH	UCACT_FIRM	-	-	-	-	-	1	
+	UC_R_EACH	UCCAP_BATR	-	-	-	-	-	1	
+	UC_R_EACH	UCCAP_ERMELC	-	-	-	-	-	1	
+	UC_R_EACH	UCCAP_RMELCC	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-RN	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-RP	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-RS	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-RT	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-UN	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-UP	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-US	-	-	-	-	-	1	
+	UC_R_EACH	UCPWR_FLAB-UT	-	-	-	-	-	1	
+
+TS TRADE	_GLOBAL,REGION1
+
+TID TRADE	_GLOBAL,REGION1
+
