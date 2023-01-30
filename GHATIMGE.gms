@@ -513,12 +513,8 @@ ELSE
 
   if(SIM_eMOD(RUN) eq 1,
 * Write Drivers to DMD_PROJ workbook
-         execute_unload "drivers.gdx" GVA_FS POP YHE TFHPOP MFHHT QD_FS PAMS_RUN;
-         execute 'gdxxrw.exe i=drivers.gdx o=.\GHATIM\DataSpreadsheets\DMD_PRJ.xlsx index=index_G2E!a6';
-
-* Read resulting Demand from DMD_PROJ workbook
-         execute 'gdxxrw.exe i=.\GHATIM\DataSpreadsheets\DMD_PRJ.xlsx o=EnergyDemand.gdx index=index_E2G!a6';
-         execute_load "EnergyDemand.gdx" SIM_DEMX;
+          execute_load "EnergyDemand.gdx" ELCDEM;
+          SIM_DEMX(DEM1,TC) = SUM(FSeMOD$MELCDEM(FSeMOD,DEM1),ELCDEM(FSeMOD,TC));
 
 
 * Write Demand DDS File

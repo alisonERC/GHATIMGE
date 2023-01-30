@@ -17,7 +17,7 @@ parameters
 EBCHECK(MOD,FSeMOD,IN_OUT,C,TC,TT,RUN)
 ELCDEM(FSeMOD,TC)
 ;
-$gdxin  TestGHATIMGE.gdx
+$gdxin  TestGHATIM7.gdx
 $load FSeMOD, C, TC, TT, RUN, EBCHECK
 ELCDEM(FSeMOD,TC) = EBCHECK('eGEM',FSeMOD,'IN','celec',TC,'2050','Reference')*(-1);
 

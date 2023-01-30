@@ -1,5 +1,5 @@
 SCENARIO	_GLOBAL,REGION1
-Creation Date:	2022/12/12	1:46:48 PM
+Creation Date:	2022/12/14	8:51:12 AM
 Created By:	Export from database C:\Models\GHATIMGE\GHATIM\Ghana 30TS.mdb
 ANSWER Version:	6.9.27
 Scenario:	BASE	Ghana Base	
@@ -416,7 +416,7 @@ TS DATA	REGION1
 	ACT_EFF	GHDSRR00	-	ACTGRP	-	ANNUAL	-	0	0.16	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	ACT_EFF	GHDSRU00	-	ACTGRP	-	ANNUAL	-	0	0.16	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	ACT_EFF	GHDSSC03	-	ACTGRP	-	ANNUAL	-	0	0.3	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	ACT_EFF	GHEL00T00	-	ACTGRP	-	ANNUAL	-	0	0.9	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	ACT_EFF	GHEL00T00	-	ACTGRP	-	ANNUAL	-	0	0.95	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	ACT_EFF	GHEL00TDC	-	ACTGRP	-	ANNUAL	-	0	0.9	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	ACT_EFF	GHEL00TDI	-	ACTGRP	-	ANNUAL	-	0	0.9	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	ACT_EFF	GHEL00TDR	-	ACTGRP	-	ANNUAL	-	0	0.9	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
