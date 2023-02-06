@@ -1,5 +1,5 @@
 SCENARIO	_GLOBAL,REGION1
-Creation Date:	2022/12/14	8:51:12 AM
+Creation Date:	2023/02/02	12:17:53 PM
 Created By:	Export from database C:\Models\GHATIMGE\GHATIM\Ghana 30TS.mdb
 ANSWER Version:	6.9.27
 Scenario:	BASE	Ghana Base	
@@ -684,6 +684,26 @@ TS DATA	REGION1
 	FLO_EMIS	GHDS00I00	PWRCO2I00	GHDS00	-	ANNUAL	-	0	74.0667	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	FLO_EMIS	GHDS00I00	PWRN2OI00	GHDS00	-	ANNUAL	-	0	0.0006	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	FLO_EMIS	GHDS00I00	PWRNMVI00	GHDS00	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD02	PWRCH4I00	GHDS02	-	ANNUAL	-	0	0.003	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD02	PWRCO2I00	GHDS02	-	ANNUAL	-	0	74.0667	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD02	PWRN2OI00	GHDS02	-	ANNUAL	-	0	0.0006	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD02	PWRNMVI00	GHDS02	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD03	PWRCH4I00	GHDS03	-	ANNUAL	-	0	0.003	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD03	PWRCO2I00	GHDS03	-	ANNUAL	-	0	74.0667	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD03	PWRN2OI00	GHDS03	-	ANNUAL	-	0	0.0006	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD03	PWRNMVI00	GHDS03	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD04	PWRCH4I00	GHDS04	-	ANNUAL	-	0	0.003	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD04	PWRCO2I00	GHDS04	-	ANNUAL	-	0	74.0667	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD04	PWRN2OI00	GHDS04	-	ANNUAL	-	0	0.0006	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD04	PWRNMVI00	GHDS04	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD06	PWRCH4I00	GHDS06	-	ANNUAL	-	0	0.003	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD06	PWRCO2I00	GHDS06	-	ANNUAL	-	0	74.0667	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD06	PWRN2OI00	GHDS06	-	ANNUAL	-	0	0.0006	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD06	PWRNMVI00	GHDS06	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD09	PWRCH4I00	GHDS09	-	ANNUAL	-	0	0.003	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD09	PWRCO2I00	GHDS09	-	ANNUAL	-	0	74.0667	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD09	PWRN2OI00	GHDS09	-	ANNUAL	-	0	0.0006	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHDSXXD09	PWRNMVI00	GHDS09	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	FLO_EMIS	GHHF00I00	PWRCH4I00	GHHF00	-	ANNUAL	-	0	0.003	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	FLO_EMIS	GHHF00I00	PWRCMOI00	GHHF00	-	ANNUAL	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	FLO_EMIS	GHHF00I00	PWRCO2I00	GHHF00	-	ANNUAL	-	0	77.4	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
@@ -695,6 +715,18 @@ TS DATA	REGION1
 	FLO_EMIS	GHNG00X00	PWRCO2X00	GHNG00	-	ANNUAL	-	0	56.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	FLO_EMIS	GHNG00X00	PWRN2OX00	GHNG00	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	FLO_EMIS	GHNG00X00	PWRNMVX00	GHNG00	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD01	PWRCH4I00	GHNG01	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD01	PWRCO2I00	GHNG01	-	ANNUAL	-	0	56.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD01	PWRN2OI00	GHNG01	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD01	PWRNMVI00	GHNG01	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD02	PWRCH4I00	GHNG02	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD02	PWRCO2I00	GHNG02	-	ANNUAL	-	0	56.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD02	PWRN2OI00	GHNG02	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD02	PWRNMVI00	GHNG02	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD04	PWRCH4I00	GHNG04	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD04	PWRCO2I00	GHNG04	-	ANNUAL	-	0	56.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD04	PWRN2OI00	GHNG04	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	FLO_EMIS	GHNGXXD04	PWRNMVI00	GHNG04	-	ANNUAL	-	0	0.005	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	G_DRATE	-	_	-	-	-	-	0	0.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_AF	GHBMST00	-	-	-	ANNUAL	UP	0	0.8185	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_AF	GHBWST00	-	-	-	ANNUAL	UP	0	0.8185	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
@@ -1432,11 +1464,11 @@ TS DATA	REGION1
 	NCAP_COST	GHDSRR00	-	-	-	-	-	0	795	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_COST	GHDSRU00	-	-	-	-	-	0	1086	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_COST	GHDSSC03	-	-	-	-	-	0	1014	null	null	null	null	1014	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_COST	GHEL00T00	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_COST	GHEL00TDC	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_COST	GHEL00TDI	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_COST	GHEL00TDR	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_COST	GHEL00TDU	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_COST	GHEL00T00	-	-	-	-	-	0	750.243232223293	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_COST	GHEL00TDC	-	-	-	-	-	0	886.36969468741	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_COST	GHEL00TDI	-	-	-	-	-	0	421.330979476917	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_COST	GHEL00TDR	-	-	-	-	-	0	1772.73938363207	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_COST	GHEL00TDU	-	-	-	-	-	0	1772.73938363207	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_COST	GHGOCV00	-	-	-	-	-	0	4000	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_COST	GHHFRC00	-	-	-	-	-	0	1086	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_COST	GHHY01X00	-	-	-	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
@@ -1524,11 +1556,13 @@ TS DATA	REGION1
 	NCAP_FOM	GHDSXXD04	-	-	-	-	-	0	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	36.6443568732929	null	null	null	null	null	null	null	null	null	null	
 	NCAP_FOM	GHDSXXD06	-	-	-	-	-	0	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	null	null	null	null	null	null	null	null	null	null	
 	NCAP_FOM	GHDSXXD09	-	-	-	-	-	0	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	35.6671740233384	null	null	null	null	null	null	null	null	null	null	
-	NCAP_FOM	GHEL00T00	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_FOM	GHEL00TDC	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_FOM	GHEL00TDI	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_FOM	GHEL00TDR	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_FOM	GHEL00TDU	-	-	-	-	-	0	0.01	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_FOM	GHEL00I00	-	-	-	-	-	0	1.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_FOM	GHEL00T00	-	-	-	-	-	0	15.8168437264498	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_FOM	GHEL00TDC	-	-	-	-	-	0	46.217897244455	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_FOM	GHEL00TDI	-	-	-	-	-	0	21.9694243069052	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_FOM	GHEL00TDR	-	-	-	-	-	0	92.4357941894664	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_FOM	GHEL00TDU	-	-	-	-	-	0	92.4357941894664	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_FOM	GHELEXP00	-	-	-	-	-	0	0.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_FOM	GHGOCV00	-	-	-	-	-	0	120	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_FOM	GHHFRC00	-	-	-	-	-	0	33	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_FOM	GHHYDM00	-	-	-	-	-	0	90	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
@@ -1662,6 +1696,7 @@ TS DATA	REGION1
 	NCAP_PKCNT	GHDSRR00	-	-	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_PKCNT	GHDSRU00	-	-	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_PKCNT	GHDSSC03	-	-	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	NCAP_PKCNT	GHEL00I00	-	-	-	ANNUAL	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_PKCNT	GHGOCV00	-	-	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_PKCNT	GHHFRC00	-	-	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_PKCNT	GHHY01X00	-	-	-	ANNUAL	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
@@ -1821,11 +1856,11 @@ TS DATA	REGION1
 	PRC_RESID	GHDSXXD04	-	-	-	-	-	0	0	0	0	0	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	4.80356352	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	PRC_RESID	GHDSXXD06	-	-	-	-	-	0	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	1.3655088	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	PRC_RESID	GHDSXXD09	-	-	-	-	-	0	0	0	0	0	0	0	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	2.77422192	0	0	0	0	
-	PRC_RESID	GHEL00T00	-	-	-	-	-	0	0.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
-	PRC_RESID	GHEL00TDC	-	-	-	-	-	0	0.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	PRC_RESID	GHEL00TDI	-	-	-	-	-	0	0.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	PRC_RESID	GHEL00TDR	-	-	-	-	-	0	0.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	PRC_RESID	GHEL00TDU	-	-	-	-	-	0	0.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	PRC_RESID	GHEL00T00	-	-	-	-	-	0	1.605	null	null	null	null	1.605	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	0.8025	
+	PRC_RESID	GHEL00TDC	-	-	-	-	-	0	0.17	null	null	null	null	0.17	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	0.085	
+	PRC_RESID	GHEL00TDI	-	-	-	-	-	0	0.48	null	null	null	null	0.48	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	0.24	
+	PRC_RESID	GHEL00TDR	-	-	-	-	-	0	0.1	null	null	null	null	0.1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	0.05	
+	PRC_RESID	GHEL00TDU	-	-	-	-	-	0	0.81	null	null	null	null	0.81	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	0.405	
 	PRC_RESID	GHHY01X00	-	-	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	PRC_RESID	GHHY02X00	-	-	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	PRC_RESID	GHHY03X00	-	-	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
@@ -1968,7 +2003,7 @@ TID DATA	REGION1
 	PRC_ACTUNT	GHDSXXD04	-	GHDS04	-	-	-	1	
 	PRC_ACTUNT	GHDSXXD06	-	GHDS06	-	-	-	1	
 	PRC_ACTUNT	GHDSXXD09	-	GHDS09	-	-	-	1	
-	PRC_ACTUNT	GHEL00I00	-	GHEL00	-	-	-	1	
+	PRC_ACTUNT	GHEL00I00	-	GHEL00	-	-	-	31.536	
 	PRC_ACTUNT	GHEL00T00	-	GHEL00T	-	-	-	1	
 	PRC_ACTUNT	GHEL00TDC	-	GHEL00DC	-	-	-	1	
 	PRC_ACTUNT	GHEL00TDI	-	GHEL00DI	-	-	-	1	
@@ -1978,7 +2013,7 @@ TID DATA	REGION1
 	PRC_ACTUNT	GHEL00TUI	-	GHEL00UI	-	-	-	1	
 	PRC_ACTUNT	GHEL00TUR	-	GHEL00UR	-	-	-	1	
 	PRC_ACTUNT	GHEL00TUU	-	GHEL00UU	-	-	-	1	
-	PRC_ACTUNT	GHELEXP00	-	GHEL00T	-	-	-	1	
+	PRC_ACTUNT	GHELEXP00	-	GHEL00T	-	-	-	31.536	
 	PRC_ACTUNT	GHGO00X00	-	GHGO00	-	-	-	1	
 	PRC_ACTUNT	GHGOCV00	-	GHEL00	-	-	-	1	
 	PRC_ACTUNT	GHHF00I00	-	GHHF00	-	-	-	1	
@@ -2296,10 +2331,30 @@ TID DATA	REGION1
 	TOP-OUT	GHDSRU00	GHEL00DU	-	-	-	-	1	
 	TOP-OUT	GHDSSC03	GHEL00	-	-	-	-	1	
 	TOP-OUT	GHDSXXD02	GHDS02	-	-	-	-	1	
+	TOP-OUT	GHDSXXD02	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD02	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD02	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD02	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHDSXXD03	GHDS03	-	-	-	-	1	
+	TOP-OUT	GHDSXXD03	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD03	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD03	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD03	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHDSXXD04	GHDS04	-	-	-	-	1	
+	TOP-OUT	GHDSXXD04	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD04	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD04	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD04	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHDSXXD06	GHDS06	-	-	-	-	1	
+	TOP-OUT	GHDSXXD06	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD06	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD06	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD06	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHDSXXD09	GHDS09	-	-	-	-	1	
+	TOP-OUT	GHDSXXD09	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD09	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD09	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHDSXXD09	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHEL00I00	GHEL00	-	-	-	-	1	
 	TOP-OUT	GHEL00T00	GHEL00T	-	-	-	-	1	
 	TOP-OUT	GHEL00TDC	GHEL00DC	-	-	-	-	1	
@@ -2370,8 +2425,20 @@ TID DATA	REGION1
 	TOP-OUT	GHNGSC02	GHEL00	-	-	-	-	1	
 	TOP-OUT	GHNGSC04	GHEL00	-	-	-	-	1	
 	TOP-OUT	GHNGXXD01	GHNG01	-	-	-	-	1	
+	TOP-OUT	GHNGXXD01	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD01	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD01	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD01	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHNGXXD02	GHNG02	-	-	-	-	1	
+	TOP-OUT	GHNGXXD02	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD02	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD02	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD02	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHNGXXD04	GHNG04	-	-	-	-	1	
+	TOP-OUT	GHNGXXD04	PWRCH4I00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD04	PWRCO2I00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD04	PWRN2OI00	-	-	-	-	1	
+	TOP-OUT	GHNGXXD04	PWRNMVI00	-	-	-	-	1	
 	TOP-OUT	GHNU00X00	GHNU00	-	-	-	-	1	
 	TOP-OUT	GHSO00X00	GHSO00	-	-	-	-	1	
 	TOP-OUT	GHSOPB00	GHEL00DC	-	-	-	-	1	

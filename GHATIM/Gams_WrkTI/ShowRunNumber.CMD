@@ -1,1 +1,1 @@
-echo Reference
+echo NDC_Moderate

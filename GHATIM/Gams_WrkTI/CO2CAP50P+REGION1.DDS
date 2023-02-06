@@ -1,0 +1,135 @@
+SET ALL_REG /
+  'REGION1'
+/;
+SET REG /
+  'REGION1'                  'Initial internal region                           '
+/;
+SET COM_GRP /
+  'PWRCH4I00'                'Power Sector Methane                              '
+  'PWRCH4X00'                'Power Sector Carbon monoxide South Africa         '
+  'PWRCMOI00'                'Power Sector Carbon dioxide                       '
+  'PWRCMOX00'                'Power Sector Carbon dioxide                       '
+  'PWRCO2'                   'Power Sector Carbon dioxide                       '
+  'PWRCO2EQ'                 'Power Sector CO2EQ                                '
+  'PWRCO2I00'                'Power Sector Carbon dioxide                       '
+  'PWRCO2X00'                'Power Sector Carbon dioxide                       '
+  'PWRN2OI00'                'Power Sector Carbon dioxide                       '
+  'PWRN2OX00'                'Power Sector Carbon dioxide                       '
+  'PWRNMVI00'                'Power Sector Carbon dioxide                       '
+  'PWRNMVX00'                'Power Sector Carbon dioxide                       '
+  'PWRNOXI00'                'Power Sector Carbon dioxide                       '
+  'PWRNOXX00'                'Power Sector Carbon dioxide                       '
+  'PWRSOXI00'                'Power Sector Carbon dioxide                       '
+  'PWRSOXX00'                'Power Sector Carbon dioxide                       '
+/;
+SET COM /
+  'PWRCH4I00'                'Power Sector Methane                              '
+  'PWRCH4X00'                'Power Sector Carbon monoxide South Africa         '
+  'PWRCMOI00'                'Power Sector Carbon dioxide                       '
+  'PWRCMOX00'                'Power Sector Carbon dioxide                       '
+  'PWRCO2'                   'Power Sector Carbon dioxide                       '
+  'PWRCO2EQ'                 'Power Sector CO2EQ                                '
+  'PWRCO2I00'                'Power Sector Carbon dioxide                       '
+  'PWRCO2X00'                'Power Sector Carbon dioxide                       '
+  'PWRN2OI00'                'Power Sector Carbon dioxide                       '
+  'PWRN2OX00'                'Power Sector Carbon dioxide                       '
+  'PWRNMVI00'                'Power Sector Carbon dioxide                       '
+  'PWRNMVX00'                'Power Sector Carbon dioxide                       '
+  'PWRNOXI00'                'Power Sector Carbon dioxide                       '
+  'PWRNOXX00'                'Power Sector Carbon dioxide                       '
+  'PWRSOXI00'                'Power Sector Carbon dioxide                       '
+  'PWRSOXX00'                'Power Sector Carbon dioxide                       '
+/;
+SET COM_ENV /
+  'REGION1'   .'PWRCH4I00'
+  'REGION1'   .'PWRCH4X00'
+  'REGION1'   .'PWRCMOI00'
+  'REGION1'   .'PWRCMOX00'
+  'REGION1'   .'PWRCO2'
+  'REGION1'   .'PWRCO2EQ'
+  'REGION1'   .'PWRCO2I00'
+  'REGION1'   .'PWRCO2X00'
+  'REGION1'   .'PWRN2OI00'
+  'REGION1'   .'PWRN2OX00'
+  'REGION1'   .'PWRNMVI00'
+  'REGION1'   .'PWRNMVX00'
+  'REGION1'   .'PWRNOXI00'
+  'REGION1'   .'PWRNOXX00'
+  'REGION1'   .'PWRSOXI00'
+  'REGION1'   .'PWRSOXX00'
+/;
+SET COM_ANNUAL /
+  'REGION1'   .'PWRCH4I00'
+  'REGION1'   .'PWRCH4X00'
+  'REGION1'   .'PWRCMOI00'
+  'REGION1'   .'PWRCMOX00'
+  'REGION1'   .'PWRCO2'
+  'REGION1'   .'PWRCO2EQ'
+  'REGION1'   .'PWRCO2I00'
+  'REGION1'   .'PWRCO2X00'
+  'REGION1'   .'PWRN2OI00'
+  'REGION1'   .'PWRN2OX00'
+  'REGION1'   .'PWRNMVI00'
+  'REGION1'   .'PWRNMVX00'
+  'REGION1'   .'PWRNOXI00'
+  'REGION1'   .'PWRNOXX00'
+  'REGION1'   .'PWRSOXI00'
+  'REGION1'   .'PWRSOXX00'
+/;
+SET COM_ENVGHG /
+  'REGION1'   .'PWRCH4I00'
+  'REGION1'   .'PWRCH4X00'
+  'REGION1'   .'PWRCMOI00'
+  'REGION1'   .'PWRCMOX00'
+  'REGION1'   .'PWRCO2'
+  'REGION1'   .'PWRCO2EQ'
+  'REGION1'   .'PWRCO2I00'
+  'REGION1'   .'PWRCO2X00'
+  'REGION1'   .'PWRN2OI00'
+  'REGION1'   .'PWRN2OX00'
+  'REGION1'   .'PWRNMVI00'
+  'REGION1'   .'PWRNMVX00'
+  'REGION1'   .'PWRNOXI00'
+  'REGION1'   .'PWRNOXX00'
+  'REGION1'   .'PWRSOXI00'
+  'REGION1'   .'PWRSOXX00'
+/;
+SET ACOM_UNIT /
+  'REGION1'.'PWRCH4I00'.'KT'
+  'REGION1'.'PWRCH4X00'.'KT'
+  'REGION1'.'PWRCMOI00'.'KT'
+  'REGION1'.'PWRCMOX00'.'KT'
+  'REGION1'.'PWRCO2'.'KT'
+  'REGION1'.'PWRCO2EQ'.'KT'
+  'REGION1'.'PWRCO2I00'.'KT'
+  'REGION1'.'PWRCO2X00'.'KT'
+  'REGION1'.'PWRN2OI00'.'KT'
+  'REGION1'.'PWRN2OX00'.'KT'
+  'REGION1'.'PWRNMVI00'.'KT'
+  'REGION1'.'PWRNMVX00'.'KT'
+  'REGION1'.'PWRNOXI00'.'KT'
+  'REGION1'.'PWRNOXX00'.'KT'
+  'REGION1'.'PWRSOXI00'.'KT'
+  'REGION1'.'PWRSOXX00'.'KT'
+/;
+       TABLE ACOM_AGG
+                                                                                     0     2015            2016            2017            2018            2019            2020            2021            2022            2023            2024            2025            2026            2027            2028            2029            2030            2031            2032            2033            2034            2035            2036            2037            2038            2039            2040            2041            2042            2043            2044            2045            2046            2047            2048            2049            2050            
+  'REGION1'                 .'PWRCH4I00'               .'PWRCO2EQ'                         28                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRCH4X00'               .'PWRCO2EQ'                         28                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRCMOI00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRCMOX00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRCO2I00'               .'PWRCO2EQ'                         1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+  'REGION1'                 .'PWRCO2X00'               .'PWRCO2EQ'                         1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+  'REGION1'                 .'PWRN2OI00'               .'PWRCO2EQ'                         265                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+  'REGION1'                 .'PWRN2OX00'               .'PWRCO2EQ'                         265                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+  'REGION1'                 .'PWRNMVI00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRNMVX00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRNOXI00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRNOXX00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRSOXI00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+  'REGION1'                 .'PWRSOXX00'               .'PWRCO2EQ'                        EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+;
+       TABLE ACOMBNDNET
+                                                                                                                0     2015            2016            2017            2018            2019            2020            2021            2022            2023            2024            2025            2026            2027            2028            2029            2030            2031            2032            2033            2034            2035            2036            2037            2038            2039            2040            2041            2042            2043            2044            2045            2046            2047            2048            2049            2050            
+  'REGION1'                 .'PWRCO2EQ'                .'ANNUAL'                  .'UP'                         5                                                                                                                                                                     8000                                                                                                                                                            1700                                                                                                                                                                                                                                            
+;

@@ -1,0 +1,58 @@
+SCENARIO	_GLOBAL,REGION1
+Creation Date:	2023/02/02	11:21:43 AM
+Created By:	Export from database C:\Models\GHATIMGE\GHATIM\Ghana 30TS.mdb
+ANSWER Version:	6.9.27
+Scenario:	CO2CAPXX	CO2eq emissions constraint	
+Time Periods:	0	2015	2016	2017	2018	2019	2020	2021	2022	2023	2024	2025	2026	2027	2028	2029	2030	2031	2032	2033	2034	2035	2036	2037	2038	2039	2040	2041	2042	2043	2044	2045	2046	2047	2048	2049	2050
+
+REGIONS	_GLOBAL,REGION1
+_GLOBAL	Special region for data parameters with no REG arg	ALL_REG	
+REGION1	Initial internal region	ALL_REG,REG	
+
+ITEMS	_GLOBAL
+
+TS DATA	_GLOBAL
+
+TID DATA	_GLOBAL
+
+ITEMS	REGION1
+	E	PWRCH4I00	Power Sector Methane	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRCH4X00	Power Sector Carbon monoxide South Africa	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRCMOI00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRCMOX00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRCO2	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRCO2EQ	Power Sector CO2EQ	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRCO2I00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRCO2X00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRN2OI00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRN2OX00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRNMVI00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRNMVX00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRNOXI00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRNOXX00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRSOXI00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+	E	PWRSOXX00	Power Sector Carbon dioxide	KT	COM,ENV,ANNUAL,GHG	
+
+TS DATA	REGION1
+	COM_AGG	-	PWRCH4I00	-	PWRCO2EQ	-	-	0	28	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRCH4X00	-	PWRCO2EQ	-	-	0	28	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRCMOI00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRCMOX00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRCO2I00	-	PWRCO2EQ	-	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRCO2X00	-	PWRCO2EQ	-	-	0	1	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRN2OI00	-	PWRCO2EQ	-	-	0	265	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRN2OX00	-	PWRCO2EQ	-	-	0	265	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRNMVI00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRNMVX00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRNOXI00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRNOXX00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRSOXI00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_AGG	-	PWRSOXX00	-	PWRCO2EQ	-	-	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	COM_BNDNET	-	PWRCO2EQ	-	-	ANNUAL	UP	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+
+TID DATA	REGION1
+
+TS TRADE	_GLOBAL,REGION1
+
+TID TRADE	_GLOBAL,REGION1
+

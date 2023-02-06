@@ -638,11 +638,11 @@ PlaneRownr=-1
 
 [GDXDISP: FIntensity_FS Par 3]
 PlaneDim=0
-RowDim=3
+RowDim=2
 Squeeze=1
 SqTrail0=0
 Order=1,2,3
-Decim=7
+Decim=3
 PlaneRownr=-1
 PlaneFilter1=fegy
 
@@ -1777,9 +1777,9 @@ RowDim=3
 Squeeze=1
 SqTrail0=0
 Order=5,1,2,4,3
-Decim=7
-PlaneRownr=1
-PlaneFilter1=Capacity
+Decim=0
+PlaneRownr=15
+PlaneFilter1=Price
 
 [GDXDISP: E_OUT Par 4]
 PlaneDim=0
@@ -1801,7 +1801,7 @@ PlaneRownr=-1
 
 [GDXDISP: ETPRICE Par 1]
 PlaneDim=0
-RowDim=1
+RowDim=0
 Squeeze=1
 SqTrail0=0
 Order=1
@@ -2047,15 +2047,6 @@ Order=1,2,3
 Decim=7
 PlaneRownr=-1
 
-[GDXDISP: IFAFSGR Par 3]
-PlaneDim=0
-RowDim=3
-Squeeze=1
-SqTrail0=0
-Order=1,2,3
-Decim=7
-PlaneRownr=-1
-
 [GDXDISP: MFSA Set 2]
 PlaneDim=0
 RowDim=2
@@ -2081,9 +2072,9 @@ Squeeze=1
 SqTrail0=0
 Order=5,3,2,1,4
 Decim=2
-PlaneRownr=-1
+PlaneRownr=1
 PlaneFilter1=2050
-PlaneFilter2=base
+PlaneFilter2=BASE
 PlaneFilter3=nat
 
 [GDXDISP: QINTA Var 2]
@@ -2193,17 +2184,15 @@ Order=1,2
 Decim=7
 PlaneRownr=-1
 
-[RP:2CAPITAL]
-1=
-
 [GDXDISP: PQX Par 4]
-PlaneDim=0
-RowDim=3
+PlaneDim=1
+RowDim=2
 Squeeze=1
 SqTrail0=0
-Order=1,2,4,3
+Order=4,1,2,3
 Decim=2
-PlaneRownr=-1
+PlaneRownr=1
+PlaneFilter1=2050
 
 [GDXDISP: tabar Par 2]
 PlaneDim=0
@@ -2259,9 +2248,6 @@ Order=1,2
 Decim=7
 PlaneRownr=-1
 
-[RP:2SIMULATION]
-1=
-
 [GDXDISP: U Alias 1]
 PlaneDim=0
 RowDim=1
@@ -2289,7 +2275,7 @@ RowDim=2
 Squeeze=1
 SqTrail0=0
 Order=1,2,3
-Decim=7
+Decim=1
 PlaneRownr=-1
 
 [GDXDISP: TVNCAP Par 2]
@@ -2312,11 +2298,11 @@ PlaneRownr=-1
 
 [GDXDISP: UC_CAP Par 5]
 PlaneDim=0
-RowDim=5
+RowDim=4
 Squeeze=1
 SqTrail0=0
-Order=1,2,3,4,5
-Decim=7
+Order=2,3,4,5,1
+Decim=0
 PlaneRownr=-1
 
 [GDXDISP: UC_N Set 1]
@@ -2364,24 +2350,16 @@ Order=1
 Decim=7
 PlaneRownr=-1
 
-[GDXDISP: QFX Par 6]
-PlaneDim=2
-RowDim=3
-Squeeze=1
-SqTrail0=0
-Order=6,5,1,3,4,2
-Decim=2
-PlaneRownr=-1
-PlaneFilter1=aelec
-
 [GDXDISP: EBCHECK Par 7]
 PlaneDim=1
 RowDim=5
 Squeeze=1
 SqTrail0=0
-Order=3,2,4,1,6,7,5
+Order=3,4,2,1,6,7,5
 Decim=3
 PlaneRownr=-1
+PlaneFilter1=IN
+PlaneFilter2=2050
 
 [GDXDISP: EmisFactor Par 2]
 PlaneDim=0
@@ -2428,12 +2406,6 @@ Order=1
 Decim=7
 PlaneRownr=-1
 
-[RP:GHGENERGYREPORT]
-1=
-
-[RP:REFRESH_DEMSTART]
-1=
-
 [GDXDISP: ELCDEM Par 2]
 PlaneDim=0
 RowDim=1
@@ -2442,24 +2414,6 @@ SqTrail0=0
 Order=1,2
 Decim=1
 PlaneRownr=-1
-
-[RP:2SIMULATION_LOOP]
-1=
-
-[RP:GHATIMGE]
-1=r=cge\model, gdx = TestGHATIM8
-2=r=cge\model, gdx = TestGHATIM7
-3=r=cge\model, gdx = TestGHATIM6
-4=r=cge\model, gdx = TestGHATIM5
-5=r=cge\model, gdx = TestGHATIM4
-6=r=cge\model, gdx = TestGHATIM3
-7=r=cge\model, gdx = TestGHATIM2
-8=r=cge\model, gdx = TestGHATIM
-9=r=cge\model, gdx = TestGHATIMGE4
-10=r=cge\model, gdx = TestGHATIMGE3
-11=r=cge\model, gdx = TestGHATIMGE2
-12=r=cge\model, gdx = TestGHATIMGE
-13=
 
 [GDXDISP: MELCDEM Set 2]
 PlaneDim=0
@@ -2470,39 +2424,158 @@ Order=1,2
 Decim=7
 PlaneRownr=-1
 
+[RP:REFRESH_DEMSTART]
+1=
+
+[GDXDISP: IFACAPYRS Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: AggFixPrice Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: AggVarPrice Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: SubSector Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: SUBSIST Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: SubSubSector Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[RP:MERGERUNS_H]
+1=
+
+[GDXDISP: PRCPower Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[RP:MERGERUNS]
+1=
+
+[GDXDISP: QFX Par 6]
+PlaneDim=2
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=6,5,1,3,4,2
+Decim=2
+PlaneRownr=-1
+PlaneFilter1=2050
+
+[GDXDISP: IFAFSGR Par 3]
+PlaneDim=1
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=2,1,3
+Decim=2
+PlaneRownr=6
+PlaneFilter1=elec
+
+[RP:2SIMULATION]
+1=
+
+[RP:2SIMULATION_LOOP]
+1=
+
+[RP:2CAPITAL]
+1=
+
 [RP:2TIMESREPORT]
 1=
 
+[RP:GHGENERGYREPORT]
+1=
+
+[RP:GHATIMGE]
+1=r=cge\model, gdx = TestGHATIM1
+2=r=cge\model, gdx = TestGHATIM12
+3=r=cge\model, gdx = TestGHATIM11
+4=r=cge\model, gdx = TestGHATIM10
+5=r=cge\model, gdx = TestGHATIM9
+6=r=cge\model, gdx = TestGHATIM8
+7=r=cge\model, gdx = TestGHATIM7
+8=r=cge\model, gdx = TestGHATIM6
+9=r=cge\model, gdx = TestGHATIM5
+10=r=cge\model, gdx = TestGHATIM4
+11=r=cge\model, gdx = TestGHATIM3
+12=r=cge\model, gdx = TestGHATIM2
+13=r=cge\model, gdx = TestGHATIM
+14=r=cge\model, gdx = TestGHATIMGE4
+15=r=cge\model, gdx = TestGHATIMGE3
+16=r=cge\model, gdx = TestGHATIMGE2
+17=r=cge\model, gdx = TestGHATIMGE
+18=
+
 [MRUFILES]
-1=C:\Users\bruno\OneDrive - University of Cape Town\Energy Systems Research Group\Projects\Active\WB-InfrastructureProject\WIP\NI_Base_Repro02_vs_Repro03_exogTRNSFRGR.gdx
-2=C:\Models\GHATIMGE\TestGHATIMGE4.gdx
-3=C:\Models\GHATIMGE\TestGHATIM2.gdx
-4=C:\Models\GHATIMGE\CGE\includes\2capital.inc
-5=C:\Models\GHATIMGE\CGE\1model.dat
-6=C:\Models\SATIMGE\CGE\includes\2simulation_loop.inc
+1=C:\Models\GHATIMGE\TestGHATIM7.gdx
+2=C:\Models\GHATIMGE\TestGHATIM6.gdx
+3=C:\Models\GHATIMGE\TestGHATIM5.gdx
+4=C:\Models\GHATIMGE\TestGHATIM4.gdx
+5=C:\Models\GHATIMGE\TestGHATIM3.gdx
+6=C:\Models\GHATIMGE\TestGHATIM8.gdx
+7=C:\Models\GHATIMGE\GHATIM\includes\GHGEnergyReport.inc
+8=C:\Models\GHATIMGE\TestGHATIM9.gdx
 
 [OPENWINDOW_1]
-FILE0=C:\Models\GHATIMGE\TestGHATIM5.gdx
-FILE1=C:\Models\GHATIMGE\TestGHATIM6.gdx
-FILE2=C:\Models\GHATIMGE\TestGHATIM6.gdx
+FILE0=C:\Models\GHATIMGE\TestGHATIM10.gdx
+FILE1=C:\Models\GHATIMGE\TestGHATIM11.gdx
+FILE2=C:\Models\SATIMGE\CGE\includes\2capital.inc
+FILE3=C:\Models\SATIMGE\CGE\includes\2simulation.inc
+FILE4=C:\Models\SATIMGE\CGE\includes\2simulation_loop.inc
+FILE5=C:\Models\SATIMGE\SATIM\Includes\2TIMESReport.inc
+FILE6=C:\Models\GHATIMGE\TestGHATIM11.gdx
 MAXIM=0
-TOP=27
-LEFT=1263
-HEIGHT=1250
-WIDTH=1179
+TOP=6
+LEFT=1305
+HEIGHT=1228
+WIDTH=1247
 
 [OPENWINDOW_2]
-FILE0=C:\Models\GHATIMGE\GHATIM\includes\GHGEnergyReport.inc
-FILE1=C:\Models\GHATIMGE\TestGHATIM7.gdx
-FILE2=C:\Models\GHATIMGE\TestGHATIM8.gdx
-FILE3=C:\Models\GHATIMGE\TestGHATIM8.gdx
-MAXIM=0
-TOP=25
-LEFT=1451
-HEIGHT=1269
-WIDTH=1104
-
-[OPENWINDOW_3]
 FILE0=C:\Models\GHATIMGE\cge\includes\2energychecksinit.inc
 FILE1=C:\Models\GHATIMGE\CGE\includes\2simulation.inc
 FILE2=C:\Models\GHATIMGE\CGE\includes\2simulation_loop.inc
@@ -2511,18 +2584,19 @@ FILE4=C:\Models\GHATIMGE\GHATIM\Includes\2TIMESReport.inc
 FILE5=C:\Models\GHATIMGE\GHATIM\includes\GHGEnergyReport.inc
 FILE6=C:\Models\GHATIMGE\GHATIMGE.gms
 FILE7=C:\Models\GHATIMGE\GHATIMGE.lst
-FILE8=C:\Models\GHATIMGE\refresh_demStart.gms
-FILE9=C:\Models\GHATIMGE\refresh_demStart.lst
-FILE10=C:\Models\GHATIMGE\TestGHATIM.gdx
-FILE11=C:\Models\GHATIMGE\TestGHATIM3.gdx
-FILE12=C:\Models\GHATIMGE\TestGHATIM4.gdx
-FILE13=C:\Models\GHATIMGE\TestGHATIM5.gdx
-FILE14=C:\Models\GHATIMGE\TestGHATIM6.gdx
-FILE15=C:\Models\GHATIMGE\TestGHATIM7.gdx
+FILE8=C:\Models\GHATIMGE\MergeRuns.gms
+FILE9=C:\Models\GHATIMGE\MergeRuns_H.gms
+FILE10=C:\Models\GHATIMGE\refresh_demStart.gms
+FILE11=C:\Models\GHATIMGE\refresh_demStart.lst
+FILE12=C:\Models\GHATIMGE\TestGHATIM.gdx
+FILE13=C:\Models\GHATIMGE\TestGHATIM10.gdx
+FILE14=C:\Models\GHATIMGE\TestGHATIM12.gdx
+FILE15=C:\Models\GHATIMGE\TestGHATIM9.gdx
 FILE16=C:\Models\SATIMGE\CCDR_Runs\NZ_9.gdx
-FILE17=C:\Models\SATIMGE\CCDR_Runs\NZ_9.gdx
+FILE17=C:\Models\SATIMGE\CGE\includes\2capital.inc
+FILE18=C:\Models\GHATIMGE\GHATIMGE.lst
 MAXIM=0
 TOP=29
 LEFT=15
 HEIGHT=1100
-WIDTH=1381
+WIDTH=1249
