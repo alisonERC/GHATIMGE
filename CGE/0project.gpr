@@ -6916,6 +6916,15 @@ Order=1,2
 Decim=4
 PlaneRownr=-1
 
+[GDXDISP: QINT Var 2]
+PlaneDim=1
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=3,1,2
+Decim=3
+PlaneRownr=-1
+
 [RP:1MODEL]
 1=gdx=model s=model rf=model
 2=gdx=model s=model
@@ -6935,18 +6944,9 @@ PlaneRownr=-1
 FILE0=C:\Models\GHATIMGE\CGE\1model.gms
 FILE1=C:\Models\GHATIMGE\CGE\1model.lst
 FILE2=C:\Models\GHATIMGE\CGE\model.gdx
-FILE3=C:\Models\GHATIMGE\CGE\model.gdx
+FILE3=C:\Models\GHATIMGE\CGE\1model.lst
 MAXIM=0
 TOP=0
 LEFT=0
 HEIGHT=760
 WIDTH=1138
-
-[GDXDISP: QINT Var 2]
-PlaneDim=1
-RowDim=1
-Squeeze=1
-SqTrail0=0
-Order=3,1,2
-Decim=3
-PlaneRownr=-1

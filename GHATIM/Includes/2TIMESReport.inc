@@ -270,7 +270,7 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
  QFEGY_GR(RUN,TC)$TCST_ELE_INV(RUN,TC-1) = TCST_ELE_INV(RUN,TC)/TCST_ELE_INV(RUN,TC-1);
 
 * *5 is to convert from USD to cedi
- FIntensity_FS('elec','fegy',TC) = TCST_ELE_INV(RUN,TC)*5/ELC_FLOW(RUN,TC);
+ FIntensity_FS('elec','fegy',TC) = TCST_ELE_INV(RUN,TC)*3.68/ELC_FLOW(RUN,TC);
  FIntensity_FS('elec',FLAB,TC) = FLOW_OUT_FSFactors('elec',FLAB,TC)/ELC_FLOW(RUN,TC);
 
  IFAFSGR(F,FS,TC) = 1;

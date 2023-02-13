@@ -125,9 +125,12 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 
 * Other Settings
 * electricity sector
-    AFX('AELEC',RD) = NO;
-*!    AFX('AELEC',RD)$EFX(TT,TC) = YES;
-*!    AFXGR('aelec','NAT',XC,TC)$EFX(TT,TC) = QFEGY_GR(RUN,TC)- 1;
+*    AFX('AELEC',RD) = NO;
+*    AFLEO('AELEC') = NO;
+*    AFX('AELEC',RD)$EFX(TT,TC) = YES;
+*    AFLEO('AELEC')$EFX(TT,TC) = YES;
+
+    AFXGR('aelec','NAT',XC,TC)$EFX(TT,TC) = QFEGY_GR(RUN,TC)- 1;
 
 
 

@@ -77,6 +77,7 @@
 
 *Reset IO coefficients to base values
  ica(C,A,RD)=ica0(C,A,RD);
+ ifa(F,A,RD)             = ifa0(F,A,RD);
 
  YG_DTAX.L               = YG_DTAX0 ;
  YG_ITAX.L               = YG_ITAX0 ;
@@ -89,9 +90,7 @@
 
 $ontext
  inta(A,RD)              = inta0(A,RD);
- iva(A,RD)               = iva0(A,RD);
  ica(C,A,RD)             = ica0(C,A,RD);
- ifa(F,A,RD)             = ifa0(F,A,RD);
  tui(C,A,RD)             = tui0(C,A,RD);
  tuH(C,H)                = tuh0(C,H);
 $offtext
@@ -103,3 +102,14 @@ $offtext
  YG_DTAX.L               = YG_DTAX0;
  YG_ITAX.L               = YG_ITAX0;
  YG_NTAX.L               = YG_NTAX0;
+
+*! ETPRICE(TC) = PQ0('CELEC');
+*! EPRICE(TC,TT)=PQ0('CELEC');
+ EINVCOST(RUN,TC) = 0;
+ INVCOST(RUN,TC,PRC) = 0;
+ BPINV(RUN,TC,TCP,PRC) = 0;
+
+ ICAGR(C,A,TC) = 1;
+ ICAFSGR(C,FS,TC) = 1;
+ IFAGR(F,A,TC) = 1;
+ IFAFSGR(F,FS,TC) = 1;

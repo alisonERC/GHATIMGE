@@ -9793,7 +9793,7 @@
 178 VTAX 2 SET 1 0 137 value added taxes
 179 ACES2 2 SET 1 56 141 activities with CES activity output aggregation function
 180 ACET2 2 SET 1 56 141 activities with CET activity output disaggregation function
-181 AFLEO 2 SET 1 0 141 activities with leontief factor demand
+181 AFLEO 2 SET 1 1 141 activities with leontief factor demand
 182 MAC 2 SET 2 0 141 143 mapping between activities and commodities
 183 MARD 2 SET 3 56 142 141 139 mapping between SAM regions
 184 SAM 4 PARAM 2 3035 137 137 standard SAM

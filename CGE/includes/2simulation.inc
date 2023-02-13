@@ -83,7 +83,7 @@ $loaddc  FL AFX CLOSURES
 
  XBASINIT(XC,TC) = NO;
 
- EFX(T,TCP)$(TT(T) AND (ORD(T) GE ORD(TCP))) = YES;
+ EFX(TC,TCP)$(TT(TC) AND (ORD(TCP) > 10 and ORD(TCP) LE ORD(TC))) = YES;
 
  ANFX(A,RD)$(NOT AFX(A,RD)) = YES;
 
@@ -114,7 +114,7 @@ MAN(A) /ameat, afveg,afoil,agmll,asref,afood,abeve,aptob,atext,aclth,aleat,
 SER(A) /awatr,acons,atrad,atran,ahotl,afsrv,absrv,aosrv/
 SEP(A) /acomm,areal,apadm,aeduc,aheal/
 
-IFACAPYRS(T) /2015*2021/ 
+IFACAPYRS(T) /2015*2021/
 ;
 
  COVID(F,X,T)=1;
