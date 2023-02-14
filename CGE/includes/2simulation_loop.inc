@@ -126,13 +126,26 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 * Other Settings
 * electricity sector
 *    AFX('AELEC',RD) = NO;
-*    AFLEO('AELEC') = NO;
+    AFLEO('AELEC') = NO;
 *    AFX('AELEC',RD)$EFX(TT,TC) = YES;
-*    AFLEO('AELEC')$EFX(TT,TC) = YES;
+    AFLEO('AELEC')$EFX(TT,TC) = YES;
 
-    AFXGR('aelec','NAT',XC,TC)$EFX(TT,TC) = QFEGY_GR(RUN,TC)- 1;
+    AFX('AELEC',RD) = YES;
+*    AFLEO('AELEC') = YES;
 
 
+*    AFXGR('aelec','NAT',XC,TC)$EFX(TT,TC) = QFEGY_GR(RUN,TC)- 1;
+    AFXGR('aelec','NAT',XC,TC) = QFEGY_GR(RUN,TC)- 1;
+
+
+
+*    CERES('CELEC') = NO;
+*    CERES('CELEC')$EFX(TT,TC) = YES;
+*    CEFIX('CELEC') = YES;
+*    CEFIX('CELEC')$EFX(TT,TC) = NO;
+*    QE.FX('CELEC','REST') = QE.L('CELEC','REST');
+*    QE.UP('CELEC','REST')$EFX(TT,TC) = Inf;
+*    QE.LO('CELEC','REST')$EFX(TT,TC) = -Inf;
 
 *     Exgenous transfer changes
       trnsfr(INS,ACNT) = trnsfr(INS,ACNT) * (1+TRNSFRGR(INS,ACNT,XC,TC));
@@ -142,7 +155,7 @@ $include cge\includes\2capital.inc
 
 *     Labor supply growth
       QF.L(FLAB,A,RD)$(NOT T1(TC)) = QF.L(FLAB,A,RD)*(1+FACGR(FLAB,XC,TC));
-      QF.L('FEGY',A,RD)$(NOT T1(TC)) = QF.L('FEGY',A,RD)*(1+FACGR('FEGY',XC,TC));
+*      QF.L('FEGY',A,RD)$(NOT T1(TC)) = QF.L('FEGY',A,RD)*(1+FACGR('FEGY',XC,TC));
       QF.L('FLND',A,RD)$(NOT T1(TC)) = QF.L('FLND',A,RD)*(1+FACGR('FLND',XC,TC));
 
 *     Total factor supply

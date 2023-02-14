@@ -83,7 +83,7 @@ $loaddc  FL AFX CLOSURES
 
  XBASINIT(XC,TC) = NO;
 
- EFX(TC,TCP)$(TT(TC) AND (ORD(TCP) > 10 and ORD(TCP) LE ORD(TC))) = YES;
+ EFX(TC,TCP)$(TT(TC) AND (ORD(TCP) > 5 and ORD(TCP) LE ORD(TC))) = YES;
 
  ANFX(A,RD)$(NOT AFX(A,RD)) = YES;
 

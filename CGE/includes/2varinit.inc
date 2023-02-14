@@ -109,7 +109,10 @@ $offtext
  INVCOST(RUN,TC,PRC) = 0;
  BPINV(RUN,TC,TCP,PRC) = 0;
 
- ICAGR(C,A,TC) = 1;
+* ICAGR(C,A,TC) = 1;
  ICAFSGR(C,FS,TC) = 1;
- IFAGR(F,A,TC) = 1;
+* IFAGR(F,A,TC) = 1;
  IFAFSGR(F,FS,TC) = 1;
+
+* CMRES('CELEC') = YES;
+  CERES('CELEC') = YES;

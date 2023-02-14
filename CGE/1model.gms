@@ -677,7 +677,9 @@ SET
  wfdist0(F,A,RD)$WF0(F) = WFA(F,A,RD)/WF0(F);
 
 *Leontief factor demand shares
- ifa(F,A,RD)$QVA0(A,RD) = QF0(F,A,RD) / QVA0(A,RD);
+* ifa(F,A,RD)$QVA0(A,RD) = QF0(F,A,RD) / QVA0(A,RD);
+ ifa0(F,A,RD)$QVA0(A,RD) = QF0(F,A,RD) / QVA0(A,RD);
+ ifa(F,A,RD) = ifa0(F,A,RD);
 
 *CES activity production function
  deltava(F,A,RD)$MFA1(F,A,RD) = (wfdist0(F,A,RD) * WF0(F) * (QF0(F,A,RD))**(1+rhova(A,RD)) )
@@ -1506,7 +1508,7 @@ betaca(A,C)=1;
  QE.LO(C,RW)$(QE0(C,RW) AND CERES(C)) = 0 ;
 *CA Note that there is no parallel structure for imports, which is OK if imports are fixed
 
- CET2(C)$((CD(C) AND CEN(C)) OR (CE(C) AND CDN(C)))..
+ CET2(C)$((CD(C) AND CEN(C)) OR (CE(C) AND CDN(C)) OR CERES(C))..
    QX(C) =E= QD(C) + SUM(RW, QE(C,RW));
 
  ARMINGTON(C)$(CM(C) AND CD(C) AND (NOT CMRES(C)))..
