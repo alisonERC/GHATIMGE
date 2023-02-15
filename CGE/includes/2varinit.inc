@@ -115,4 +115,4 @@ $offtext
  IFAFSGR(F,FS,TC) = 1;
 
 * CMRES('CELEC') = YES;
-  CERES('CELEC') = YES;
+*  CERES('CELEC') = YES;
