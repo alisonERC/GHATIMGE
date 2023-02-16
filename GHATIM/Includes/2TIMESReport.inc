@@ -255,6 +255,19 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
 * Elc Price
  ETPRICE(TC) = TCST_ELE(RUN,TC)/ELC_FLOW(RUN,TC);
 
+ EPRICE(T1,TT)=PQ0('CELEC');
+
+*b apply growth rate to calculate EPRICE
+ loop(TC,
+   if(not T1(TC),
+     EPRICE(TC,TT) = EPRICE(TC-1,TT) * (ETPRICE(TC)/ETPRICE(TC-1));
+   );
+ );
+
+
+
+
+
  AggFixPrice('ELC',TC,RUN) = Sum(PRCBulkPower,(REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'AnnInvCost')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'FOM')))/TVCAP(TC,'GHEL00T00');
  AggVarCost('ELC',TC,RUN) = Sum(PRCBulkPower, (REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'VOM')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'FuelCosts')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'CO2Tax')+REPORT(PRCBulkPower,'ACTGRP',TC,RUN,'Levies')));
  AggVarPrice('ELC',TC,RUN)$REPORT('GHEL00T00','GHEL00T',TC,RUN,'FlowOut') = AggVarCost('GHEL00T',TC,RUN)/REPORT('GHEL00T00','GHEL00T',TC,RUN,'FlowOut');
@@ -269,7 +282,7 @@ LOOP((PRC,TC)$(TVNCAP(TC,PRC) AND NCAP_ILED('REGION1','2015',PRC) LT 0),
  TCST_ELE_INV(RUN,TC) = Sum(PRCPower,REPORT(PRCPower,'ACTGRP',TC,RUN,'AnnInvCost'));
  QFEGY_GR(RUN,TC)$TCST_ELE_INV(RUN,TC-1) = TCST_ELE_INV(RUN,TC)/TCST_ELE_INV(RUN,TC-1);
 
-* *5 is to convert from USD to cedi
+* *3.68 is to convert from USD to cedi
  FIntensity_FS('elec','fegy',TC) = TCST_ELE_INV(RUN,TC)*3.68/ELC_FLOW(RUN,TC);
  FIntensity_FS('elec',FLAB,TC) = FLOW_OUT_FSFactors('elec',FLAB,TC)/ELC_FLOW(RUN,TC);
 

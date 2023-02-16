@@ -137,6 +137,7 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
     AFXGR('aelec','NAT',XC,TC)$EFX(TT,TC) = QFEGY_GR(RUN,TC)- 1;
 *    AFXGR('aelec','NAT',XC,TC) = QFEGY_GR(RUN,TC)- 1;
 
+*    WFDIST.FX('fegy','aelec','nat') = 1;
 
 
 *    CERES('CELEC') = YES;
@@ -146,6 +147,9 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 *    QE.FX('CELEC','REST') = QE.L('CELEC','REST');
 *    QE.UP('CELEC','REST')$EFX(TT,TC) = Inf;
 *    QE.LO('CELEC','REST')$EFX(TT,TC) = -Inf;
+
+
+
 
 *     Exgenous transfer changes
       trnsfr(INS,ACNT) = trnsfr(INS,ACNT) * (1+TRNSFRGR(INS,ACNT,XC,TC));
@@ -165,6 +169,15 @@ $include cge\includes\2capital.inc
 * IF(NOT T1(TC),
 
 $include cge\includes\2closures.inc
+
+ PQ.FX('CELEC') = EPRICE(TC,TT);
+* PQ.UP('CELEC')$(not EFX(TT,TC)) = inf;
+* PQ.LO('CELEC')$(not EFX(TT,TC)) = -inf;
+
+ TQ.LO('CELEC') = -INF;
+ TQ.UP('CELEC') = +INF;
+
+
 
 
  SOLVE standcge USING MCP ;

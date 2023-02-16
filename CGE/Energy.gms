@@ -1,4 +1,4 @@
-$SETGLOBAL modeldata    "1model2015GH.xlsx"
+$SETGLOBAL modeldata    "1model.xlsx"
 
 $call "gdxxrw i=%modeldata% o=modeldatab.gdx index=index2!a5 checkdate"
 $gdxin modeldatab.gdx
@@ -218,8 +218,8 @@ $load PEA MPEAAC
 $loaddc PBAL
 *create net imports
 
- SAM('row','cpetr')=SAM('row','cpetr')-SAM('cpetr','row');
- SAM('cpetr','row')=0;
+ SAM('row','cpetr')=SAM('row','cpetr')-SAM('cpetr','row')+0.0001;
+ SAM('cpetr','row')=0.0001;
 
  SAM('TOTAL',AC) = SUM(ACNT, SAM(ACNT,AC));
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
@@ -243,6 +243,22 @@ display SAMBALCHK;
  SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
  SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
 display SAMBALCHK;
-*$exit
+
+*include sales tax for electricity to assist with negative wfdist
+PARAMETER
+ESALES /0.0001/;
+
+ SAM('STAX','CELEC')= ESALES;
+ SAM('CELEC','DSTK')= SAM('STAX','CELEC');
+
+ SAM('GOV','STAX')  = SAM('GOV','STAX')+ ESALES;
+ SAM('S-I','GOV')   = SAM('S-I','GOV') + ESALES;
+ SAM('DSTK','S-I')  = SAM('DSTK','S-I')+ ESALES;
+
+ SAM('TOTAL',AC) = SUM(ACNT, SAM(ACNT,AC));
+ SAM(AC,'TOTAL') = SUM(ACNT, SAM(AC,ACNT));
+ SAMBALCHK(AC)   = SAM('TOTAL',AC) - SAM(AC,'TOTAL');
+display SAMBALCHK;
+
  execute_unload "boom.gdx" SAM;
  execute 'gdxxrw.exe i=boom.gdx o=%modeldata% index=index2!a80';

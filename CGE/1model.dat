@@ -32,7 +32,7 @@ SET
 
  REMIMP(C)       remove imports with small shares
 /
-csugr
+csugr, ccoco
 * csorg, cgnut, coils, csugr
 /
  REEXPORT(C)     remove imports with re-export problem

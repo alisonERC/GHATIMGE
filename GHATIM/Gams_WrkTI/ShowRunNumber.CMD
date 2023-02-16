@@ -1,1 +1,1 @@
-echo NDC_Ambitiou
+echo NDC_Moderate

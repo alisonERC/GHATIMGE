@@ -9806,7 +9806,7 @@
 181 AFLEO 2 SET 1 1 141 activities with leontief factor demand
 182 MAC 2 SET 2 0 141 143 mapping between activities and commodities
 183 MARD 2 SET 3 56 142 141 139 mapping between SAM regions
-184 SAM 4 PARAM 2 3036 137 137 standard SAM
+184 SAM 4 PARAM 2 3038 137 137 standard SAM
 185 SAMBALCHK 4 PARAM 1 0 137 column minus row total for SAM
 186 scale 4 PARAM 0 1 scaling parameter for SAM (multiplier)
 187 natdrate 4 PARAM 0 1 national annual capital depreciation rate
@@ -9816,7 +9816,7 @@
 191 koption 4 PARAM 0 1 use ACOR (1) or targeted K stock growth rate (2)
 192 agriprod 4 PARAM 0 1 use agricultural prod data (0 no)
 193 REMEXP 2 SET 1 4 143 remove exports with small shares
-194 REMIMP 2 SET 1 1 143 remove imports with small shares
+194 REMIMP 2 SET 1 2 143 remove imports with small shares
 195 REEXPORT 2 SET 1 2 143 remove imports with re-export problem
 196 CERES 2 SET 1 0 143 Commodities with perfect substitution for exports
 197 CMRES 2 SET 1 0 143 Commodities with perfect substitution for imports

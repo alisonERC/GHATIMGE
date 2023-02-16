@@ -6492,9 +6492,6 @@ Order=3,2,1
 Decim=6
 PlaneRownr=-1
 
-[RP:ENERGY]
-1=gdx=energy
-
 [GDXDISP: PEX Par 4]
 PlaneDim=2
 RowDim=1
@@ -6925,6 +6922,31 @@ Order=3,1,2
 Decim=3
 PlaneRownr=-1
 
+[RP:GHATIMGE]
+1=r=cge\model, gdx = TestFH
+2=r=cge\model, gdx = TestGHATIM2
+3=r=cge\model, gdx = GHATIM_
+4=r=cge\model, gdx = GHATIM_NDCAmbitious
+5=r=cge\model, gdx = GHATIM_Reference
+6=r=cge\model, gdx = TestGHATIM1
+7=r=cge\model, gdx = TestGHATIM12
+8=r=cge\model, gdx = TestGHATIM11
+9=r=cge\model, gdx = TestGHATIM10
+10=r=cge\model, gdx = TestGHATIM9
+11=r=cge\model, gdx = TestGHATIM8
+12=r=cge\model, gdx = TestGHATIM7
+13=r=cge\model, gdx = TestGHATIM6
+14=r=cge\model, gdx = TestGHATIM5
+15=r=cge\model, gdx = TestGHATIM4
+16=r=cge\model, gdx = TestGHATIM3
+17=r=cge\model, gdx = TestGHATIM
+18=r=cge\model, gdx = TestGHATIMGE4
+19=r=cge\model, gdx = TestGHATIMGE3
+20=r=cge\model, gdx = TestGHATIMGE2
+
+[RP:ENERGY]
+1=gdx=energy
+
 [RP:1MODEL]
 1=gdx=model s=model rf=model
 2=gdx=model s=model
@@ -6933,18 +6955,19 @@ PlaneRownr=-1
 5=
 
 [MRUFILES]
-1=C:\Models\GHATIMGE\CGE\1model.dat
-2=C:\Models\GHATIMGE\CGE\energy.gdx
-3=C:\W\New folder\CGE\includes\3report_loop.inc
-4=C:\W\New folder\CGE\includes\3report_init.inc
-5=C:\W\New folder\CGE\includes\3report.gms
-6=C:\W\New folder\CGE\3report.gms
+1=C:\Models\GHATIMGE\CGE\energy.gdx
+2=C:\W\New folder\CGE\includes\3report_loop.inc
+3=C:\W\New folder\CGE\includes\3report_init.inc
+4=C:\W\New folder\CGE\includes\3report.gms
+5=C:\W\New folder\CGE\3report.gms
 
 [OPENWINDOW_1]
-FILE0=C:\Models\GHATIMGE\CGE\1model.gms
-FILE1=C:\Models\GHATIMGE\CGE\1model.lst
-FILE2=C:\Models\GHATIMGE\CGE\model.gdx
-FILE3=C:\Models\GHATIMGE\CGE\1model.lst
+FILE0=C:\Models\GHATIMGE\CGE\1model.dat
+FILE1=C:\Models\GHATIMGE\CGE\1model.gms
+FILE2=C:\Models\GHATIMGE\CGE\1model.lst
+FILE3=C:\Models\GHATIMGE\CGE\Energy.gms
+FILE4=C:\Models\GHATIMGE\CGE\model.gdx
+FILE5=C:\Models\GHATIMGE\CGE\1model.lst
 MAXIM=0
 TOP=0
 LEFT=0

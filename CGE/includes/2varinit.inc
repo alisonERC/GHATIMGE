@@ -116,3 +116,11 @@ $offtext
 
 * CMRES('CELEC') = YES;
 *  CERES('CELEC') = YES;
+
+ CERES('CPETR') = YES;
+ CMRES('CPETR') = YES;
+ QM.FX('CPETR','REST') = QM0('CPETR','REST');
+
+ CERES('CNGAS') = YES;
+ CMRES('CNGAS') = YES;
+ QM.FX('CNGAS','REST') = QM0('CNGAS','REST');
