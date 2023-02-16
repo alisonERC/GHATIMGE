@@ -342,6 +342,7 @@ PARAMETERS
 *fh energy - utax
 * TVAADJ0                 value-added tax scaling factor
 * TVAPS0                  point change in value-added tax rate
+ TQELEC0(C)              point change in sales tax rate that avoids tq01(C)
  TRII0(INS,INSP)         transfers to dom. inst. insdng from insdngp
  WALRAS0                 savings-investment imbalance (should be zero)
  WF0(F)                  economy-wide wage (rent) for factor f
@@ -502,6 +503,7 @@ PARAMETER TRMSHR(C,RW);
  TQ0(C)$QQ0(C) = TAXPAR('COMTAX',C)/(PQ0(C)*QQ0(C)) ;
  TQADJ0 = 0;
  TQPS0  = 0;
+ TQELEC0(c)=0;
  tq01(C) = 1;
  tqbar(C) = TQ0(C);
 
@@ -1167,6 +1169,7 @@ VARIABLES
 * TVA(A,RD)               rate of tax on activity value-added
 * TVAADJ                  value-added tax scaling factor
 * TVAPS                   point change in value-added tax rate
+ TQELEC(C)               point change in sales tax rate that avoids tq01(c)
  WALRAS                  savings-investment imbalance (should be zero)
  WALRASSQR               Walras squared
  WF(F)                   economy-wide wage (rent) for factor f
@@ -1246,6 +1249,7 @@ VARIABLES
  TQ.L(C)                = TQ0(C);
  TQADJ.L                = TQADJ0;
  TQPS.L                 = TQPS0;
+  TQELEC.L(C)            = TQELEC0(C);
  WALRAS.L               = WALRAS0;
  WALRASSQR.L            = 0 ;
  WF.L(F)                = WF0(F);
@@ -1612,7 +1616,8 @@ betaca(A,C)=1;
 
  TADEF(A,RD)..     TA(A,RD) =E= tabar(A,RD)*(1+TAADJ*ta01(A,RD)) + TAPS*ta01(A,RD);
 
- TQDEF(C)..        TQ(C) =E= tqbar(C) * (1+TQADJ*tq01(C)) + TQPS*tq01(C);
+* TQDEF(C)..        TQ(C) =E= tqbar(C) * (1+TQADJ*tq01(C)) + TQPS*tq01(C);
+ TQDEF(C)..        TQ(C) =E= tqbar(C) * (1+TQADJ*tq01(C)) + TQPS*tq01(C) + TQELEC(C);
 
 *fh energy - utax
 ** TVADEF(A,RD)..    TVA(A,RD)*TAXADJ =E= tvabar(A,RD) * (1+TVAADJ*tva01(A,RD)) + TVAPS*tva01(A,RD);
@@ -1811,6 +1816,7 @@ MODEL STANDCGE  standard CGE model /
 *fh energy
 ** TVAADJ.FX   = TVAADJ0;
 ** TVAPS.FX    = TVAPS0;
+TQELEC.FX(C)= TQELEC0(C);
  TINSADJ.FX  = TINSADJ0;
  DTINS.FX    = DTINS0;
  GADJ.FX     = GADJ0;

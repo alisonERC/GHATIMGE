@@ -170,15 +170,14 @@ $include cge\includes\2capital.inc
 
 $include cge\includes\2closures.inc
 
+If(not T1(TC),
  PQ.FX('CELEC') = EPRICE(TC,TT);
 * PQ.UP('CELEC')$(not EFX(TT,TC)) = inf;
 * PQ.LO('CELEC')$(not EFX(TT,TC)) = -inf;
 
- TQ.LO('CELEC') = -INF;
- TQ.UP('CELEC') = +INF;
-
-
-
+ TQELEC.LO('CELEC') = 0;
+ TQELEC.UP('CELEC') = 1;
+);
 
  SOLVE standcge USING MCP ;
 
