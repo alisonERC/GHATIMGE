@@ -125,17 +125,17 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 
 * Other Settings
 * electricity sector
-    AFX('AELEC',RD) = NO;
-    AFLEO('AELEC') = NO;
-    AFX('AELEC',RD)$EFX(TT,TC) = YES;
-    AFLEO('AELEC')$EFX(TT,TC) = YES;
+*    AFX('AELEC',RD) = NO;
+*    AFLEO('AELEC') = NO;
+*    AFX('AELEC',RD)$EFX(TT,TC) = YES;
+*    AFLEO('AELEC')$EFX(TT,TC) = YES;
 
-*    AFX('AELEC',RD) = YES;
-*    AFLEO('AELEC') = YES;
+    AFX('AELEC',RD) = YES;
+    AFLEO('AELEC') = YES;
 
 
-    AFXGR('aelec','NAT',XC,TC)$EFX(TT,TC) = QFEGY_GR(RUN,TC)- 1;
-*    AFXGR('aelec','NAT',XC,TC) = QFEGY_GR(RUN,TC)- 1;
+*    AFXGR('aelec','NAT',XC,TC)$EFX(TT,TC) = QFEGY_GR(RUN,TC)- 1;
+    AFXGR('aelec','NAT',XC,TC) = QFEGY_GR(RUN,TC)- 1;
 
 *    WFDIST.FX('fegy','aelec','nat') = 1;
 
@@ -171,12 +171,12 @@ $include cge\includes\2capital.inc
 $include cge\includes\2closures.inc
 
 If(not T1(TC),
- PQ.FX('CELEC') = EPRICE(TC,TT);
+* PQ.FX('CELEC') = EPRICE(TC,TT);
 * PQ.UP('CELEC')$(not EFX(TT,TC)) = inf;
 * PQ.LO('CELEC')$(not EFX(TT,TC)) = -inf;
 
- TQELEC.LO('CELEC') = 0;
- TQELEC.UP('CELEC') = 1;
+* TQELEC.LO('CELEC') = 0;
+* TQELEC.UP('CELEC') = 1;
 );
 
  SOLVE standcge USING MCP ;

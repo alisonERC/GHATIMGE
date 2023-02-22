@@ -1629,8 +1629,8 @@ Squeeze=1
 SqTrail0=0
 Order=1,2,3,4,6,5
 Decim=2
-PlaneRownr=4
-PlaneFilter1=fcap
+PlaneRownr=-1
+PlaneFilter1=fegy
 
 [GDXDISP: ica Par 3]
 PlaneDim=0
@@ -2137,13 +2137,6 @@ SqTrail0=0
 Order=1,2,3
 Decim=3
 PlaneRownr=-1
-
-[RP:1MODEL]
-1=gdx=model s=model rf=model
-2=gdx=model s=model
-3=gdx=model_o s=model
-4=gdx=model
-5=
 
 [GDXDISP: QINT0 Par 2]
 PlaneDim=0
@@ -2723,15 +2716,6 @@ Order=1,2
 Decim=7
 PlaneRownr=-1
 
-[RP:2SIMULATION]
-1=
-
-[RP:2RUNTIMES]
-1=
-
-[RP:2TIMESREPORT]
-1=
-
 [GDXDISP: TQ Var 1]
 PlaneDim=0
 RowDim=1
@@ -2747,30 +2731,8 @@ RowDim=3
 Squeeze=1
 SqTrail0=0
 Order=1,2,4,3
-Decim=2
+Decim=3
 PlaneRownr=-1
-
-[RP:GHATIMGE]
-1=r=cge\model, gdx = TestGHATIM2
-2=r=cge\model, gdx = TestGHATIM1
-3=r=cge\model, gdx = GHATIM_NDCModerate
-4=r=cge\model, gdx = GHATIM_NDCAmbitious
-5=r=cge\model, gdx = GHATIM_Reference
-6=r=cge\model, gdx = TestGHATIM4
-7=r=cge\model, gdx = TestGHATIM3
-8=r=cge\model, gdx = TestGHATIM9
-9=r=cge\model, gdx = TestGHATIM8
-10=r=cge\model, gdx = TestGHATIM7
-11=r=cge\model, gdx = TestGHATIM6
-12=r=cge\model, gdx = TestGHATIM5
-13=r=cge\model, gdx = GHATIM_
-14=r=cge\model, gdx = TestGHATIM12
-15=r=cge\model, gdx = TestGHATIM11
-16=r=cge\model, gdx = TestGHATIM10
-17=r=cge\model, gdx = TestGHATIM
-18=r=cge\model, gdx = TestGHATIMGE4
-19=r=cge\model, gdx = TestGHATIMGE3
-20=r=cge\model, gdx = TestGHATIMGE2
 
 [GDXDISP: EUP Alias 0]
 PlaneDim=0
@@ -2790,9 +2752,6 @@ Order=1
 Decim=7
 PlaneRownr=-1
 
-[RP:2SIMULATION_LOOP]
-1=
-
 [GDXDISP: TQELEC Var 1]
 PlaneDim=0
 RowDim=1
@@ -2801,6 +2760,110 @@ SqTrail0=0
 Order=1,2
 Decim=7
 PlaneRownr=-1
+
+[GDXDISP: CD Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[RP:2TIMESREPORT]
+1=
+
+[RP:2SIMULATION]
+1=
+
+[RP:2RUNTIMES]
+1=
+
+[GDXDISP: TAX Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: TAXADJ Var 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: TAXADJ0 Par 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+SqTrail0=0
+Order=
+Decim=7
+PlaneRownr=-1
+
+[RP:1MODEL]
+1=gdx=model s=model rf=model
+2=gdx=model s=model
+3=gdx=model_o s=model
+4=gdx=model
+5=
+
+[GDXDISP: TQADJ Var 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: TQ0 Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: tq01 Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[RP:2SIMULATION_LOOP]
+1=
+
+[RP:GHATIMGE]
+1=r=cge\model, gdx = TestGHATIM3
+2=r=cge\model, gdx = TestGHATIM2
+3=r=cge\model, gdx = TestGHATIM1
+4=r=cge\model, gdx = GHATIM_NDCModerate
+5=r=cge\model, gdx = GHATIM_NDCAmbitious
+6=r=cge\model, gdx = GHATIM_Reference
+7=r=cge\model, gdx = TestGHATIM4
+8=r=cge\model, gdx = TestGHATIM9
+9=r=cge\model, gdx = TestGHATIM8
+10=r=cge\model, gdx = TestGHATIM7
+11=r=cge\model, gdx = TestGHATIM6
+12=r=cge\model, gdx = TestGHATIM5
+13=r=cge\model, gdx = GHATIM_
+14=r=cge\model, gdx = TestGHATIM12
+15=r=cge\model, gdx = TestGHATIM11
+16=r=cge\model, gdx = TestGHATIM10
+17=r=cge\model, gdx = TestGHATIM
+18=r=cge\model, gdx = TestGHATIMGE4
+19=r=cge\model, gdx = TestGHATIMGE3
+20=r=cge\model, gdx = TestGHATIMGE2
 
 [MRUFILES]
 1=C:\Models\GHATIMGE\TestGHATIM7.gdx
@@ -2820,40 +2883,42 @@ HEIGHT=772
 WIDTH=1024
 
 [OPENWINDOW_2]
-FILE0=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.39464\2simulation.inc
-FILE1=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.47470\2runTIMES.inc
+FILE0=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.30649\1model.gms
+FILE1=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.39464\2simulation.inc
 FILE2=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.47470\2runTIMES.inc
+FILE3=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.30649\1model.gms
 MAXIM=0
-TOP=441
-LEFT=1334
+TOP=419
+LEFT=1325
 HEIGHT=880
 WIDTH=1188
 
 [OPENWINDOW_3]
-FILE0=C:\Models\GHATIMGE\CGE\includes\2capital.inc
-FILE1=C:\Models\GHATIMGE\cge\includes\2energychecksinit.inc
-FILE2=C:\Models\GHATIMGE\CGE\includes\2energyinit.inc
-FILE3=C:\Models\GHATIMGE\CGE\includes\2simulation.inc
-FILE4=C:\Models\GHATIMGE\CGE\includes\2simulation_loop.inc
-FILE5=C:\Models\GHATIMGE\CGE\includes\2varinit.inc
-FILE6=C:\Models\GHATIMGE\CGE\model.gdx
-FILE7=C:\Models\GHATIMGE\GHATIM\Gams_WrkTI\gamssave\BASE.gdx
-FILE8=C:\Models\GHATIMGE\GHATIM\Includes\2TIMESReport.inc
-FILE9=C:\Models\GHATIMGE\GHATIM\includes\GHGEnergyReport.inc
-FILE10=C:\Models\GHATIMGE\GHATIM_NDCModerate.gdx
-FILE11=C:\Models\GHATIMGE\GHATIM_Reference.gdx
-FILE12=C:\Models\GHATIMGE\GHATIMGE.gms
-FILE13=C:\Models\GHATIMGE\GHATIMGE.lst
-FILE14=C:\Models\GHATIMGE\refresh_demStart.lst
-FILE15=C:\Models\GHATIMGE\TestGHATIM.gdx
-FILE16=C:\Models\GHATIMGE\TestGHATIM1.gdx
-FILE17=C:\Models\GHATIMGE\TestGHATIM12.gdx
-FILE18=C:\Models\GHATIMGE\TestGHATIM2.gdx
-FILE19=C:\Models\GHATIMGE\TestGHATIM9.gdx
-FILE20=C:\Models\SATIMGE\CCDR_Runs\NZ_9.gdx
-FILE21=C:\Models\SATIMGE\CGE\includes\2capital.inc
-FILE22=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.39464\2simulation.inc
-FILE23=C:\Models\GHATIMGE\CGE\includes\2simulation_loop.inc
+FILE0=C:\Models\GHATIMGE\CGE\1model.gms
+FILE1=C:\Models\GHATIMGE\CGE\includes\2capital.inc
+FILE2=C:\Models\GHATIMGE\cge\includes\2energychecksinit.inc
+FILE3=C:\Models\GHATIMGE\CGE\includes\2energyinit.inc
+FILE4=C:\Models\GHATIMGE\CGE\includes\2simulation.inc
+FILE5=C:\Models\GHATIMGE\CGE\includes\2simulation_loop.inc
+FILE6=C:\Models\GHATIMGE\CGE\includes\2varinit.inc
+FILE7=C:\Models\GHATIMGE\CGE\model.gdx
+FILE8=C:\Models\GHATIMGE\GHATIM\Gams_WrkTI\gamssave\BASE.gdx
+FILE9=C:\Models\GHATIMGE\GHATIM\Includes\2TIMESReport.inc
+FILE10=C:\Models\GHATIMGE\GHATIM\includes\GHGEnergyReport.inc
+FILE11=C:\Models\GHATIMGE\GHATIM_NDCModerate.gdx
+FILE12=C:\Models\GHATIMGE\GHATIM_Reference.gdx
+FILE13=C:\Models\GHATIMGE\GHATIMGE.gms
+FILE14=C:\Models\GHATIMGE\GHATIMGE.lst
+FILE15=C:\Models\GHATIMGE\refresh_demStart.lst
+FILE16=C:\Models\GHATIMGE\TestGHATIM.gdx
+FILE17=C:\Models\GHATIMGE\TestGHATIM1.gdx
+FILE18=C:\Models\GHATIMGE\TestGHATIM12.gdx
+FILE19=C:\Models\GHATIMGE\TestGHATIM2.gdx
+FILE20=C:\Models\GHATIMGE\TestGHATIM9.gdx
+FILE21=C:\Models\SATIMGE\CCDR_Runs\NZ_9.gdx
+FILE22=C:\Models\SATIMGE\CGE\includes\2capital.inc
+FILE23=C:\Users\bruno\AppData\Local\Temp\Rar$DIa22088.39464\2simulation.inc
+FILE24=C:\Models\GHATIMGE\TestGHATIM12.gdx
 MAXIM=0
 TOP=35
 LEFT=19
@@ -2873,9 +2938,18 @@ FILE8=C:\Models\SATIMGE\CGE\includes\2simulation.inc
 FILE9=C:\Models\SATIMGE\CGE\includes\2simulation_loop.inc
 FILE10=C:\Models\SATIMGE\CGE\includes\2varinit.inc
 FILE11=C:\Models\SATIMGE\SATIM\Includes\2TIMESReport.inc
-FILE12=C:\Models\GHATIMGE\TestGHATIM1.gdx
+FILE12=C:\Models\GHATIMGE\GHATIM_NDCModerate.gdx
 MAXIM=0
 TOP=15
 LEFT=1291
 HEIGHT=1124
 WIDTH=1225
+
+[GDXDISP: H Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
