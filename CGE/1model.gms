@@ -137,7 +137,7 @@ $INCLUDE %countrydata%
  AELASTAB(C,'SIGMAT')$(CEN(C) OR (CE(C) AND CDN(C))) = 0;
  AELASTAB(C,'SIGMAQ')$(CMN(C) OR (CM(C) AND CDN(C))) = 0;
 
- DELASTAB(ARD,'PRODE')$(NOT SAM('TOTAL',ARD)) = 0;
+* DELASTAB(ARD,'PRODE')$(NOT SAM('TOTAL',ARD)) = 0;
 
  AELASTAB(C,'OUTAGG')$(NOT SUM(ARD, SAM(ARD,C)))     = 0;
 
@@ -183,8 +183,10 @@ PARAMETERS
  alphava2(F,A,RD)        lower level factor nesting parameter
  alphaa2(A)              shift parameter on ces activity output aggregation function
  alphaca(A)              shift parameter on ces activity output disaggregation function
- beta1                   capital mobility parameter by type                      / 2.00 /
- beta2                   capital mobility by sector                              / 2.00 /
+ beta1                   capital mobility parameter by type                      / 0.75 /
+*2
+ beta2(F)                   capital mobility by sector
+*2
  betah(A,H)              marg shr of hhd cons on home com c from act a
  betam(C,H)              marg share of hhd cons on marketed commodity c
  betam0(C,H)             marg share of hhd cons on marketed commodity c
@@ -198,6 +200,7 @@ PARAMETERS
  deltava(F,A,RD)         share parameter for CES activity production function
  deltava2(F,FP,A,RD)     lower level factor nesting parameter
  deltaa2(A,RD)           share parameters on the activity output aggregation function
+ deltaca0(A,C)           base value for share parameter for CET output disaggregation
  deltaca(A,C)            share parameter for CET output disaggregation
  dwts(C)                 domestic sales price weights
  fprd(F,A,RD)            factor-specific productivity
@@ -207,11 +210,17 @@ PARAMETERS
  ica(C,A,RD)             intermediate input c per unit of aggregate intermediate
  ica0(C,A,RD)            base intermediate input c per unit of aggregate intermediate
  inta(A,RD)              aggregate intermediate input coefficient
+*FH
+ inta0(A,RD)              aggregate intermediate input coefficient
  iva(A,RD)               aggregate value added coefficient
+*FH
+ iva0(A,RD)               aggregate value added coefficient
  icd(C,CP)               trade input of c per unit of comm'y cp produced & sold dom'ly
  ice(C,CP)               trade input of c per unit of comm'y cp exported
  icm(C,CP)               trade input of c per unit of comm'y cp imported
  ifa(F,A,RD)             leontief factor demand shares
+*FH
+ ifa0(F,A,RD)             leontief factor demand shares
  irate                   interest rate on foreign rate
  iwts(C,IT)              investment commodity demand weight
  mps01(INS)              0-1 par for potential flexing of savings rates
@@ -230,6 +239,7 @@ PARAMETERS
  rhoca(A)                CET activity disaggregation function exponent
  elasva(A,RD)            CES elasticity of substitution in production
  pwebar(C,RW)            world price of exports
+ pwmbar(C,RW)            world price of imports
  shif(INS,F)             share of dom. inst'on i in income of factor f
  shii(INS,INSP)          share of inst'on i in post-tax post-sav income of inst ip
  supernum(H)             LES supernumerary income
@@ -238,11 +248,7 @@ PARAMETERS
  tins01(INS)             0-1 par for potential flexing of dir tax rates
  trnsfr(INS,AC)          transfers fr. inst. or factor ac to institution ins
  tq01(C)                 0-1 par for potential flexing of sales tax rates
-*fh energy
- iva0(A,RD)               aggregate value added coefficient
- ifa0(F,A,RD)             leontief factor demand shares
- inta0(A,RD)              aggregate intermediate input coefficient
-* tva01(A,RD)              0-1 par for potential flexing of value-added tax rates
+ tva01(A,RD)              0-1 par for potential flexing of value-added tax rates
 *Tax rates
  tabar(A,RD)             rate of tax on activity
  tqbar(C)                rate of tax on sale of commodity
@@ -251,8 +257,7 @@ PARAMETERS
  tinsbar(INS)            rate of (exog part of) direct tax on dom inst ins
  tm(C,RW)                rate of import tariff
 *fh enery - utax
-* tvabar(A,RD)            rate of value-added tax
- tva(A,RD)               rate of value-added tax
+ tvabar(A,RD)               rate of value-added tax
 *b. Parameters used for model calibration
 *Parameters for definition of model parameters
  alphainv                investment shift parameter
@@ -270,9 +275,7 @@ PARAMETERS
  tins0(INS)              rate of direct tax on domestic institutions ins
  tm0(C,RW)               rate of import tariff
  trnsfr0(INS,AC)         transfers fr. inst. or factor ac to institution ins
- tva0(A,RD)              rate of value-added tax
-*fh enery - utax
-* tvabar0(A,RD)           rate of value-added tax
+ tvabar0(A,RD)              rate of value-added tax
 *Check parameters
  cwtschk                 check that CPI weights sum to unity
  cwtshchk(h)             check that CPI weights sum to unity for hhd h
@@ -339,13 +342,15 @@ PARAMETERS
  TQ0(C)                  rate of sales tax
  TQADJ0                  sales tax scaling factor
  TQPS0                   point change in sales tax rate
-*fh energy - utax
-* TVAADJ0                 value-added tax scaling factor
-* TVAPS0                  point change in value-added tax rate
  TQELEC0(C)              point change in sales tax rate that avoids tq01(C)
+*fh energy - utax
+ TVAADJ0                 value-added tax scaling factor
+ TVAPS0                  point change in value-added tax rate
+ TVA0(A,RD)              value-added tax rate
  TRII0(INS,INSP)         transfers to dom. inst. insdng from insdngp
  WALRAS0                 savings-investment imbalance (should be zero)
  WF0(F)                  economy-wide wage (rent) for factor f
+ WF_BAR(F)               economy-wide wage (rent) for factor f (tracked through base run)
  WFDIST0(F,A,RD)         factor wage distortion variable
  YF0(F)                  factor income
  YG0                     total current government income
@@ -393,11 +398,13 @@ PARAMETERS
  YG_DTAX0                direct tax take plus transfers from abroad
  YG_ITAX0                indirect tax take
  YG_NTAX0                price differentials (utax code)
-* ITAXSHR0                share of indirect taxes in GDPMP
-* TAXADJ0                 tax adjustment which maintains indirect tax share
+ ITAXSHR0                share of indirect taxes in GDPMP
+ TAXADJ0                 tax adjustment which maintains indirect tax share
  GDPMP0                  nominal GDP at market prices
 ;
 
+*CA set within category capital mobility
+beta2(fcap)=2;
 *Price block --------------------------------------------------
 IF(AGRIPROD EQ 0,
  PSUP(C)              = 1;
@@ -423,7 +430,7 @@ ELSE
 
 *Activity quantity = payment to activity divided by activity price
 *QA covers both on-farm consumption and marketed output output GROSS of tax
- QAR0(A,RD)        =  SUM(ARD$MARD(ARD,A,RD), SAM('TOTAL',ARD))/PAR0(A,RD) ;
+ QAR0(A,RD)$PAR0(A,RD)        =  SUM(ARD$MARD(ARD,A,RD), SAM('TOTAL',ARD))/PAR0(A,RD) ;
  QA0(A)            =  SUM(RD, QAR0(A,RD));
 
 *SR If an activity is produced in only one region, set ACES2 to "no"
@@ -435,7 +442,9 @@ ELSE
 *Unit value-added price = total value-added / activity quantity define pva gross of tax
  QVA0(A,RD)            = SUM(ARD$MARD(ARD,A,RD), SUM(F, SAM(F,ARD)) + TAXPAR('VATAX',ARD)) ;
  PVA0(A,RD)$QVA0(A,RD) = SUM(ARD$MARD(ARD,A,RD), SUM(F, SAM(F,ARD)) + TAXPAR('VATAX',ARD))/QVA0(A,RD);
- iva(A,RD)$QAR0(A,RD)  = QVA0(A,RD)/QAR0(A,RD) ;
+* iva(A,RD)$QAR0(A,RD)  = QVA0(A,RD)/QAR0(A,RD) ;
+ iva0(A,RD)$QAR0(A,RD)  = QVA0(A,RD)/QAR0(A,RD) ;
+ iva(A,RD)  = iva0(A,RD);
  QXAC0(A,C)$PXAC0(A,C) =  SUM((ARD,RD)$MARD(ARD,A,RD),SAM(ARD,C)) / PXAC0(A,C);
 *QHA0(A,H)$SHRHOME(A,H) = SHRHOME(A,H)*SAM(A,H)/PXAC0(A,C);
  QHA0(A,H)         = SUM((ARD,RD)$MARD(ARD,A,RD),SAM(ARD,H))/PA0(A);
@@ -443,7 +452,8 @@ ELSE
 
 *Output quantity = value received by producers divided by producer price
 *QX covers only marketed output
- QX0(C)$SUM(ARD, SAM(ARD,C)) = SUM(ARD, SAM(ARD,C)) / PX0(C);
+* QX0(C)$SUM(ARD, SAM(ARD,C)) = SUM(ARD, SAM(ARD,C)) / PX0(C);
+ QX0(C)$PX0(C) = SUM(ARD, SAM(ARD,C)) / PX0(C);
 
 *Export quantity = export revenue received by producers
 *(ie. minus tax and transactions cost) divided by export price.
@@ -455,10 +465,10 @@ PARAMETER TRESHR(C,RW);
 *parameter sherwin(c,rw);
 *sherwin(c,rw) =  SUM(CTE, SAM(CTE,C))*TRESHR(C,RW);
 
- QE0(C,RW)$CERW(C,RW) = (SAM(C,'ROW')*REGEXP(C,RW) - TAXPAR('EXPTAX',C)*REGETX(C,RW) - SUM(CTE, SAM(CTE,C))*TRESHR(C,RW)  )/PE0(C,RW);
+ QE0(C,RW)$(CERW(C,RW) AND PE0(C,RW)) = (SAM(C,'ROW')*REGEXP(C,RW) - TAXPAR('EXPTAX',C)*REGETX(C,RW) - SUM(CTE, SAM(CTE,C))*TRESHR(C,RW)  )/PE0(C,RW);
 
 *RoW export price = RoW export payment (in for curr) / export qnty
- PWE0(C,RW)$CERW(C,RW)  = (SAM(C,'ROW')*REGEXP(C,RW)/EXR0) / QE0(C,RW);
+ PWE0(C,RW)$(CERW(C,RW) AND PE0(C,RW))  = (SAM(C,'ROW')*REGEXP(C,RW)/EXR0) / QE0(C,RW);
  pwebar(C,RW) = PWE0(C,RW);
  te0(C,RW)$(SAM(C,'ROW')*REGEXP(C,RW)) = (TAXPAR('EXPTAX',C)*REGETX(C,RW))/(SAM(C,'ROW')*REGEXP(C,RW));
  te(C,RW)               =  te0(C,RW);
@@ -493,6 +503,7 @@ PARAMETER TRMSHR(C,RW);
 
 *World price = import value (in foreign currency / import quantity
  PWM0(C,RW)$CMRW(C,RW) = (SAM('ROW',C)*REGIMP(C,RW)/EXR0) / QM0(C,RW);
+ pwMbar(C,RW) = PWm0(C,RW);
  tm0(C,RW)$(SAM('ROW',C)*REGIMP(C,RW))  = (TAXPAR('IMPTAX',C)*REGTAR(C,RW)) / (SAM('ROW',C)*REGIMP(C,RW));
  tm(C,RW) = tm0(C,RW);
 
@@ -503,8 +514,9 @@ PARAMETER TRMSHR(C,RW);
  TQ0(C)$QQ0(C) = TAXPAR('COMTAX',C)/(PQ0(C)*QQ0(C)) ;
  TQADJ0 = 0;
  TQPS0  = 0;
- TQELEC0(c)=0;
- tq01(C) = 1;
+ TQelec0(C)  = 0;
+ tq01(C)$tq0(c) = 1;
+ tq01('CELEC') = 0;
  tqbar(C) = TQ0(C);
 
  SHCTD(CT)$SUM(CTD, SAM('TOTAL',CTD)) = SUM(CTD, SAM(CT,CTD)/SAM('TOTAL',CTD)) ;
@@ -522,20 +534,18 @@ PARAMETER TRMSHR(C,RW);
 *Indirect activity tax rate = tax payment / output value
 *Tax is here applied to total output value (incl. on-farm cons.)
 *fh incl energy ----------------------------------------------------------------
- tva0(A,RD)$QVA0(A,RD) = SUM(ARD$MARD(ARD,A,RD),TAXPAR('VATAX',ARD)) /
-                         (PVA0(A,RD)*QVA0(A,RD));
- tva(A,RD) = tva0(A,RD);
-$ontext
+* tva0(A,RD)$QVA0(A,RD) = SUM(ARD$MARD(ARD,A,RD),TAXPAR('VATAX',ARD)) /
+*                         (PVA0(A,RD)*QVA0(A,RD));
+* tva(A,RD) = tva0(A,RD);
+*$ontext
  tvabar0(A,RD)$QVA0(A,RD) = SUM(ARD$MARD(ARD,A,RD),TAXPAR('VATAX',ARD)) /
                          (PVA0(A,RD)*QVA0(A,RD));
  tvabar(A,RD) = tvabar0(A,RD);
-
- tva0(A,RD)$QVA0(A,RD) = SUM(ARD$MARD(ARD,A,RD),TAXPAR('VATAX',ARD)) /
-                         (PVA0(A,RD)*QVA0(A,RD));
+ TVA0(A,RD) = tvabar0(A,RD);
  TVAADJ0 = 1;
  TVAPS0  = 0;
  tva01(A,RD)$tvabar0(A,RD) = 1;
-$offtext
+*$offtext
 *-------------------------------------------------------------------------------
 *QA is GROSS of tax, so base for ta is as well
  TA0(A,RD)$QAR0(A,RD) = SUM(ARD$MARD(ARD,A,RD), TAXPAR('ACTTAX',ARD) /
@@ -552,6 +562,8 @@ $offtext
 
 *Intermediate input coefficient = input use / output quantity
 * QINTA0(A,RD) = SUM(C$PQ0(C), SUM(ARD$MARD(ARD,A,RD), SAM(C,ARD))  / PQ0(C)) ;
+*bm this is commented out to keep units of input in their raw format, given that energy is now in physical units
+*bm we cannot add them or scale them relative to other inputs - it also makes linking to energy model more intuitive
  QINTA0(A,RD) = QAR0(A,RD);
 
 *fh incl energy - utax ---------------------------------------------------------
@@ -566,6 +578,7 @@ PARAMETER
 
 *fh tsitica links
 SCALAR
+*fh was initially 0
  alphawfdist range for value of capital parameter /0/;
 *-------------------------------------------------------------------------------
 
@@ -575,8 +588,10 @@ SCALAR
 
  ica(C,A,RD)=ica0(C,A,RD);
 
- inta(A,RD)$QAR0(A,RD) = QINTA0(A,RD) / QAR0(A,RD) ;
- pinta0(A,RD)      = SUM(C, ica(C,A,RD)*PQ0(C)) ;
+* inta(A,RD)$QAR0(A,RD) = QINTA0(A,RD) / QAR0(A,RD) ;
+ inta0(A,RD)$QAR0(A,RD) = QINTA0(A,RD) / QAR0(A,RD) ;
+ inta(A,RD)=inta0(A,RD);
+* pinta0(A,RD)      = SUM(C, ica(C,A,RD)*PQ0(C)) ;
 
 *fh incl energy - utax ---------------------------------------------------------
  PQI0(C,A,RD) = PQ0(C);
@@ -613,6 +628,8 @@ SCALAR
                   SUM(cte, SAM(cte,C))))/
                   SUM(CP, SUM(ARD, SAM(ARD,CP)) - (SAM(CP,'ROW') -
                   SUM(cte, SAM(cte,CP))));
+*fh
+ cwtsh(c,h) = SAM(C,H)/SUM((CP,HP), SAM(CP,HP));
 
  CWTSCHK       = SUM(C, cwts(C)) - 1;
  DWTSCHK       = SUM(C, dwts(C)) - 1;
@@ -648,7 +665,9 @@ SCALAR
  ELASCA(A)$SUM(C$MAC(A,C), 1) = SUM(C$MAC(A,C), AELASTAB(C,'OUTDIS'))/SUM(C$MAC(A,C), 1);
  rhoca(A)$ELASCA(A) = (1/ELASCA(A)) + 1  ;
 
- deltaca(A,C)$QXAC0(A,C) = (PXAC0(A,C)*(QXAC0(A,C))**(1-rhoca(A)))/ SUM(CP$QXAC0(A,CP), PXAC0(A,CP)*(QXAC0(A,CP))**(1-rhoca(A))) ;
+* deltaca(A,C)$QXAC0(A,C) = (PXAC0(A,C)*(QXAC0(A,C))**(1-rhoca(A)))/ SUM(CP$QXAC0(A,CP), PXAC0(A,CP)*(QXAC0(A,CP))**(1-rhoca(A))) ;
+ deltaca0(A,C)$QXAC0(A,C) = (PXAC0(A,C)*(QXAC0(A,C))**(1-rhoca(A)))/ SUM(CP$QXAC0(A,CP), PXAC0(A,CP)*(QXAC0(A,CP))**(1-rhoca(A))) ;
+ deltaca(A,C)= deltaca0(A,C);
  alphaca(A)$QA0(A) = (QA0(A) - SUM(H, QHA0(A,H))) /(SUM(C$deltaca(A,C),deltaca(A,C)*QXAC0(A,C)**rhoca(A)))**(1/rhoca(A));
 
 *Demand computations ----
@@ -665,7 +684,7 @@ SET
 *Defining employment for aggregate factors in factor nesting
  QFS0(F)      = SUM((A,RD), QF0(F,A,RD));
 
-* QFS_BAR(F)   = QFS0(F);
+ QFS_BAR(F)   = QFS0(F);
 *Activity-specific wage is activity labor payment over employment
  WFA(F,A,RD)$QF0(F,A,RD) = SUM(ARD$MARD(ARD,A,RD),SAM(F,ARD))/QF0(F,A,RD);
 *Activity-specific wages for aggregate factors in factor nesting
@@ -675,13 +694,15 @@ SET
  WF0(F)$SUM((A,RD), QF0(F,A,RD))   = SUM(ARD, SAM(F,ARD))/SUM((A,RD), QF0(F,A,RD));
  WF0(FA)$SUM((A,RD), QF0(FA,A,RD)) = SUM((FD,A,ARD,RD)$(MFAGG(FA,FD,A,RD) AND MARD(ARD,A,RD)), SAM(FD,ARD)) /SUM((A,RD), QF0(FA,A,RD));
 
+ WF_BAR(F) = WF0(F) ;
+
 *Wage distortion factor
  wfdist0(F,A,RD)$WF0(F) = WFA(F,A,RD)/WF0(F);
 
 *Leontief factor demand shares
 * ifa(F,A,RD)$QVA0(A,RD) = QF0(F,A,RD) / QVA0(A,RD);
  ifa0(F,A,RD)$QVA0(A,RD) = QF0(F,A,RD) / QVA0(A,RD);
- ifa(F,A,RD) = ifa0(F,A,RD);
+ ifa(F,A,RD)= ifa0(F,A,RD);
 
 *CES activity production function
  deltava(F,A,RD)$MFA1(F,A,RD) = (wfdist0(F,A,RD) * WF0(F) * (QF0(F,A,RD))**(1+rhova(A,RD)) )
@@ -1001,7 +1022,8 @@ $offtext
 *Energy
 *------------------------------------------------------------------
 SET
- AELEC(AC) / aelec/
+ AELEC(AC) /aelec/
+ APETR(AC) /apetr/
  RDNT(RD)  RD set without aggregate sector
  AAG(A)    sectors to aggregate / /
 ;
@@ -1016,6 +1038,7 @@ ALIAS (RDNT,RDNTP);
  QF0(F,AAG,'NAT')   = SUM(RDNT, QF0(F,AAG,RDNT));
  QINTA0(AAG,'NAT')  = SUM(RDNT, QINTA0(AAG,RDNT));
  QVA0(AAG,'NAT')    = SUM(RDNT, QVA0(AAG,RDNT));
+
 *$ontext
 *Quantity based coefficients
  iva0(AAG,'NAT')$QAR0(AAG,'NAT')  = QVA0(AAG,'NAT')/QAR0(AAG,'NAT') ;
@@ -1046,11 +1069,11 @@ ALIAS (RDNT,RDNTP);
                                         /SUM(RDNT, QF0(F,AAG,RDNT)*WF0(F));
 *$ontext
 *Value-added taxes
-* tvabar0(AAG,'NAT') = SUM(RDNT, tvabar0(AAG,RDNT)*PVA0(AAG,RDNT)*QVA0(AAG,RDNT))
-*                      / SUM(RDNT, PVA0(AAG,RDNT)*QVA0(AAG,RDNT));
-* tvabar(AAG,'NAT')  = tvabar0(AAG,'NAT');
-* TVA0(AAG,'NAT')    = tvabar0(AAG,'NAT');
-* tva01(AAG,'NAT')$tvabar0(AAG,'NAT') = 1;
+ tvabar0(AAG,'NAT') = SUM(RDNT, tvabar0(AAG,RDNT)*PVA0(AAG,RDNT)*QVA0(AAG,RDNT))
+                      / SUM(RDNT, PVA0(AAG,RDNT)*QVA0(AAG,RDNT));
+ tvabar(AAG,'NAT')  = tvabar0(AAG,'NAT');
+ TVA0(AAG,'NAT')    = tvabar0(AAG,'NAT');
+ tva01(AAG,'NAT')$tvabar0(AAG,'NAT') = 1;
 
 *Activity taxes
  tabar(AAG,'NAT')   = SUM(RDNT, tabar(AAG,RDNT)*PAR0(AAG,RDNT)*QAR0(AAG,RDNT))
@@ -1166,10 +1189,10 @@ VARIABLES
  TQADJ                   sales tax scaling factor
  TQPS                    point change in sales tax rate
 *fh energy - utax
-* TVA(A,RD)               rate of tax on activity value-added
-* TVAADJ                  value-added tax scaling factor
-* TVAPS                   point change in value-added tax rate
  TQELEC(C)               point change in sales tax rate that avoids tq01(c)
+ TVA(A,RD)               rate of tax on activity value-added
+ TVAADJ                  value-added tax scaling factor
+ TVAPS                   point change in value-added tax rate
  WALRAS                  savings-investment imbalance (should be zero)
  WALRASSQR               Walras squared
  WF(F)                   economy-wide wage (rent) for factor f
@@ -1182,13 +1205,13 @@ VARIABLES
  PQI(C,A,RD)
  PQH(C,H)
 *fh tsitica links
-* DTU(C)
+ DTU(C)
  ALPHAQF                 proportionately adjust capital stocks
  YG_DTAX                 direct tax take plus transfers from abroad
  YG_ITAX                 indirect tax take
  YG_NTAX                 price differentials (utax code)
-* ITAXSHR                 share of indirect taxes in total revenue (may be better if it were GDPMP)
-* TAXADJ                  tax adjustment which maintains indirect tax share
+ ITAXSHR                 share of indirect taxes in total revenue (may be better if it were GDPMP)
+ TAXADJ                  tax adjustment which maintains indirect tax share
  GDPMP                   nominal GDP at market prices
 ;
 
@@ -1249,7 +1272,7 @@ VARIABLES
  TQ.L(C)                = TQ0(C);
  TQADJ.L                = TQADJ0;
  TQPS.L                 = TQPS0;
-  TQELEC.L(C)            = TQELEC0(C);
+ TQELEC.L(C)            = TQELEC0(C);
  WALRAS.L               = WALRAS0;
  WALRASSQR.L            = 0 ;
  WF.L(F)                = WF0(F);
@@ -1259,13 +1282,13 @@ VARIABLES
  YI.L(INS)              = YI0(INS);
  YIF.L(INS,F)           = YIF0(INS,F);
 *fh energy - utax
-* TVA.L(A,RD)            = TVA0(A,RD);
-* TVAADJ.L               = 1;
-* TVAPS.L                = 0;
+ TVA.L(A,RD)            = TVA0(A,RD);
+ TVAADJ.L               = 1;
+ TVAPS.L                = 0;
  PQI.L(C,A,RD)          =  PQI0(C,A,RD);
  PQH.L(C,H)             =  PQH0(C,H);
 *fh tsitica links
-* DTU.L(C) = 0;
+ DTU.L(C) = 0;
  ALPHAQF.L=1;
 
 *--------------------------------------------------------------------------------------------
@@ -1329,7 +1352,7 @@ EQUATIONS
  TINSDEF(INS)            direct tax rate for inst ins
  MPSDEF(INS)             marg prop to save for inst ins
  TADEF(A,RD)             indirect tax rate for activity a rd
- TQDEF(C)                sales tax rate for activity c
+ TQDEF(C)                sales tax rate for commodity c
  SAVINVBAL               savings-investment balance
  TABSEQ                  total absorption
  INVABEQ                 investment share in absorption
@@ -1340,7 +1363,7 @@ EQUATIONS
  WFDEF(F)
 
 *fh enery - utax
-** TVADEF(A,RD)            value-added tax rate for activity a
+ TVADEF(A,RD)            value-added tax rate for activity a
  EXPRESID1(C,RW)
  EXPRESID2(C,RW)
  PQIDEF(C,A,RD)
@@ -1352,7 +1375,7 @@ EQUATIONS
  YG_DTAXDEF  define direct taxes plus tranfers to government from abroad
  YG_ITAXDEF  define indirect taxes
  YG_NTAXDEF  price differentials (utax code)
-* ITAXEQ      share of indirect taxes in total revenues (may be better if this were GDPMP)
+ ITAXEQ      share of indirect taxes in total revenues (may be better if this were GDPMP)
 *fh tsitica links
  MINQFEQ(F)  lower limit on returns to energy capital (complementarity reduces capital usage)
  MAXQFEQ(F)  upper limit on returns to energy capital (spurs purchase of capital to produce energy- incurs debt)
@@ -1381,14 +1404,14 @@ EQUATIONS
 
   GDPMP0 = SUM((A,RD), PVA0(A,RD)*(1-TVA0(A,RD))*QVA0(A,RD)) + YG_ITAX0 + YG_NTAX0;
 
-*  ITAXSHR0 = (YG_ITAX0+YG_NTAX0)/GDPMP0;
-*  TAXADJ0      = 1;
+  ITAXSHR0 = (YG_ITAX0+YG_NTAX0)/GDPMP0;
+  TAXADJ0      = 1;
 
  YG_DTAX.L =    YG_DTAX0 ;
  YG_ITAX.L =    YG_ITAX0 ;
  YG_NTAX.L =    YG_NTAX0 ;
-* ITAXSHR.L =    ITAXSHR0 ;
-* TAXADJ.L  =    TAXADJ0  ;
+ ITAXSHR.L =    ITAXSHR0 ;
+ TAXADJ.L  =    TAXADJ0  ;
  GDPMP.L   =    GDPMP0   ;
 *-------------------------------------------------------------------------------
 
@@ -1431,6 +1454,8 @@ EQUATIONS
 
  LEOAGGVA(A,RD)$QVA0(A,RD)..     QVA(A,RD) =E= iva(A,RD)*QAR(A,RD);
 
+ QFMAX(F,A,RD)..                   QF(F,A,RD) =G= 0;
+
 Parameter
 alphavb0(A,RD)
 alphavb(A,RD)
@@ -1468,7 +1493,9 @@ alphavb(A,RD)=alphavb0(A,RD);
 
 *JT Nonsense equation
 * PADEF2(A,RD)$(NOT ACES2(A) AND PAR0(A,RD)).. PAR(A,RD)/PAR0(A,RD) =E= PA(A)/PA0(A);
- PADEF2(A,RD)$(NOT ACES2(A) AND PAR0(A,RD)).. SUM(RDP, PAR(A,RDP)*QAR(A,RDP)) =E= PA(A)*QA(A);
+* PADEF2(A,RD)$(NOT ACES2(A) AND PAR0(A,RD)).. SUM(RDP, PAR(A,RDP)*QAR(A,RDP)) =E= PA(A)*QA(A);
+PADEF2(A,RD)$(NOT ACES2(A) AND QAR0(A,RD))..
+   PAR(A,RD)*QAR(A,RD) =E= PA(A)*QA(A) - SUM(RDP$(NOT RD(RDP)), PAR(A,RDP)*QAR(A,RDP));
 
 *CES REGIONAL ACTIVITY AGGREGATION FUNCTION
  QACES(A)$(ACES2(A) AND QA0(A))..  QA(A) =E=
@@ -1594,7 +1621,8 @@ betaca(A,C)=1;
 
 *System constraint block
 
- FACEQUIL(F)$QFS0(F).. SUM((A,RD), QF(F,A,RD)) =E= QFS(F);
+* FACEQUIL(F)$QFS0(F).. SUM((A,RD), QF(F,A,RD)) =E= QFS(F);
+ FACEQUIL(F)$QFS0(F).. SUM((A,RD), QF(F,A,RD)) =E= QFS(F)+QFS_FOR(F);
 
 *fh tsitica links
  QFDEF('fcap',A,RD)$QF0('fcap',A,RD).. QF('fcap',A,RD) =E= ALPHAQF*qfbar('fcap',A,RD);
@@ -1612,15 +1640,17 @@ betaca(A,C)=1;
 
  GOVBAL.. YG =E= EG + GSAV;
 
- TINSDEF(INSDNG).. TINS(INSDNG) =E= tinsbar(INSDNG)*(1+TINSADJ*tins01(INSDNG)) + DTINS*tins01(INSDNG);
+* TINSDEF(INSDNG).. TINS(INSDNG) =E= tinsbar(INSDNG)*(1+TINSADJ*tins01(INSDNG)) + DTINS*tins01(INSDNG);
+TINSDEF(INSDNG).. TINS(INSDNG) =E= TAXADJ*(tinsbar(INSDNG)*(1+TINSADJ*tins01(INSDNG)) + DTINS*tins01(INSDNG));
 
- TADEF(A,RD)..     TA(A,RD) =E= tabar(A,RD)*(1+TAADJ*ta01(A,RD)) + TAPS*ta01(A,RD);
+* TADEF(A,RD)..     TA(A,RD) =E= tabar(A,RD)*(1+TAADJ*ta01(A,RD)) + TAPS*ta01(A,RD);
+TADEF(A,RD)..     TA(A,RD)*TAXADJ =E= tabar(A,RD)*(1+TAADJ*ta01(A,RD)) + TAPS*ta01(A,RD);
 
 * TQDEF(C)..        TQ(C) =E= tqbar(C) * (1+TQADJ*tq01(C)) + TQPS*tq01(C);
- TQDEF(C)..        TQ(C) =E= tqbar(C) * (1+TQADJ*tq01(C)) + TQPS*tq01(C) + TQELEC(C);
+TQDEF(C)..        TQ(C)*TAXADJ =E= tqbar(C) * (1+TQADJ*tq01(C)) + TQPS*tq01(C) + TQELEC(C);
 
 *fh energy - utax
-** TVADEF(A,RD)..    TVA(A,RD)*TAXADJ =E= tvabar(A,RD) * (1+TVAADJ*tva01(A,RD)) + TVAPS*tva01(A,RD);
+ TVADEF(A,RD)..    TVA(A,RD)*TAXADJ =E= tvabar(A,RD) * (1+TVAADJ*tva01(A,RD)) + TVAPS*tva01(A,RD);
 
  MPSDEF(INSDNG)..  MPS(INSDNG)  =E= mpsbar(INSDNG)*(1+MPSADJ*mps01(INSDNG)) + DMPS*mps01(INSDNG);
 
@@ -1643,7 +1673,7 @@ betaca(A,C)=1;
 *fh energy - utax
 *Equations added for this analysis
  GDPMPDEF ..   GDPMP =E= SUM((A,RD), PVA(A,RD)*QVA(A,RD)) + YG_ITAX + YG_NTAX;
-* ITAXEQ .. ITAXSHR*GDPMP  =E= YG_ITAX + YG_NTAX ;
+ ITAXEQ .. ITAXSHR*GDPMP  =E= YG_ITAX + YG_NTAX ;
 
 *fh tsitica links
  MINQFEQ('FEGY')$QF0('FEGY','AELEC','nat') ..  (1-alphawfdist)*WFK2AV('FCAP') =L= WF('FEGY')*WFDIST('FEGY','AELEC','nat') ;
@@ -1654,12 +1684,12 @@ betaca(A,C)=1;
 
 MODEL STANDCGE  standard CGE model /
 *fh tsitica links
-* MINQFEQ.QFS
-* MAXQFEQ.QFS_FOR
+ MINQFEQ.QFS
+ MAXQFEQ.QFS_FOR
 *Price block
  PMDEF.PM
  PEDEF.PE
- PQDEF.PQ
+ PQDEF
  PXDEF
 *PXDEF2
  PDDDEF.PDD
@@ -1671,10 +1701,11 @@ MODEL STANDCGE  standard CGE model /
  DPIDEF
 *Production and trade block
  QADEF.QA
- PADEF2.PAR
+* PADEF2.PAR
+ PADEF2.QAR
  QACES
  QACESFOC
- LEOAGGINT
+ LEOAGGINT.QINTA
  LEOAGGVA
  CESVAPRD.QVA
  CESVAFOC
@@ -1707,7 +1738,7 @@ MODEL STANDCGE  standard CGE model /
  YGDEF.YG
  GOVDEM.QG
  GOVBAL
- INVDEM
+ INVDEM.QINV
 *System-constraint block
  FACEQUIL
  LABSUP
@@ -1718,22 +1749,24 @@ MODEL STANDCGE  standard CGE model /
  MPSDEF.MPS
  TADEF.TA
  TQDEF.TQ
+ TVADEF.TVA
  TABSEQ.TABS
  INVABEQ
  GDABEQ
 *utax code
-** TVADEF.TVA
  PQIDEF.PQI
  PQHDEF.PQH
+* EXPRESID1
  EXPRESID2.QE
  YG_DTAXDEF
  YG_ITAXDEF
  YG_NTAXDEF
-** ITAXEQ
+ ITAXEQ
  GDPMPDEF
+*QFMAX
 *fh tsitica links
-* QFDEF
-* QFS_FORDEF
+ QFDEF
+ QFS_FORDEF
 /;
 
 *--------------------------------------------------------------------------------------------
@@ -1795,9 +1828,9 @@ MODEL STANDCGE  standard CGE model /
  QFS.UP(F)$SUM((FP,A,RD), MFA2(F,FP,A,RD)) = +INF;
  WFDIST.LO(F,A,RD)$SUM(FP, MFA2(F,FP,A,RD))  = -INF;
  WFDIST.UP(F,A,RD)$SUM(FP, MFA2(F,FP,A,RD))  = +INF;
- QF.LO(F,A,RD)$SUM(FP, MFA2(F,FP,A,RD))  = -INF;
+* QF.LO(F,A,RD)$SUM(FP, MFA2(F,FP,A,RD))  = -INF;
 *fh tsitica links
-* QF.LO(F,A,RD)$SUM(FP, MFA2(F,FP,A,RD))  = eps;
+ QF.LO(F,A,RD)$SUM(FP, MFA2(F,FP,A,RD))  = eps;
  QF.UP(F,A,RD)$SUM(FP, MFA2(F,FP,A,RD))  = +INF;
 
 *Current account of RoW
@@ -1814,9 +1847,9 @@ MODEL STANDCGE  standard CGE model /
  TQADJ.FX    = TQADJ0;
  TQPS.FX     = TQPS0;
 *fh energy
-** TVAADJ.FX   = TVAADJ0;
-** TVAPS.FX    = TVAPS0;
-TQELEC.FX(C)= TQELEC0(C);
+ TQELEC.FX(C)= TQELEC0(C);
+ TVAADJ.FX   = TVAADJ0;
+ TVAPS.FX    = TVAPS0;
  TINSADJ.FX  = TINSADJ0;
  DTINS.FX    = DTINS0;
  GADJ.FX     = GADJ0;
@@ -1832,10 +1865,10 @@ TQELEC.FX(C)= TQELEC0(C);
 *INVSHR.FX = INVSHR0 ;
 
 *Numeraire price index
-* CPI.FX        = CPI0;
- DPI.FX        = DPI0;
+ CPI.FX        = CPI0;
+* DPI.FX        = DPI0;
 
-$ontext
+*$ontext
 *fh tsitica links
 *CA ELECTRICITY SECTOR MCP CLOSURE
 *First set without capital transfer
@@ -1864,19 +1897,20 @@ QFS_FOR.LO('FEGY')=0;
 ALPHAQF.LO= -INF;
 ALPHAQF.UP= +INF;
 QFS.FX('FCAP')=QFS0('FCAP');
-$offtext
+*$offtext
 
 *fh energy - utax
 *Hold indirect tax share of GDP constant
 * TAXADJ.FX=TAXADJ0;
-* ITAXSHR.FX=ITAXSHR0;
+ ITAXSHR.FX=ITAXSHR0;
 
 *--------------------------------------------------------------------------------------------
 *9. SOLUTION STATEMENT
 *--------------------------------------------------------------------------------------------
 
-OPTIONS ITERLIM = 1000, LIMROW = 30, LIMCOL = 30, SOLPRINT=ON, MCP=PATH, NLP=CONOPT3;
+OPTIONS ITERLIM = 1000, LIMROW = 3000, LIMCOL = 0, SOLPRINT=ON, MCP=PATH, NLP=CONOPT3;
  STANDCGE.HOLDFIXED   = 1 ;
+ STANDCGE.MCPRHOLDFX =1;
  STANDCGE.TOLINFREP   = .0001 ;
 
  SOLVE STANDCGE USING MCP ;

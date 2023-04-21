@@ -1,0 +1,11 @@
+2927      0.031
+26137 6      0.078       0.061 Loop       
+26139 2      0.359       0.125 Equation   EQL_CAPACT (45003)
+20810 7      0.047       0.022 Loop       
+23180 9      0.172       0.057 Assignment COEF_AF (474651)
+31449 4      0.031       0.147 Equation   EQ_STGTSS (6168)
+26504 1      0.469       0.132 Equation   EQG_COMBAL (24588)
+30567 3      0.359       0.146 Equation   EQ_PEAK (1080)
+19646 10      0.031       0.016 IF-ELSE    
+45032 5      0.250       0.149 Solve Fini TIMES (1002148)
+45032 8      0.046       0.149 GAMS Fini   

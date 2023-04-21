@@ -16,7 +16,8 @@ IF (KOPTION EQ 1,
 
 IF (KOPTION EQ 2,
 *Targeted capital stock growth rate
- GFCF                    = SUM(C, PQ.L(C)*QINV.L(C,'S-I')) ;
+* GFCF                    = SUM(C, PQ.L(C)*QINV.L(C,'S-I')) ;
+ GFCF     = SUM(C, PQ.L(C)*QINV.L(C,'S-I'))/SUM(C$PQ0(C), iwts(C,'S-I')*PQ.L(C)/PQ0(C)) ;
  QINVK                   = GFCF / (alphainv*SUM(C, iwts(C,'S-I')*PQ0(C)));
  IF(EFX(TT,TC),
    NGFCF                   = QINVK - SUM((RD,A)$AFX(A,RD), QF.L('fcap',A,RD)*(AFXGR(A,RD,XC,TC) + natdrate));
@@ -35,15 +36,24 @@ IF (KOPTION EQ 2,
  WFDIST2(FCAP,A,RD)$(ANFX(A,RD) AND WFK2AV(FCAP))   = WFADJ(FCAP)*WFDISTADJ(FCAP,A,RD)/WFK2AV(FCAP);
  WFK1AV                  = SUM(FCAPP, WFK2AV(FCAPP)*CAPSHR1(FCAPP));
  INVSHR1(FCAP)           = CAPSHR1(FCAP) * (1 + beta1 * ( (WFK2AV(FCAP)-WFK1AV) / WFK1AV ) ) ;
- INVSHR2(FCAP,A,RD)$ANFX(A,RD) = CAPSHR2(FCAP,A,RD)*(1 + beta2*(WFDIST2(FCAP,A,RD) - 1)) ;
+* INVSHR2(FCAP,A,RD)$ANFX(A,RD) = CAPSHR2(FCAP,A,RD)*(1 + beta2*(WFDIST2(FCAP,A,RD) - 1)) ;
+ INVSHR2(FCAP,A,RD)$ANFX(A,RD) = CAPSHR2(FCAP,A,RD)*(1 + beta2(FCAP)*(WFDIST2(FCAP,A,RD) - 1)) ;
  DKAPS(FCAP)             = INVSHR1(FCAP)*NGFCF;
  DKAP(FCAP,A,RD)$ANFX(A,RD)      = INVSHR2(FCAP,A,RD)*DKAPS(FCAP) ;
- RKAPS(FCAP)             = DKAPS(FCAP)/QFS.L(FCAP) - SUM((RD,A), natdrate*QF.L(FCAP,A,RD)/SUM((RDP,AP), QF.L(FCAP,AP,RDP))) ;
+* RKAPS(FCAP)             = DKAPS(FCAP)/QFS.L(FCAP) - SUM((RD,A), natdrate*QF.L(FCAP,A,RD)/SUM((RDP,AP), QF.L(FCAP,AP,RDP))) ;
+ RKAPS(FCAP)             = DKAPS(FCAP)/(QFS.L(FCAP)+QFS_FOR.L(FCAP)) - SUM((RD,A), natdrate*QF.L(FCAP,A,RD)/SUM((RDP,AP), QF.L(FCAP,AP,RDP))) ;
+
+*CA Alter to handle complementarity condition on capital (minimum wfdist)
+ QF.L('FEGY','AELEC','NAT')$(QF.L('FEGY','AELEC','NAT') LT QFS.UP('FEGY')) = QFS.UP('FEGY');
+
  RKAP(FCAP,A,RD)$(ANFX(A,RD) AND QF0(FCAP,A,RD)) = DKAP(FCAP,A,RD)/QF.L(FCAP,A,RD) - natdrate;
 
 *For capital that is entirely fixed
  RKAP(FCAP,A,RD)$(AFX(A,RD) AND QF0(FCAP,A,RD))   = AFXGR(A,RD,XC,TC);
 
 *Apply annual growth rates over gaps
- QF.L(FCAP,A,RD)$(NOT T1(TC)) = QF.L(FCAP,A,RD)*(1 + RKAP(FCAP,A,RD));
+* QF.L(FCAP,A,RD)$(NOT T1(TC)) = QF.L(FCAP,A,RD)*(1 + RKAP(FCAP,A,RD));
+ QF.L(FCAP,A,RD)$QF0(FCAP,A,RD) = QF.L(FCAP,A,RD)*(1 + RKAP(FCAP,A,RD));
+ QFBAR('FCAP',A,RD)$QF0('FCAP',A,RD) = QF.L('FCAP',A,RD);
 
+ ALPHAQF.L=1;

@@ -11,6 +11,12 @@ LOOP(XC$MRUNX(RUN,XC),
  execute_unload "EnergyDemand.gdx" ELCDEM
 
  LOOP(TT$(NOT fail),
+*fh
+   TABAR(A,RD)=TA0(A,RD);
+
+*Identify factors with upward-sloping supply curves
+    FLS(F) = NO;
+    FLS(F)$(CLOSURES(F,XC) EQ 4) = YES;
 
 $include cge\includes\2varinit.inc
 
@@ -157,6 +163,16 @@ ICAGR(CXEP,A,TC) = SUM(FSXEP$MFSA(FSXEP,A),ICAFSGR(CXEP,FSXEP,TC));
 *     Capital stock accumulation and allocation
 $include cge\includes\2capital.inc
 
+*       ENERGY: Tech change in energy use via input output matrix
+*       Share of new capital in total
+    ishr(A,RD)$SUM(FCAP, QF.L(FCAP,A,RD)) = SUM(FCAP, DKAP(FCAP,A,RD))/SUM(FCAP, QF.L(FCAP,A,RD));
+    ishr(A,RD)$(ishr(A,RD) GT 1) = 1;
+*       Evolve IO coefficient
+*bm        ica(CEGY,A,RD)$ica(CEGY,A,RD) = (1-ishr(A,RD))*ica(CEGY,A,RD) + ishr(A,RD)*ica(CEGY,A,RD)*(PQ.L(CEGY)/PQ0(CEGY)/(DPI.L/DPI0))**rhoegyint(CEGY,XC,TC);
+*       Tech change in energy use for households
+*bm        betam(CEGY,H) = betam(CEGY,H)*((PQ.L(CEGY)/CPI.L)/(PQ0(CEGY)/CPI0))**rhoegyhhd(CEGY,XC,TC);
+*bm        betam(C,H)$EH0(H) = betam(C,H)/SUM(CP, betam(CP,H));
+
 *     Labor supply growth
       QF.L(FLAB,A,RD)$(NOT T1(TC)) = QF.L(FLAB,A,RD)*(1+FACGR(FLAB,XC,TC));
 *      QF.L('FEGY',A,RD)$(NOT T1(TC)) = QF.L('FEGY',A,RD)*(1+FACGR('FEGY',XC,TC));
@@ -166,18 +182,39 @@ $include cge\includes\2capital.inc
       QFS.L(F) = SUM((RD,A), QF.L(F,A,RD));
 
     );
+
 * IF(NOT T1(TC),
 
 $include cge\includes\2closures.inc
 
-If(not T1(TC),
-* PQ.FX('CELEC') = EPRICE(TC,TT);
-* PQ.UP('CELEC')$(not EFX(TT,TC)) = inf;
-* PQ.LO('CELEC')$(not EFX(TT,TC)) = -inf;
+*$ONTEXT
+*ORD(TT) gt 1 AND NOT T1(TC)
+ IF(NOT T1(TC),
+   PQ.FX('CELEC') = EPRICE(TC,TT);
+   TQELEC.LO('CELEC') = -INF;
+   TQELEC.UP('CELEC') = +INF;
+ );
+*$OFFTEXT
+*fh
+*CA Benchmark labor market supply curve on the fly
+*    WF_BAR(FLS)  = WFX(FLS,'BASE',TC,TT);
+*    QFS_BAR(FLS) = QFSX(FLS,'BASE',TC,TT);
 
-* TQELEC.LO('CELEC') = 0;
-* TQELEC.UP('CELEC') = 1;
-);
+*CA set complementarity conditions on energy factor returns
+      QFS_FOR.L(FCAP)=0;
+      QFS_FOR.UP(FCAP)=+INF;
+      QFS_FOR.lo(FCAP)=-INF;
+      QFS_FOR.LO('FEGY')=0;
+      ALPHAQF.LO= -INF;
+      ALPHAQF.UP= +INF;
+      QFS.FX('FCAP')=QFS.L('FCAP');
+      QFS.UP('FEGY')=QFS.L('FEGY');
+
+      QF.UP('FEGY','AELEC','NAT')= +INF;
+      QF.LO('FEGY','AELEC','NAT')= -INF;
+
+      QF.UP('FCAP',A,RD)$QF0('FCAP',A,RD)=+INF;
+      QF.LO('FCAP',A,RD)$QF0('FCAP',A,RD)=-INF;
 
  SOLVE standcge USING MCP ;
 

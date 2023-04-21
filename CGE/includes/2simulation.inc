@@ -61,8 +61,6 @@ PARAMETERS
  PKAP(FCAP)              price of capital good by type
  GFCF                    nominal gross fixed capital formation
 
- ICAX(C,A,RD,X,T,TT)     tracking input output coefficients
-
 ;
 
 $call    "gdxxrw i=cge\%basedata% o=basedata index=index!a6 checkdate"
@@ -100,6 +98,15 @@ $include cge\includes\2projection.inc
 *----------------------------------------------------------------------
 *2. Non-excel inputted scenario calibration
 *----------------------------------------------------------------------
+PARAMETER
+*Energy-price efficiency
+ ISHR(A,RD)              share of new capital in each activity
+ ICAX(C,A,RD,X,T,TT)     tracking input output coefficients
+*Energy sector investment costs
+* IADJSESIM(X,T)          total electricity investment cost growth
+GOVTAB(*,X,T,TT)              detailed reporting of government revenue
+;
+
 Parameter
  COVID(F,X,T)      scalar to reduce labour available (mimic lockdown)
  COVIDCAP(A,F,X,T) scalar to reduce capital productivity (mimic lockdown)
@@ -128,33 +135,23 @@ IFACAPYRS(T) /2015*2021/
  COVID('flab-ut',X,'2020')=1;
 
  COVIDCAP(A,F,X,T)=1;
+*$ONTEXT
  COVIDCAP(AGR,'FCAP',X,'2020')=0.95;
  COVIDCAP(MIN,'FCAP',X,'2020')=0.75;
- COVIDCAP(MAN,'FCAP',X,'2020')=0.9;
- COVIDCAP(SER,'FCAP',X,'2020')=0.93;
+ COVIDCAP(MAN,'FCAP',X,'2020')=0.93;
+ COVIDCAP(SER,'FCAP',X,'2020')=0.99;
  COVIDCAP(SEP,'FCAP',X,'2020')=1;
  COVIDCAP('ahotl','FCAP',X,'2020')=0.7;
 
- COVIDCAP(AGR,'FCAP',X,'2021')=0.95;
- COVIDCAP(MIN,'FCAP',X,'2021')=0.8;
- COVIDCAP(MAN,'FCAP',X,'2021')=1;
- COVIDCAP(SER,'FCAP',X,'2021')=0.93;
- COVIDCAP(SEP,'FCAP',X,'2021')=1;
- COVIDCAP('ahotl','FCAP',X,'2021')=0.6;
-
- COVIDCAP(AGR,'FCAP',X,'2022')=0.98;
- COVIDCAP(MIN,'FCAP',X,'2022')=0.8;
- COVIDCAP(MAN,'FCAP',X,'2022')=1;
- COVIDCAP(SER,'FCAP',X,'2022')=0.93;
- COVIDCAP(SEP,'FCAP',X,'2022')=1;
- COVIDCAP('ahotl','FCAP',X,'2022')=0.6;
+ COVIDCAP(MIN,'FCAP',X,'2021')=0.9;
+ COVIDCAP('ahotl','FCAP',X,'2021')=0.7;
+$ontext
+ COVIDCAP(MIN,'FCAP',X,'2022')=1;
+ COVIDCAP('ahotl','FCAP',X,'2022')=0.9;
 
  COVIDCAP(AGR,'FCAP',X,'2023')=1;
- COVIDCAP(MIN,'FCAP',X,'2023')=0.8;
- COVIDCAP(MAN,'FCAP',X,'2023')=1;
- COVIDCAP(SER,'FCAP',X,'2023')=0.93;
- COVIDCAP(SEP,'FCAP',X,'2023')=1;
- COVIDCAP('ahotl','FCAP',X,'2023')=0.6;
+ COVIDCAP(MIN,'FCAP',X,'2023')=1;
+ COVIDCAP('ahotl','FCAP',X,'2023')=1;
 
  COVIDCAP(MIN,'FCAP',X,'2024')=0.83;
  COVIDCAP('ahotl','FCAP',X,'2024')=0.65;
@@ -172,33 +169,10 @@ IFACAPYRS(T) /2015*2021/
  COVIDCAP('ahotl','FCAP',X,'2028')=0.85;
 
  COVIDCAP('ahotl','FCAP',X,'2029')=0.9;
-
-
-$ONTEXT
- COVIDCAP(AGR,'FCAP',X,'2020')=0.95;
- COVIDCAP(MIN,'FCAP',X,'2020')=0.85;
- COVIDCAP(MAN,'FCAP',X,'2020')=0.9;
- COVIDCAP(SER,'FCAP',X,'2020')=0.9;
- COVIDCAP(SEP,'FCAP',X,'2020')=1.4;
- COVIDCAP('ahotl','FCAP',X,'2020')=0.6;
-
- COVIDCAP(AGR,'FCAP',X,'2021')=1;
- COVIDCAP(MIN,'FCAP',X,'2021')=0.95;
- COVIDCAP(MAN,'FCAP',X,'2021')=1;
- COVIDCAP(SER,'FCAP',X,'2021')=0.95;
- COVIDCAP(SEP,'FCAP',X,'2021')=1;
- COVIDCAP('ahotl','FCAP',X,'2021')=0.9;
-
- COVIDCAP(AGR,'FCAP',X,'2022')=1;
- COVIDCAP(MIN,'FCAP',X,'2022')=0.98;
- COVIDCAP(MAN,'FCAP',X,'2022')=1;
- COVIDCAP(SER,'FCAP',X,'2022')=0.98;
- COVIDCAP(SEP,'FCAP',X,'2022')=1;
- COVIDCAP('ahotl','FCAP',X,'2022')=0.95;
 $OFFTEXT
-
  PWEGR('COMIN',X,T)=-0.01;
  PWEGR('CCOIL',X,T)=-0.01;
+* PWEGR('CNGAS',X,T)=-0.01;
 
 *----------------------------------------------------------------------
 *3. Closures
@@ -213,6 +187,15 @@ $OFFTEXT
 *Institutional savings and tax rate adjustments
  MPS01SIM(XC,INSDNG)  = 1;
  TINS01SIM(XC,INSDNG) = 1;
+
+*fh
+*Remove electricity enterprises from exogenous MPS adjustment
+ MPS01SIM(XC,'ENT')  = 0;
+ TINS01SIM(XC,'ENT') = 0;
+
+*No value-added tax adjustment on electricity sectors
+ tva01(A,RD)       = YES;
+ tva01('AELEC',RD) = NO;
 
 *Identify factors with upward-sloping supply curves
  FLS(F) = NO;

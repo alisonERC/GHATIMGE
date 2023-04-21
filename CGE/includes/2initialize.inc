@@ -88,14 +88,6 @@ PARAMETER
 *Parameters to be saved
  QFS00(F)                      base year factor supply numbers (used for upward-sloping labor supply curves)
 
- tco2dx(X,T,TT)
- tco2ex(X,T,TT)
- tco2mx(X,T,TT)
- rtco2ex(X,T,TT)
- co2cx(C,X,T,TT)
- co2ex(C,RW,X,T,TT)
- co2mx(C,RW,X,T,TT)
-
  intax(A,RD,X,T,TT)
  ivax(A,RD,X,T,TT)
  ifax(F,A,RD,X,T,TT)
@@ -125,6 +117,7 @@ PARAMETER
 
  thetax(A,C,RUN,T) yield of commodity C per unit of activity A
  pacoalx(T,RUN) output price of acoal just for coal
+ TQELECX(C,RUN,X,T,TT)
 ;
 
  QFS00(F) = QFS0(F);

@@ -1,5 +1,5 @@
  ALPHAVAX(A,RD,XC,TC,TT)  = alphava(A,RD);
-*? LEOVAX(A,RD,XC,TC,TT)    = leova(A,RD);
+* LEOVAX(A,RD,XC,TC,TT)    = leova(A,RD);
  FPRDX(F,A,RD,XC,TC,TT)   = fprd(F,A,RD);
  CPIX(XC,TC,TT)           = CPI.L;
  DEBTX(XC,TC,TT)          = debt;
@@ -40,7 +40,7 @@
  QEX(C,RW,XC,TC,TT)       = QE.L(C,RW);
  QFX(F,A,RD,XC,TC,TT)     = QF.L(F,A,RD);
  QFSX(F,XC,TC,TT)         = QFS.L(F);
-*? QFS_FORX(F,XC,TC,TT)     = QFS_FOR.L(F);
+ QFS_FORX(F,XC,TC,TT)     = QFS_FOR.L(F);
  QGX(C,XC,TC,TT)          = QG.L(C);
  QHX(C,H,XC,TC,TT)        = QH.L(C,H);
  QHAX(A,H,XC,TC,TT)       = QHA.L(A,H);
@@ -66,9 +66,9 @@
 *? TRNADJX(XC,TC,TT)         = TRNADJ.L;
  TQPSX(XC,TC,TT)          = TQPS.L;
  TQX(C,XC,TC,TT)          = TQ.L(C);
-*? TVAADJX(XC,TC,TT)        = TVAADJ.L;
-*? TVAPSX(XC,TC,TT)         = TVAPS.L;
-*? TVAX(A,RD,XC,TC,TT)      = TVA.L(A,RD);
+ TVAADJX(XC,TC,TT)        = TVAADJ.L;
+ TVAPSX(XC,TC,TT)         = TVAPS.L;
+ TVAX(A,RD,XC,TC,TT)      = TVA.L(A,RD);
  TRIIX(INS,INSP,XC,TC,TT) = TRII.L(INS,INSP);
  WALRASX(XC,TC,TT)        = WALRAS.L;
 * WFX(F,XC,TC,TT)$QFS0(F)  = SUM((A,RD), WF.L(F)*WFDIST.L(F,A,RD)*QF.L(F,A,RD))/SUM((A,RD), QF.L(F,A,RD));
@@ -103,7 +103,7 @@ $offtext
  icax(C,A,RD,XC,TC,TT)  = ica(C,A,RD);
  betamx(CEGY,H,XC,TC,TT)  = betam(CEGY,H);
 
-* DTUX(C,XC,TC,TT) =  DTU.L(C);
+ DTUX(C,XC,TC,TT) =  DTU.L(C);
 
  QFSUPX(FCAP,XC,TC,TT)$(QFS.L(FCAP) LT QFS.UP(FCAP) AND QFS.UP(FCAP)) = QFS.L(FCAP)/QFS.UP(FCAP);
  ALPHAQFX(XC,TC,TT) = ALPHAQF.L;
@@ -123,3 +123,5 @@ $offtext
 
  deltaqx(c,rw,run,xc,tc,tt)=deltaq(c,rw);
  deltatx(c,rw,run,xc,tc,tt)=deltat(c,rw);
+
+ TQELECX(C,RUN,X,T,TT)=TQELEC.L(C);

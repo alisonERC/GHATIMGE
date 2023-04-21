@@ -23,8 +23,8 @@
    TINSADJ.FX = TINSADJ.L * (1+DTAXGR(XC,TC));
    TQADJ.FX   = TQADJ0;
    TQPS.FX    = TQPS0;
-*   TVAADJ.FX  = TVAADJ0;
-*   TVAPS.FX   = TVAPS0;
+   TVAADJ.FX  = TVAADJ0;
+   TVAPS.FX   = TVAPS0;
    DTINS.FX   = DTINS0;
    GSAV.LO    = -INF;
    GSAV.UP    = +INF;
@@ -36,8 +36,8 @@
    TINSADJ.FX = TINSADJ.L * (1+DTAXGR(XC,TC));
    TQADJ.FX   = TQADJ0;
    TQPS.FX    = TQPS0;
-*   TVAADJ.FX  = TVAADJ0;
-*   TVAPS.FX   = TVAPS0;
+   TVAADJ.FX  = TVAADJ0;
+   TVAPS.FX   = TVAPS0;
    DTINS.LO   = -INF;
    DTINS.UP   = +INF;
    GSAV.FX    = GSAV.L * (1+GSAVGR(XC,TC));
@@ -49,8 +49,8 @@
    TINSADJ.UP = +INF;
    TQADJ.FX   = TQADJ0;
    TQPS.FX    = TQPS0;
-*   TVAADJ.FX  = TVAADJ0;
-*   TVAPS.FX   = TVAPS0;
+   TVAADJ.FX  = TVAADJ0;
+   TVAPS.FX   = TVAPS0;
    DTINS.FX   = DTINS.L + (1+DTAXGR(XC,TC));
    GSAV.FX    = GSAV.L * (1+GSAVGR(XC,TC));
    );
@@ -61,8 +61,8 @@
    TINSADJ.FX = TINSADJ.L * (1+DTAXGR(XC,TC));
    TQADJ.FX   = TQADJ0;
    TQPS.FX    = TQPS0;
-*   TVAADJ.FX  = TVAADJ0;
-*   TVAPS.FX   = TVAPS0;
+   TVAADJ.FX  = TVAADJ0;
+   TVAPS.FX   = TVAPS0;
    DTINS.FX   = DTINS0;
    GSAV.FX    = GSAV.L * (1+GSAVGR(XC,TC));
    );
@@ -73,8 +73,8 @@
    TINSADJ.FX = TINSADJ.L * (1+DTAXGR(XC,TC));
    TQADJ.FX   = TQADJ0;
    TQPS.FX    = TQPS0;
-*   TVAADJ.FX  = TVAADJ0;
-*   TVAPS.FX   = TVAPS0;
+   TVAADJ.FX  = TVAADJ0;
+   TVAPS.FX   = TVAPS0;
    DTINS.FX   = DTINS0;
    GSAV.FX    = GSAV.L * (1+GSAVGR(XC,TC));
    );
@@ -85,8 +85,8 @@
    TQADJ.FX   = TQADJ0;
    TQPS.LO    = -INF;
    TQPS.UP    = +INF;
-*   TVAADJ.FX  = TVAADJ0;
-*   TVAPS.FX   = TVAPS0;
+   TVAADJ.FX  = TVAADJ0;
+   TVAPS.FX   = TVAPS0;
    DTINS.FX   = DTINS0;
    GSAV.FX    = GSAV.L * (1+GSAVGR(XC,TC));
    );
@@ -97,8 +97,8 @@
    TQADJ.LO   = -INF;
    TQADJ.UP   = +INF;
    TQPS.FX    = TQPS0;
-*   TVAADJ.FX  = TVAADJ0;
-*   TVAPS.FX   = TVAPS0;
+   TVAADJ.FX  = TVAADJ0;
+   TVAPS.FX   = TVAPS0;
    DTINS.FX   = DTINS0;
    GSAV.FX    = GSAV.L * (1+GSAVGR(XC,TC));
    );

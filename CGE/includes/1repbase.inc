@@ -105,15 +105,15 @@ PARAMETERS
  GDPBASE('GDPMP','VALUE')   = SUM(IGDPXX, GDPBASE(IGDPXX,'VALUE'));
 
  GDPBASE('ABSORP','VALUE')  = GDPBASE('GDPMP','VALUE') - GDPBASE('IMPORTS','VALUE') - GDPBASE('EXPORTS','VALUE');
- GDPBASE('GDPFC2','VALUE')  = SUM((A,RD), PVA.L(A,RD)*(1-tva(A,RD))*QVA.L(A,RD));
+* GDPBASE('GDPFC2','VALUE')  = SUM((A,RD), PVA.L(A,RD)*(1-tva(A,RD))*QVA.L(A,RD));
 * fh energy - utax
-* GDPBASE('GDPFC2','VALUE')  = SUM((A,RD), PVA.L(A,RD)*(1-tva.l(A,RD))*QVA.L(A,RD));
+ GDPBASE('GDPFC2','VALUE')  = SUM((A,RD), PVA.L(A,RD)*(1-tva.l(A,RD))*QVA.L(A,RD));
 
  GDPBASE('NETITAX','VALUE') =
             SUM((A,RD), TA.L(A,RD)*PAR.L(A,RD)*QAR.L(A,RD))
 * fh energy - utax
-          + SUM((A,RD), tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
-*          + SUM((A,RD), tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
+*          + SUM((A,RD), tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
+          + SUM((A,RD), tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
           + SUM((RW,CM), tm(CM,RW)*QM.L(CM,RW)*PWM.L(CM,RW))*EXR.L
           + SUM((RW,CE), te(CE,RW)*QE.L(CE,RW)*PWE.L(CE,RW))*EXR.L
           + SUM(C, TQ.L(C)*PQ.L(C)*QQ.L(C))
@@ -175,11 +175,11 @@ PARAMETER
 
 *Defining SAM cells
  MACROSAM('COM2','ACT2')    = SUM((C,A), PQ.L(C)*QINT.L(C,A));
- MACROSAM('FAC2','ACT2')    = SUM((A,RD), PVA.L(A,RD)*(1-tva(a,RD))*QVA.L(A,RD));
+* MACROSAM('FAC2','ACT2')    = SUM((A,RD), PVA.L(A,RD)*(1-tva(a,RD))*QVA.L(A,RD));
 *fh energy
-* MACROSAM('FAC2','ACT2')    = SUM((A,RD), PVA.L(A,RD)*(1-tva.l(a,RD))*QVA.L(A,RD));
- MACROSAM('VATAX2','ACT2')  = SUM((A,RD), tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD));
-* MACROSAM('VATAX2','ACT2')  = SUM((A,RD), tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD));
+ MACROSAM('FAC2','ACT2')    = SUM((A,RD), PVA.L(A,RD)*(1-tva.l(a,RD))*QVA.L(A,RD));
+* MACROSAM('VATAX2','ACT2')  = SUM((A,RD), tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD));
+ MACROSAM('VATAX2','ACT2')  = SUM((A,RD), tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD));
  MACROSAM('ACTTAX2','ACT2') = SUM((A,RD), TA.L(A,RD)*PAR.L(A,RD)*QAR.L(A,RD));
 *fh energy utax
  MACROSAM('ELCTAX2','ACT2') = SUM((C,A,RD), tui(C,A,RD)*PQ.L(C)*QINTA.L(A,RD)*ica(C,A,RD));
@@ -320,9 +320,9 @@ PARAMETER
 
  SAMBUDB(A,'SPND')  =
    SUM((F,RD), WF.L(F)*WFDIST.L(F,A,RD)*QF.L(F,A,RD)) + SUM(C, PQ.L(C)*QINT.L(C,A)) +
-   SUM(RD, tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD) + TA.L(A,RD)*PAR.L(A,RD)*QAR.L(A,RD)) ;
+*   SUM(RD, tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD) + TA.L(A,RD)*PAR.L(A,RD)*QAR.L(A,RD)) ;
 *fh energy
-*   SUM(RD, tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD) + TA.L(A,RD)*PAR.L(A,RD)*QAR.L(A,RD)) ;
+   SUM(RD, tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD) + TA.L(A,RD)*PAR.L(A,RD)*QAR.L(A,RD)) ;
 
  SAMBUDB(C,'SPND')  = PDD.L(C)*QD.L(C) + SUM(RW, PM.L(C,RW)*QM.L(C,RW)) + PQ.L(C)*TQ.L(c)*QQ.L(C) ;
 
@@ -338,8 +338,8 @@ PARAMETER
  SAMBUDB('GOV','INC') =
    SUM(INSDNG, TINS.L(INSDNG)*YI.L(INSDNG))
    + SUM(f, tf(F)*YF.L(F))
-   + SUM((A,RD), tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
-*   + SUM((A,RD), tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
+*   + SUM((A,RD), tva(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
+   + SUM((A,RD), tva.l(A,RD)*PVA.L(A,RD)*QVA.L(A,RD))
    + SUM((A,RD), TA.L(A,RD)*PAR.L(A,RD)*QAR.L(A,RD))
    + SUM((C,RW), tm(C,RW)*PWM.L(C,RW)*QM.L(C,RW))*EXR.L
    + SUM((C,RW), te(C,RW)*PWE.L(C,RW)*QE.L(C,RW))*EXR.L

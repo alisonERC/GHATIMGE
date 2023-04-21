@@ -1,0 +1,8 @@
+Restart=C:\Models\GHATIMGE\\GHATIM\Gams_SrcTI\_TIMES.G00
+Input=BASE.GEN
+PageSize=99999
+ScrDir=225k
+SysDir=C:\GAMS\38
+ScriptNext=225k\gamsnext.cmd
+InputDir1=C:\Models\GHATIMGE\\GHATIM\Gams_SrcTI
+GDX=gamssave\BASE

@@ -21,6 +21,8 @@
  PE.L(C,RW)             = PE0(C,RW);
  PM.L(C,RW)             = PM0(C,RW);
  PQ.L(C)                = PQ0(C);
+ PQH.L(C,H)             = PQH0(C,H);
+ PQI.L(C,A,RD)          = PQI0(C,A,RD);
  PVA.L(A,RD)            = PVA0(A,RD);
  PX.L(C)                = PX0(C);
  PXAC.L(A,C)            = PXAC0(A,C);
@@ -57,6 +59,7 @@
  WALRASSQR.L            = 0 ;
  WF.L(F)                = WF0(F);
  WFDIST.L(F,A,RD)       = WFDIST0(F,A,RD);
+ WFDIST2(F,A,RD)        = 0;
  YF.L(F)                = YF0(f);
  YG.L                   = YG0;
  YI.L(INS)              = YI0(INS);
@@ -75,47 +78,77 @@
  betam(C,H) = betam0(C,H);
  debt = debt0;
 
+ pwebar(C,RW) = PWE0(C,RW);
+* pwMbar(C,RW) = PWM0(C,RW);
+
 *Reset IO coefficients to base values
+ inta(A,RD) = inta0(A,RD);
+ iva(A,RD) = iva0(A,RD);
  ica(C,A,RD)=ica0(C,A,RD);
- ifa(F,A,RD)             = ifa0(F,A,RD);
+ ifa(F,A,RD)=ifa0(F,A,RD);
 
- YG_DTAX.L               = YG_DTAX0 ;
- YG_ITAX.L               = YG_ITAX0 ;
+ tui(C,A,RD) = tui0(C,A,RD);
+ tuH(C,H) = tuh0(C,H);
+
+ tm(C,RW)=tm0(C,RW);
+
+ QINVK=0;
+ NGFCF=0;
+
+ AFX(A,RD) = NO;
+ ANFX(A,RD)$(NOT AFX(A,RD)) = YES;
+
+ ALPHAQF.L=1;
+
+ QFBAR(FCAP,A,RD)$QF0(FCAP,A,RD)=QF0(FCAP,A,RD);
+
+ WFK2AV(FCAP) = WFK2AV0(FCAP);
+
+ PQ.LO('CELEC') = -inf;
+ PQ.UP('CELEC') = +inf;
+
+ tq01(C)$tq0(c) = 1;
+ tq01('celec')=0;
+ TQPS.FX = tqps0;
+ TQELEC.FX(C) = TQELEC0(C);
+
+ WF_BAR(F)  = WF0(F);
+ QFS_BAR(F) = QFS0(F);
+
+*Reset indirect tax share variables
+ YG_DTAX.L =    YG_DTAX0 ;
+ YG_ITAX.L =    YG_ITAX0 ;
  YG_NTAX.L               = YG_NTAX0 ;
-* ITAXSHR.L               = ITAXSHR0 ;
-* TAXADJ.L                = TAXADJ0  ;
- GDPMP.L                 = GDPMP0;
- PQH.L(C,H)              = PQH0(C,H);
- PQI.L(C,A,RD)           = PQI0(C,A,RD);
+ ITAXSHR.L =    ITAXSHR0 ;
+ TAXADJ.L  =    TAXADJ0  ;
+ GDPMP.L   =    GDPMP0   ;
 
-$ontext
- inta(A,RD)              = inta0(A,RD);
- ica(C,A,RD)             = ica0(C,A,RD);
- tui(C,A,RD)             = tui0(C,A,RD);
- tuH(C,H)                = tuh0(C,H);
-$offtext
+* BETAM(C,H)              = betam0(C,H);
+ betaca(A,C)=1;
 
-* TVA.L(A,RD)             = TVA0(A,RD);
-* TVAADJ.L                = TVAADJ0;
-* TVAPS.L                 = TVAPS0;
- BETAM(C,H)              = betam0(C,H);
- YG_DTAX.L               = YG_DTAX0;
- YG_ITAX.L               = YG_ITAX0;
- YG_NTAX.L               = YG_NTAX0;
-
-*! ETPRICE(TC) = PQ0('CELEC');
-*! EPRICE(TC,TT)=PQ0('CELEC');
+ EPRICE(TC,TT)=PQ0('CELEC');
  EINVCOST(RUN,TC) = 0;
  INVCOST(RUN,TC,PRC) = 0;
  BPINV(RUN,TC,TCP,PRC) = 0;
 
-* ICAGR(C,A,TC) = 1;
+ HCAP(X,TC,TT) = 0;
+
+ ICAGR(C,A,TC) = 1;
  ICAFSGR(C,FS,TC) = 1;
-* IFAGR(F,A,TC) = 1;
+ IFAGR(F,A,TC) = 1;
  IFAFSGR(F,FS,TC) = 1;
+
+ gammamgr(C,H,TC) = 1;
+
+ deltaq(cm,rw) = deltaq0(cm,rw);
+ deltat(cm,rw) = deltat0(cm,rw);
 
 * CMRES('CELEC') = YES;
 *  CERES('CELEC') = YES;
+
+* CERES('CCOIL') = YES;
+* CMRES('CCOIL') = YES;
+* QM.FX('CCOIL','REST') = QM0('CCOIL','REST');
 
  CERES('CPETR') = YES;
  CMRES('CPETR') = YES;
