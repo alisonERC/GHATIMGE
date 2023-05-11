@@ -2528,9 +2528,6 @@ Order=1,2
 Decim=7
 PlaneRownr=-1
 
-[RP:2CAPITAL]
-1=
-
 [GDXDISP: IADJX Par 4]
 PlaneDim=1
 RowDim=2
@@ -2838,9 +2835,6 @@ PlaneRownr=-1
 1=
 
 [RP:2VARINIT]
-1=
-
-[RP:2SIMULATION_LOOP]
 1=
 
 [GDXDISP: AACT_BND Par 5]
@@ -3818,35 +3812,6 @@ Order=3,5,2,4,1
 Decim=6
 PlaneRownr=-1
 
-[RP:1MODEL]
-1=gdx=model s=model rf=model
-2=gdx=model s=model
-3=gdx=model_o s=model
-4=gdx=model
-5=
-
-[RP:GHATIMGE]
-1=r=cge\model, gdx = Ambitious rf=sim
-2=r=cge\model, gdx = REF rf=sim
-3=r=cge\model, gdx = NDC_Ambitious rf=sim
-4=r=cge\model, gdx = NDC_Moderate rf=sim
-5=r=cge\model, gdx = TestRef_FPrice2 rf=sim
-6=r=cge\model, gdx = TestRef_FPrice rf=sim
-7=r=cge\model, gdx = TestRef_FPrice
-8=r=cge\model, gdx = TestGHATIM6
-9=r=cge\model, gdx = TestGHATIM5
-10=r=cge\model, gdx = TestGHATIM4
-11=r=cge\model, gdx = TestGHATIM3
-12=r=cge\model, gdx = TestGHATIM2
-13=r=cge\model, gdx = TestGHATIM1
-14=r=cge\model, gdx = GHATIM_NDCModerate
-15=r=cge\model, gdx = GHATIM_NDCAmbitious
-16=r=cge\model, gdx = GHATIM_Reference
-17=r=cge\model, gdx = TestGHATIM9
-18=r=cge\model, gdx = TestGHATIM8
-19=r=cge\model, gdx = TestGHATIM7
-20=r=cge\model, gdx = GHATIM_
-
 [GDXDISP: TQPS Var 0]
 PlaneDim=0
 RowDim=0
@@ -3865,33 +3830,65 @@ Order=
 Decim=7
 PlaneRownr=-1
 
+[RP:1MODEL]
+1=gdx=model s=model rf=model
+2=gdx=model s=model
+3=gdx=model_o s=model
+4=gdx=model
+5=
+
+[RP:2CAPITAL]
+1=
+
+[RP:2SIMULATION_LOOP]
+1=
+
+[RP:GHATIMGE]
+1=r=cge\model, gdx = GHATIMGE_NDC_Moderate
+2=r=cge\model, gdx = GHATIMGE_Reference
+3=r=cge\model, gdx = GHATIMGETest_All3
+4=r=cge\model, gdx = Ambitious rf=sim
+5=r=cge\model, gdx = REF rf=sim
+6=r=cge\model, gdx = NDC_Ambitious rf=sim
+7=r=cge\model, gdx = NDC_Moderate rf=sim
+8=r=cge\model, gdx = TestRef_FPrice2 rf=sim
+9=r=cge\model, gdx = TestRef_FPrice rf=sim
+10=r=cge\model, gdx = TestRef_FPrice
+11=r=cge\model, gdx = TestGHATIM6
+12=r=cge\model, gdx = TestGHATIM5
+13=r=cge\model, gdx = TestGHATIM4
+14=r=cge\model, gdx = TestGHATIM3
+15=r=cge\model, gdx = TestGHATIM2
+16=r=cge\model, gdx = TestGHATIM1
+17=r=cge\model, gdx = GHATIM_NDCModerate
+18=r=cge\model, gdx = GHATIM_NDCAmbitious
+19=r=cge\model, gdx = GHATIM_Reference
+20=r=cge\model, gdx = TestGHATIM9
+
 [MRUFILES]
-1=C:\Models\GHATIMGE\GHATIMGE.lst
-2=C:\Models\GHATIMGE\TestRef_FPrice.gdx
-3=C:\Models\GHATIMGE\TestRef_FPrice2.gdx
-4=C:\Models\KENTIMGE\Test_NDCBigGaS_FP.gdx
-5=C:\Models\KENTIMGE\Test_NDCFlexGas.gdx
-6=C:\Models\KENTIMGE\NDC_FlexGas.gdx
-7=C:\Models\KENTIMGE\Reference_BigGas.gdx
+1=C:\Models\GHATIMGE\CGE\1model.lst
+2=C:\Models\GHATIMGE\CGE\1model.gms
+3=C:\Models\GHATIMGE\sim.ref
+4=C:\Models\GHATIMGE\TestRef_FPrice.gdx
+5=C:\Models\GHATIMGE\TestRef_FPrice2.gdx
+6=C:\Models\KENTIMGE\Test_NDCBigGaS_FP.gdx
+7=C:\Models\KENTIMGE\Test_NDCFlexGas.gdx
+8=C:\Models\KENTIMGE\NDC_FlexGas.gdx
 
 [OPENWINDOW_1]
-FILE0=C:\Models\GHATIMGE\Ambitious.gdx
-FILE1=C:\Models\GHATIMGE\CGE\1model.gms
-FILE2=C:\Models\GHATIMGE\CGE\1model.lst
-FILE3=C:\Models\GHATIMGE\CGE\includes\2capital.inc
-FILE4=C:\Models\GHATIMGE\CGE\includes\2closures.inc
-FILE5=C:\Models\GHATIMGE\CGE\includes\2initialize.inc
-FILE6=C:\Models\GHATIMGE\cge\includes\2results.inc
-FILE7=C:\Models\GHATIMGE\CGE\includes\2simulation.inc
-FILE8=C:\Models\GHATIMGE\CGE\includes\2simulation_loop.inc
-FILE9=C:\Models\GHATIMGE\CGE\includes\2varinit.inc
-FILE10=C:\Models\GHATIMGE\GHATIM\Includes\2TIMESReport.inc
-FILE11=C:\Models\GHATIMGE\GHATIMGE.gms
-FILE12=C:\Models\GHATIMGE\NDC_Ambitious.gdx
-FILE13=C:\Models\GHATIMGE\NDC_Moderate.gdx
-FILE14=C:\Models\GHATIMGE\REF.gdx
-FILE15=C:\Models\GHATIMGE\sim.ref
-FILE16=C:\Models\GHATIMGE\REF.gdx
+FILE0=C:\Models\GHATIMGE\CGE\includes\2capital.inc
+FILE1=C:\Models\GHATIMGE\CGE\includes\2closures.inc
+FILE2=C:\Models\GHATIMGE\CGE\includes\2initialize.inc
+FILE3=C:\Models\GHATIMGE\cge\includes\2results.inc
+FILE4=C:\Models\GHATIMGE\CGE\includes\2simulation.inc
+FILE5=C:\Models\GHATIMGE\CGE\includes\2simulation_loop.inc
+FILE6=C:\Models\GHATIMGE\CGE\includes\2varinit.inc
+FILE7=C:\Models\GHATIMGE\GHATIM\Includes\2TIMESReport.inc
+FILE8=C:\Models\GHATIMGE\GHATIMGE.gms
+FILE9=C:\Models\GHATIMGE\GHATIMGE.lst
+FILE10=C:\Models\GHATIMGE\NDC_Ambitious.gdx
+FILE11=C:\Models\GHATIMGE\NDC_Moderate.gdx
+FILE12=C:\Models\GHATIMGE\GHATIMGE.lst
 MAXIM=0
 TOP=0
 LEFT=0

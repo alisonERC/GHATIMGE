@@ -1,5 +1,5 @@
 SCENARIO	_GLOBAL,REGION1
-Creation Date:	2023/02/02	12:17:53 PM
+Creation Date:	2023/05/11	9:46:36 PM
 Created By:	Export from database C:\Models\GHATIMGE\GHATIM\Ghana 30TS.mdb
 ANSWER Version:	6.9.27
 Scenario:	BASE	Ghana Base	
@@ -542,7 +542,7 @@ TS DATA	REGION1
 	CAP_BND	GHSOTG00	-	-	-	-	UP	5	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	CAP_BND	GHSOTN00	-	-	-	-	UP	5	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	CAP_BND	GHSOTS00	-	-	-	-	UP	5	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	CAP_BND	GHWDLC00	-	-	-	-	UP	5	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
+	CAP_BND	GHWDLC00	-	-	-	-	UP	5	2	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	CAP_BND	GHWDLC01	-	-	-	-	UP	5	0.275	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	CAP_BND	GHWDLCZ001	-	-	-	-	UP	5	1.25866	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	CAP_BND	GHWDLCZ002	-	-	-	-	UP	5	0.4146	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
@@ -1368,7 +1368,7 @@ TS DATA	REGION1
 	NCAP_AFA	GHSOTS00	-	-	-	-	LO	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_AFA	GHWDLC00	-	-	-	-	LO	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_AFC	GHBATC00	-	ACTGRP	-	DAYNITE	-	0	0.16	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
-	NCAP_BND	GHBATC00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	
+	NCAP_BND	GHBATC00	-	-	-	-	UP	0	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_BND	GHBMST00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	
 	NCAP_BND	GHBWST00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	
 	NCAP_BND	GHCOCS00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	
@@ -1424,7 +1424,7 @@ TS DATA	REGION1
 	NCAP_BND	GHNGSC02	-	-	-	-	FX	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	NCAP_BND	GHNGSC04	-	-	-	-	FX	5	0	0	0	0	0	0	0.14	0	0.33	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	NCAP_BND	GHSOPB00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	
-	NCAP_BND	GHSOPC00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	
+	NCAP_BND	GHSOPC00	-	-	-	-	UP	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_BND	GHSOPC01	-	-	-	-	FX	5	0	0	0	0	0	0	0.05	0.02	0.155	0	0.239	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	NCAP_BND	GHSOPCZ001	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	14.129	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_BND	GHSOPCZ002	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	2.947	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
@@ -1437,7 +1437,7 @@ TS DATA	REGION1
 	NCAP_BND	GHSOTG00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	
 	NCAP_BND	GHSOTN00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	
 	NCAP_BND	GHSOTS00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	
-	NCAP_BND	GHWDLC00	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	0.5	
+	NCAP_BND	GHWDLC00	-	-	-	-	UP	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_BND	GHWDLC01	-	-	-	-	FX	5	0	0	0	0	0	0	0	0.05	0.225	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
 	NCAP_BND	GHWDLCZ001	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	1.25866	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	
 	NCAP_BND	GHWDLCZ002	-	-	-	-	UP	5	0	0	0	0	0	0	0	0	0	0	0	0.4146	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	null	

@@ -35,6 +35,7 @@ Links/
 
 *.gdx
 !dem_start.gdx
+!EnergyDemand.gdx
 
 *.lxi
 
